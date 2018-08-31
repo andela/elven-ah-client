@@ -1,5 +1,16 @@
+@import url('https://fonts.googleapis.com/css?family=family=Pacifico');
+$ff-c: 'Pacifico', cursive;
+$pink-color: #d62956;
+$white-color: #f1f1f1;
+$fw-b: 900;
+
 .App {
   text-align: center;
+
+  .start {
+    color: $white-color;
+    font-weight: $fw-b;
+  }
 }
 
 .App-logo {
@@ -20,6 +31,14 @@
 
 .App-intro {
   font-size: large;
+
+  .intro {
+    color: $pink-color;
+    margin: 2em;
+    text-transform: uppercase;
+    font-family: $ff-c;
+  }
+
 }
 
 @keyframes App-logo-spin {
