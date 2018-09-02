@@ -30,3 +30,4 @@ package-lock.json
 
 # ID
 .vscode
+src/styles/**/*.css
