@@ -53,3 +53,7 @@ Contributions to the project are welcome! Before contributing, look through the 
 - When task has been completed, make commits and raise a pull request against `develop` branch, also ensure to follow the conventions linked above
 
 If the pull request is accepted by the owners of the repository, then it is merged into the `develop` branch and closed.
+<<<<<<< HEAD
+=======
+
+>>>>>>> chore(style/readme): Set up sass pre-processing, Bootstrap 4.0 framework and update readme
