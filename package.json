@@ -25,6 +25,7 @@
     ],
     "coverageReporters": [
       "cobertura",
+      "lcov",
       "html",
       "text",
       "text-summary"
