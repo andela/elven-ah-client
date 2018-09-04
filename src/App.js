@@ -1,22 +1,17 @@
-import React, { Component } from 'react';
-import logo from './logo.svg';
+import React from 'react';
+import PropTypes from 'prop-types';
+import { ConnectedRouter } from 'connected-react-router';
 import './styles/App.css';
+import routes from './routes/routes';
 
-class App extends Component {
-  render() {
-    return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React</h1>
-        </header>
-        <p className="App-intro">
-        <p className="working">You have your Scss post processor working!!!</p>
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
-      </div>
-    );
-  }
-}
+const App = ({ history }) => (
+  <ConnectedRouter history={history}>
+    { routes }
+  </ConnectedRouter>
+);
+
+App.propTypes = {
+  history: PropTypes.shape({}).isRequired,
+};
 
 export default App;

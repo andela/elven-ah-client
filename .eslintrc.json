@@ -18,7 +18,8 @@
       },
     "rules": {
         "react/jsx-filename-extension": [1, {"extensions": [".js", ".jsx"]}],
-        "no-underscore-dangle": ["error", { "allow": ["__REDUX_DEVTOOLS_EXTENSION__"] }]
+        "no-underscore-dangle": ["error", { "allow": ["__REDUX_DEVTOOLS_EXTENSION__", "__REDUX_DEVTOOLS_EXTENSION_COMPOSE__"] }],
+        "react/forbid-prop-types": ["error", { "allow": ["object"] }]
     },
     "globals": {
         "window": true
