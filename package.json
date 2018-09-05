@@ -9,7 +9,8 @@
     "start": "npm-run-all -p watch-css start-js",
     "build-js": "react-scripts build",
     "build": "npm-run-all build-css build-js",
-    "test": "react-scripts test --env=jsdom --coverage",
+    "test": "npm run build-css && react-scripts test --env=jsdom --coverage",
+    "update:snap": "react-scripts test --env=jsdom --updateSnapshot",
     "eject": "react-scripts eject",
     "coverage": "react-scripts test --env=jsdom --coverage --coverageReporters=text-lcov | coveralls"
   },
