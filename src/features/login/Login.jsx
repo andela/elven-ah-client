@@ -1,6 +1,6 @@
 import React from 'react';
-import './login.css';
 import { PropTypes } from 'prop-types';
+import './login.css';
 
 const Login = ({ handleChange, handleSubmit }) => (
   <div className="container my-4">
