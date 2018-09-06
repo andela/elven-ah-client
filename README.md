@@ -10,12 +10,15 @@ by leveraging the modern web.
 
 ## Table of Contents
 
-- [Api Documentation](#Api-Documentation)
-- [Setup](#setup)
-  - [Dependencies](#dependencies)
-  - [Getting Started](#getting-started)
-- [Testing](#testing)
-- [Contribute](#contribute)
+- [Overview](#overview)
+  - [Vision](#vision)
+  - [Table of Contents](#table-of-contents)
+  - [Api-Documentation](#api-documentation)
+  - [Setup](#setup)
+    - [Dependencies](#dependencies)
+    - [Getting Started](#getting-started)
+  - [Testing](#testing)
+  - [Contribute](#contribute)
 
 ## Api-Documentation
 
