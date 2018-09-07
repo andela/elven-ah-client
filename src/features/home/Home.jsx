@@ -6,6 +6,7 @@ import { PropTypes } from 'prop-types';
 const Home = ({ auth }) => {
   const name = auth.user.firstName ? `${auth.user.firstName} ${auth.user.lastName}` : 'Guest';
   const loginButton = !auth.name ? <Link to="/login" className="btn btn-primary btn-xl js-scroll-trigger mb-2">Get Started</Link> : null;
+  const ProfileButton = <Link to="/Profile">Profile Button</Link>;
   return (
     <div className="container my-4">
       <header className="text-center d-flex mt-2">
@@ -28,6 +29,7 @@ const Home = ({ auth }) => {
             <div className="col-lg-8 mx-auto">
               <p className="text-faded mb-5">Join readers and writers across the globe and read world class articles</p>
               {loginButton}
+              {ProfileButton}
             </div>
           </div>
         </div>

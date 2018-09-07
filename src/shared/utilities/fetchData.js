@@ -18,12 +18,11 @@ const fetchData = async (payload) => {
     url, method, data, headers,
   } = payload;
   const response = await axios({
-    baseURL: 'http://localhost:4000/api/v1/',
+    baseURL: 'http://localhost:3000/api/v1/',
     url,
     method: method || 'get',
     data,
     headers,
-
   })
     .then(resp => resp)
     .catch(error => error.response);

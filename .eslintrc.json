@@ -12,7 +12,8 @@
     },
     "env": {
         "browser": true,
-        "jasmine": true
+        "jasmine": true,
+        "jquery": true
       },
     "rules": {
         "react/jsx-filename-extension": [1, {"extensions": [".js", ".jsx"]}],
@@ -20,6 +21,7 @@
         "import/extensions": 0,
         "require-jsdoc": 0,
         "valid-jsdoc": 0,
+        "jsx-a11y/label-has-for":0,
         "react/jsx-one-expression-per-line": 0,
         "react/forbid-prop-types": ["error", { "allow": ["object"] }],
         "jsx-a11y/anchor-is-valid": [ "error", {

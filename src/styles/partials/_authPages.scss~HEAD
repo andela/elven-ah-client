@@ -10,7 +10,7 @@ body {
  background: #ececec url('https://res.cloudinary.com/dvcaeuvee/image/upload/v1536744518/AuthPageBackground.svg') repeat-y;
  background-size: auto;
 }
-.containers {
+.container {
  width: auto;
  max-width: 680px;
  padding: 0 15px;
