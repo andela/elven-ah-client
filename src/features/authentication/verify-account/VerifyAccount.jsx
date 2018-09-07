@@ -5,7 +5,7 @@ import '../login/login.css';
 const VerifyAccount = ({
   handleChange, handleSubmit, email, errors, resend, message, handleResendLink,
 }) => (
-  <div className="container mb-4">
+  <div className="containers mb-4">
     {
       resend ? (
         <form className="form-login" onSubmit={handleSubmit}>

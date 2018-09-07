@@ -6,6 +6,7 @@ import SignupContainer from '../features/authentication/signup/SignupContainer';
 import ResetContainer from '../features/authentication/password-reset/ResetContainer';
 import VerifyAccountContainer from '../features/authentication/verify-account/VerifyAccountContainer';
 import Footer from '../features/authentication/Footer';
+import ProfilePage from '../features/authentication/profile/profile';
 
 const routes = (
   <div>
@@ -15,6 +16,7 @@ const routes = (
       <Route path="/signup" component={SignupContainer} />
       <Route path="/password/reset" component={ResetContainer} />
       <Route path="/auth/verify" component={VerifyAccountContainer} />
+      <Route path="/profile" component={ProfilePage} />
     </Switch>
     <Footer />
   </div>

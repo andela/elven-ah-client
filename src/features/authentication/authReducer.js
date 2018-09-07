@@ -1,6 +1,7 @@
 
 import loginReducer from './login/loginReducer';
 import passwordResetReducer from './password-reset/passwordResetReducer';
+import profileReducer from './profile/profileReducer';
 import signupReducer from './signup/signupReducer';
 import localStorageUtil from '../../shared/utilities/localStorageUtil';
 
@@ -28,6 +29,10 @@ const authReducer = (state = initialState, action) => {
         ...state,
         errors,
       };
+
+    case type.startsWith('PROFILE'):
+      return profileReducer(state, action);
+
     default:
       return state;
   }

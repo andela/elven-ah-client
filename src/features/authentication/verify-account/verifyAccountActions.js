@@ -34,7 +34,7 @@ const verifyAccount = token => async (dispatch) => {
     toastr.error('Account activation failed');
     return response;
   } catch (error) {
-    toastr.error('Unable to connect to the Internet, please check your connection and try agian...');
+    return toastr.error('Unable to connect to the Internet, please check your connection and try agian...');
   }
 };
 
@@ -54,7 +54,7 @@ export const resendVerificationLink = email => async (dispatch) => {
     const { message } = response.data;
     if (response.status === 201) {
       dispatch({ type: IS_COMPLETE });
-      toastr.success(response.data.message);
+      return toastr.success(response.data.message);
     }
     if (response.data.errors) {
       const { errors } = response.data;
@@ -63,7 +63,7 @@ export const resendVerificationLink = email => async (dispatch) => {
     }
     return message;
   } catch (error) {
-    toastr.error('Unable to connect to the Internet, please check your connection and try again...');
+    return toastr.error('Unable to connect to the Internet, please check your connection and try again...');
   }
 };
 
