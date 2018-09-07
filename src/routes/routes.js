@@ -3,6 +3,7 @@ import { Route, Switch } from 'react-router-dom';
 import NavBar from '../shared/layouts/Navbar';
 import Home from '../features/home/Home';
 import LoginContainer from '../features/authentication/login/LoginContainer';
+import SignupContainer from '../features/authentication/signup/SignupContainer';
 
 const routes = (
   <div>
@@ -10,6 +11,7 @@ const routes = (
     <Switch>
       <Route path="/" component={Home} exact />
       <Route path="/login" component={LoginContainer} />
+      <Route path="/signup" component={SignupContainer} />
     </Switch>
   </div>
 );

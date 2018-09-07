@@ -35,6 +35,10 @@ exports[`renders without crashing 1`] = `
         component={[Function]}
         path="/login"
       />
+      <Route
+        component={[Function]}
+        path="/signup"
+      />
     </Switch>
   </div>
 </Connect(ConnectedRouter)>
