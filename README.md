@@ -1,4 +1,5 @@
 # Overview
+[![CircleCI](https://circleci.com/gh/andela/elven-ah-client/tree/develop.svg?style=svg)](https://circleci.com/gh/andela/elven-ah-client/tree/develop) [![Build Status](https://travis-ci.org/andela/elven-ah.svg?branch=develop)](https://travis-ci.org/andela/elven-ah) [![Coverage Status](https://coveralls.io/repos/github/andela/elven-ah-client/badge.svg?branch=chore%2F160056174%2Fsetup-tests)](https://coveralls.io/github/andela/elven-ah-client?branch=chore%2F160056174%2Fsetup-tests)
 
 Authors Haven - A Social platform for the creative at heart.
 
@@ -9,12 +10,15 @@ by leveraging the modern web.
 
 ## Table of Contents
 
-- [Api Documentation](#Api-Documentation)
-- [Setup](#setup)
-  - [Dependencies](#dependencies)
-  - [Getting Started](#getting-started)
-- [Testing](#testing)
-- [Contribute](#contribute)
+- [Overview](#overview)
+  - [Vision](#vision)
+  - [Table of Contents](#table-of-contents)
+  - [Api-Documentation](#api-documentation)
+  - [Setup](#setup)
+    - [Dependencies](#dependencies)
+    - [Getting Started](#getting-started)
+  - [Testing](#testing)
+  - [Contribute](#contribute)
 
 ## Api-Documentation
 
@@ -52,4 +56,3 @@ Contributions to the project are welcome! Before contributing, look through the 
 - When task has been completed, make commits and raise a pull request against `develop` branch, also ensure to follow the conventions linked above
 
 If the pull request is accepted by the owners of the repository, then it is merged into the `develop` branch and closed.
-
