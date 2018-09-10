@@ -1,17 +1,22 @@
-import { SIGNUP_USER } from '../../../shared/constants/ActionTypes';
+import {
+  SIGNUP_SUCCESSFUL,
+  SIGNUP_FAILED,
+} from '../../../shared/constants/ActionTypes';
 
-const signupReducer = (state, { type, user }) => {
+const signupReducer = (state, { type, user, errors }) => {
   switch (type) {
-    case SIGNUP_USER:
-      return Object.assign(
-        {},
-        { ...state },
-        {
-          user: user.user,
-          token: user.token,
-          isAuthenticated: true,
-        },
-      );
+    case SIGNUP_SUCCESSFUL:
+      return {
+        ...state,
+        user,
+        isAuthenticated: true,
+        errors: null,
+      };
+    case SIGNUP_FAILED:
+      return {
+        ...state,
+        errors,
+      };
     default:
       return state;
   }

@@ -5,6 +5,7 @@ import signupReducer from './signup/signupReducer';
 
 const initialState = {
   user: {},
+  errors: {},
   token: '',
   isAuthenticated: false,
 };

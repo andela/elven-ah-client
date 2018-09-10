@@ -2,9 +2,9 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { PropTypes } from 'prop-types';
 import Signup from './Signup';
-import authAsync from '../authThunk';
+import signupUser from './signupAction';
 
-class SignupContainer extends Component {
+export class SignupContainer extends Component {
   constructor() {
     super();
     this.state = {
@@ -17,14 +17,23 @@ class SignupContainer extends Component {
     };
   }
 
+  /**
+   * @description Handles the text change for input fields
+   * @param {Object} event The event object
+   */
   handleChange = (event) => {
     this.setState({ [event.target.id]: event.target.value });
   }
 
-  handleSubmit = (event) => {
+  /**
+   * @description Handles the form submit
+   * @param {Object} event The event object
+   */
+  handleSubmit = async (event) => {
     event.preventDefault();
     const { history, signup } = this.props;
-    signup(this.state, history, 'signup');
+    const response = await signup(this.state);
+    if (response) history.push('/');
     this.setState({
       password: '',
       confirmPassword: '',
@@ -32,19 +41,30 @@ class SignupContainer extends Component {
   }
 
   render() {
+    const { errors } = this.props;
     return (
-      <Signup handleChange={this.handleChange} handleSubmit={this.handleSubmit} />
+      <Signup
+        handleChange={this.handleChange}
+        handleSubmit={this.handleSubmit}
+        bindValues={this.state}
+        errors={errors}
+      />
     );
   }
 }
 
 
 const mapDispatchToProps = dispatch => ({
-  signup: (user, history, route) => dispatch(authAsync(user, history, route)),
+  signup: user => dispatch(signupUser(user)),
+});
+
+const mapStateToProps = state => ({
+  errors: state.auth.errors,
 });
 
 SignupContainer.propTypes = {
   signup: PropTypes.func.isRequired,
   history: PropTypes.shape({}).isRequired,
+  errors: PropTypes.shape({}).isRequired,
 };
-export default connect(null, mapDispatchToProps)(SignupContainer);
+export default connect(mapStateToProps, mapDispatchToProps)(SignupContainer);
