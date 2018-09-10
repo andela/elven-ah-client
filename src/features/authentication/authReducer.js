@@ -1,4 +1,7 @@
-import { LOGIN_USER, SIGNUP_USER } from '../../shared/constants/ActionTypes';
+
+import loginReducer from './login/loginReducer';
+import passwordResetReducer from './password-reset/passwordResetReducer';
+import signupReducer from './signup/signupReducer';
 
 const initialState = {
   user: {},
@@ -6,25 +9,23 @@ const initialState = {
   isAuthenticated: false,
 };
 
-const authReducer = (state = initialState, { type, payload }) => {
-  switch (type) {
-    case LOGIN_USER:
+const authReducer = (state = initialState, action) => {
+  const { type, errors } = action;
+  switch (true) {
+    case type.startsWith('LOGIN'):
+      return loginReducer(state, action);
+
+    case type.startsWith('PASSWORD'):
+      return passwordResetReducer(state, action);
+
+    case type.startsWith('SIGNUP'):
+      return signupReducer(state, action);
+
+    case type.startsWith('VALIDATION'):
       return {
         ...state,
-        message: 'You have logged in successfully',
-        name: payload.email.split('@')[0],
-        email: payload.email,
+        errors,
       };
-    case SIGNUP_USER:
-      return Object.assign(
-        {},
-        { ...state },
-        {
-          user: payload.user,
-          token: payload.token,
-          isAuthenticated: true,
-        },
-      );
     default:
       return state;
   }

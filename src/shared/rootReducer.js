@@ -5,7 +5,7 @@ import commonReducer from './reducers/commonReducer';
 
 const rootReducer = combineReducers({
   auth: authReducer,
-  commmon: commonReducer,
+  common: commonReducer,
 });
 
 export default rootReducer;

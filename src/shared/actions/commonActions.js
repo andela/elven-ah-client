@@ -1,13 +1,13 @@
 import {
-  LOADING, USER_ERROR, NETWORK_ERROR, COMPLETE,
+  IS_LOADING, USER_ERROR, NETWORK_ERROR, IS_COMPLETE,
 } from '../constants/ActionTypes';
 
 export const loading = () => ({
-  type: LOADING,
+  type: IS_LOADING,
 });
 
 export const complete = () => ({
-  type: COMPLETE,
+  type: IS_COMPLETE,
 });
 
 export const userError = errors => ({

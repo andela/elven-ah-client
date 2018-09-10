@@ -1,5 +1,5 @@
 import { loading, userError, networkError } from '../../shared/actions/commonActions';
-import { COMPLETE } from '../../shared/constants/ActionTypes';
+import { IS_COMPLETE } from '../../shared/constants/ActionTypes';
 
 const baseUrl = 'https://authors-haven-staging.herokuapp.com/api';
 
@@ -12,7 +12,7 @@ const authAsync = (payload, history, route) => (dispatch) => {
   }).then(response => response.json()).then((response) => {
     switch (response.code) {
       case 201:
-        dispatch({ type: COMPLETE });
+        dispatch({ type: IS_COMPLETE });
         history.push('/success');
         break;
       default:

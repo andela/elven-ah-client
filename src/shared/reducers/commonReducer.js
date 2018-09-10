@@ -1,5 +1,5 @@
 import {
-  LOADING, COMPLETE, USER_ERROR, NETWORK_ERROR,
+  IS_LOADING, IS_COMPLETE, USER_ERROR, NETWORK_ERROR,
 } from '../constants/ActionTypes';
 
 const initialState = {
@@ -11,7 +11,7 @@ const initialState = {
 
 const commonReducer = (state = initialState, { type, payload }) => {
   switch (type) {
-    case LOADING:
+    case IS_LOADING:
       return Object.assign(
         {},
         { ...state },
@@ -20,7 +20,7 @@ const commonReducer = (state = initialState, { type, payload }) => {
           error: false,
         },
       );
-    case COMPLETE:
+    case IS_COMPLETE:
       return Object.assign(
         {},
         { ...state },
