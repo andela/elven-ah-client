@@ -42,6 +42,6 @@ describe('Tests the signup container', () => {
     wrapper.find('[id="confirmPassword"]').simulate('change', {
       target: { value: 'Password123' },
     });
-    wrapper.find('form').simulate('submit');
+    wrapper.find('form').simulate('submit', { preventDefault: mockFunction });
   });
 });

@@ -3,6 +3,11 @@ import { connect } from 'react-redux';
 import { PropTypes } from 'prop-types';
 import Signup from './Signup';
 import signupUser from './signupAction';
+import SocialLogin from '../login/SocialLogin';
+import ahLogo from '../../../shared/assets/img/AH_LOGO.svg';
+import '../../../shared/assets/css/authForm.css';
+import '../../../shared/assets/css/authPages.css';
+import Footer from '../../../shared/layouts/Footer';
 
 export class SignupContainer extends Component {
   constructor() {
@@ -34,21 +39,28 @@ export class SignupContainer extends Component {
     const { history, signup } = this.props;
     const response = await signup(this.state);
     if (response) history.push('/');
-    this.setState({
-      password: '',
-      confirmPassword: '',
-    });
   }
 
   render() {
     const { errors } = this.props;
     return (
-      <Signup
-        handleChange={this.handleChange}
-        handleSubmit={this.handleSubmit}
-        bindValues={this.state}
-        errors={errors}
-      />
+      <div>
+        <div className="text-center mb-4">
+          <img className="mb-4 mt-5" src={ahLogo} alt="logo" width="71" height="71" />
+        </div>
+        <div className="body row mt-4">
+          <div className="col-md-6 divider">
+            <Signup
+              handleChange={this.handleChange}
+              handleSubmit={this.handleSubmit}
+              bindValues={this.state}
+              errors={errors}
+            />
+          </div>
+          <SocialLogin />
+          <Footer />
+        </div>
+      </div>
     );
   }
 }

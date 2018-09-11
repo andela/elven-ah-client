@@ -12,32 +12,34 @@ const signupUser = user => async (dispatch) => {
   if (confirmPassword !== password) {
     const errors = {};
     errors.message = 'Validation Error(s)';
-    errors.password = ['Passwords do not match'];
-    toastr.error('Passwords do not match');
+    errors.confirmPassword = ['Confirm Password does not match Password'];
     dispatch({ type: VALIDATION_ERROR, errors });
     return null;
   }
   dispatch({ type: IS_LOADING });
-  const response = await fetchData({
-    url: 'auth/signup',
-    method: 'post',
-    data: user,
-  });
-  dispatch({ type: IS_COMPLETE });
-  if (response.status === 201) {
-    toastr.success(response.data.message);
-    return response;
-  }
-  if (response.status === 400 || response.status === 409) {
-    const { errors } = response.data;
-    errors.message = 'Validation Error(s)';
-    dispatch({ type: VALIDATION_ERROR, errors });
-    toastr.error('Validation Error(s)');
+  try {
+    const response = await fetchData({
+      url: 'auth/signup',
+      method: 'post',
+      data: user,
+    });
+    dispatch({ type: IS_COMPLETE });
+    if (response.status === 201) {
+      toastr.success(response.data.message);
+      return response;
+    }
+    if (response.status === 400 || response.status === 409) {
+      const { errors } = response.data;
+      errors.message = 'Validation Error(s)';
+      dispatch({ type: VALIDATION_ERROR, errors });
+      return null;
+    }
+    const errors = response.data;
+    dispatch({ type: SIGNUP_FAILED, errors: { errors } });
     return null;
+  } catch (error) {
+    toastr.error('Unable to connect to the Internet, please check your connection and try agian...');
   }
-  const errors = response.data;
-  dispatch({ type: SIGNUP_FAILED, errors: { errors } });
-  return null;
 };
 
 export default signupUser;

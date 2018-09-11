@@ -5,6 +5,7 @@ import Home from '../features/home/Home';
 import LoginContainer from '../features/authentication/login/LoginContainer';
 import SignupContainer from '../features/authentication/signup/SignupContainer';
 import ResetContainer from '../features/authentication/password-reset/ResetContainer';
+import VerifyAccountContainer from '../features/authentication/verify-account/VerifyAccountContainer';
 
 const routes = (
   <div>
@@ -14,6 +15,7 @@ const routes = (
       <Route path="/login" component={LoginContainer} />
       <Route path="/signup" component={SignupContainer} />
       <Route path="/password/reset" component={ResetContainer} />
+      <Route path="/auth/verify" component={VerifyAccountContainer} />
     </Switch>
   </div>
 );

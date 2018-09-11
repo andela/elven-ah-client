@@ -1,45 +1,102 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import '../login/login.css';
+import { Link } from 'react-router-dom';
 
 const Signup = ({
   handleChange, handleSubmit, bindValues, errors,
 }) => (
-  <div className="container my-4">
-    <form className="form-signin" onSubmit={handleSubmit}>
-      <h2 className="form-signin-heading">Please provide your details</h2>
-      <div className="form-group">
-        <label htmlFor="firstName">First Name</label>
-        <input onChange={handleChange} type="text" id="firstName" value={bindValues.firstName} className="form-control" placeholder="First Name" required />
-        {errors.firstName ? errors.firstName.map(error => <p key={error}>{error}</p>) : ''}
+  <div className="container-fluid col-xl-6 col-lg-10 col-md-10 col-sm-6 col-xs-7">
+    <form className="form-signup" onSubmit={handleSubmit}>
+      <div className="text-center mb-4">
+        <em>Create an account to have access to
+          <br />a whole world of exciting stories<br />
+          specially curated for you.
+        </em>
       </div>
-      <div className="form-group">
-        <label htmlFor="lastName">Last Name</label>
-        <input onChange={handleChange} type="text" id="lastName" value={bindValues.lastName} className="form-control" placeholder="Last Name" required />
-        {errors.lastName ? errors.lastName.map(error => <p key={error}>{error}</p>) : ''}
+      <div className="form-label-group mb-3">
+        <input
+          type="text"
+          id="firstName"
+          value={bindValues.firstName}
+          name="firstName"
+          className="form-control formInput"
+          placeholder="First name"
+          onChange={handleChange}
+          required
+        />
+        {errors.firstName ? errors.firstName.map(error => <p><span className="invalid-feedback">{error}</span></p>) : ''}
       </div>
-      <div className="form-group">
-        <label htmlFor="email">Email Address</label>
-        <input onChange={handleChange} type="email" id="email" value={bindValues.email} className="form-control" placeholder="Email address" required />
-        {errors.email ? errors.email.map(error => <p key={error}>{error}</p>) : ''}
+      <div className="form-label-group mb-3">
+        <input
+          type="text"
+          id="lastName"
+          value={bindValues.lastName}
+          name="lastName"
+          className="form-control formInput"
+          placeholder="Last name"
+          onChange={handleChange}
+          required
+        />
+        {errors.lastName ? errors.lastName.map(error => <p><span className="invalid-feedback">{error}</span></p>) : ''}
       </div>
-      <div className="form-group">
-        <label htmlFor="username">Username</label>
-        <input onChange={handleChange} type="text" id="username" value={bindValues.userame} className="form-control" placeholder="Username" required />
-        {errors.username ? errors.username.map(error => <p key={error}>{error}</p>) : ''}
+      <div className="form-label-group mb-3">
+        <input
+          type="email"
+          id="email"
+          value={bindValues.email}
+          name="email"
+          className="form-control formInput"
+          placeholder="Email"
+          onChange={handleChange}
+          required
+        />
+        {errors.email ? errors.email.map(error => <p><span className="invalid-feedback">{error}</span></p>) : ''}
       </div>
-      <div className="form-group">
-        <label htmlFor="password">Password</label>
-        <input onChange={handleChange} type="password" id="password" value={bindValues.password} className="form-control" placeholder="Password" required />
-        {errors.password ? errors.password.map(error => <p key={error}>{error}</p>) : ''}
+      <div className="form-label-group mb-3">
+        <input
+          type="text"
+          id="username"
+          value={bindValues.username}
+          name="username"
+          className="form-control formInput is"
+          placeholder="Username"
+          onChange={handleChange}
+          required
+        />
+        {errors.username ? errors.username.map(error => <p><span className="invalid-feedback">{error}</span></p>) : ''}
       </div>
-      <div className="form-group">
-        <label htmlFor="confirmPassword">Confirm Password</label>
-        <input onChange={handleChange} type="password" id="confirmPassword" value={bindValues.confirmPassword} className="form-control" placeholder="Confirm Password" required />
-        {errors.confirmPassword ? errors.confirmPassword.map(error => <p key={error}>{error}</p>) : ''}
+      <div className="form-label-group mb-3">
+        <input
+          type="password"
+          id="password"
+          value={bindValues.password}
+          name="password"
+          className="form-control formInput"
+          placeholder="Password"
+          onChange={handleChange}
+          required
+        />
+        {errors.password ? errors.password.map(error => <p><span className="invalid-feedback">{error}</span></p>) : ''}
       </div>
-      <button className="btn btn-md btn-primary btn-block" type="submit">Sign up</button>
+      <div className="form-label-group mb-3">
+        <input
+          type="password"
+          id="confirmPassword"
+          value={bindValues.confirmPassword}
+          name="confirmPassword"
+          className="form-control formInput"
+          placeholder="Confirm Password"
+          onChange={handleChange}
+          required
+        />
+        {errors.confirmPassword ? errors.confirmPassword.map(error => <p><span className="invalid-feedback">{error}</span></p>) : ''}
+      </div>
+      <button className="btn btn-lg col-md-5 mx-auto btn-block authSubmitBtn" type="submit">Sign up</button>
     </form>
+    <br />
+    <div className="text-center mb-4">
+      <p>Already have an account? <Link to="/" className="loginText"> Log in </Link> </p>
+    </div>
   </div>
 );
 

@@ -2,9 +2,10 @@
 import loginReducer from './login/loginReducer';
 import passwordResetReducer from './password-reset/passwordResetReducer';
 import signupReducer from './signup/signupReducer';
+import localStorageUtil from '../../shared/utilities/localStorageUtil';
 
 const initialState = {
-  user: {},
+  user: localStorageUtil.getItem('ah_user') || {},
   errors: {},
   token: '',
   isAuthenticated: false,
