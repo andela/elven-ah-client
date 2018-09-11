@@ -1,0 +1,29 @@
+.authSubmitBtn {
+  background-color: #3B87B8;
+  color: white;
+}
+.formInput {
+  background-color: #FCFCFC;
+}
+.loginText {
+  font-style: normal;
+  font-weight: bold;
+  line-height: normal;
+  font-size: 30px;
+  text-align: center;
+  color: #1C5B0C;
+  text-decoration: none;
+}
+
+::-webkit-input-placeholder {
+  font-style: italic;
+}
+:-moz-placeholder {
+  font-style: italic;
+}
+::-moz-placeholder {
+  font-style: italic;
+}
+:-ms-input-placeholder {
+  font-style: italic;
+}

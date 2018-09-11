@@ -1,0 +1,20 @@
+html {
+  position: relative;
+  min-height: 100%;
+}
+body {
+  margin-bottom: 150px;
+  max-width: 100vw;
+  overflow-x: hidden;
+  overflow-y: scroll;
+  background: #ececec url('../img/AuthPageBackground.svg') repeat-y;
+  background-size: auto;
+}
+.container {
+  width: auto;
+  max-width: 680px;
+  padding: 0 15px;
+}
+.divider {
+  border-right: 0.75px solid rgba(0, 0, 0, 0.5);
+}
