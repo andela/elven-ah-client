@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import LoginForm from './LoginForm';
 import SocialLogin from './SocialLogin';
 import '../assets/css/authPages.css';
+import Logo from './Logo';
 
 export default class LoginPageContainer extends Component {
   constructor(props) {
@@ -12,7 +13,7 @@ export default class LoginPageContainer extends Component {
     return (
       <div>
         <div className="text-center mb-4">
-          <img className="mb-4 mt-5" src="/src/assets/img/AH_LOGO.svg" alt="logo" width="71" height="71" />
+          <Logo width={71} height={71} />
         </div>
 
         <div className="body row mt-6">

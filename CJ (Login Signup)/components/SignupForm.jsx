@@ -5,6 +5,8 @@ class SignupForm extends Component {
   constructor() {
     super();
     this.state = {
+      firstName: '',
+      lastName: '',
       email: '',
       username: '',
       password: '',
@@ -22,12 +24,12 @@ class SignupForm extends Component {
 
   handleSubmit(event) {
     event.preventDefault();
-    const { email, username, password, confirmPassword } = this.state;
+    const { firstName, lastName, email, username, password, confirmPassword } = this.state;
     if (password !== confirmPassword) {
       alert('Password and Confirm Password must match.');
       return;
     }
-    this.props.submit(user);
+    alert(`Welcome, ${firstName}`)
     this.setState({
       firstName: '',
       lastName: '',

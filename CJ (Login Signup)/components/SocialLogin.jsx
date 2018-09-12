@@ -8,13 +8,13 @@ const SocialLogin = () => {
         <em>Or connect with your favourite social media account</em>
       </div>
       <div className="text-center mb-1">
-        <a href="#"><img className="mb-2 mt-2" src="/src/assets/img/Button_Facebook.svg" alt="logo" width="250" height="59" /></a>
+        <a href="#"><img className="mb-2 mt-2" src="/src/assets/img/button-facebook.svg" alt="logo" width="250" height="59" /></a>
       </div>
       <div className="text-center mb-1">
-        <a href="#"><img className="mb-2 mt-2" src="/src/assets/img/Button_Twitter.svg" alt="logo" width="250" height="59" /></a>
+        <a href="#"><img className="mb-2 mt-2" src="/src/assets/img/button-twitter.svg" alt="logo" width="250" height="59" /></a>
       </div>
       <div className="text-center mb-1">
-        <a href="#"><img className="mb-2 mt-2" src="/src/assets/img/Button_Google.svg" alt="logo" width="250" height="59" /></a>
+        <a href="#"><img className="mb-2 mt-2" src="/src/assets/img/button-google.svg" alt="logo" width="250" height="59" /></a>
       </div>
     </div>
   );
