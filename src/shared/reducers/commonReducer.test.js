@@ -1,6 +1,6 @@
 import commonReducer from './commonReducer';
 import {
-  LOADING, COMPLETE, USER_ERROR, NETWORK_ERROR, SIGNUP_USER,
+  USER_ERROR, NETWORK_ERROR, IS_LOADING, IS_COMPLETE, SIGNUP_SUCCESSFUL,
 } from '../constants/ActionTypes';
 
 const errors = {
@@ -10,14 +10,14 @@ const errors = {
 
 describe('Tests common reducer', () => {
   it('should return loading', () => {
-    expect(commonReducer({}, { type: LOADING })).toEqual({
+    expect(commonReducer({}, { type: IS_LOADING })).toEqual({
       loading: true,
       error: false,
     });
   });
 
   it('should return complete', () => {
-    expect(commonReducer({}, { type: COMPLETE })).toEqual({
+    expect(commonReducer({}, { type: IS_COMPLETE })).toEqual({
       loading: false,
       error: false,
     });
@@ -40,6 +40,6 @@ describe('Tests common reducer', () => {
   });
 
   it('should return the exact state', () => {
-    expect(commonReducer({}, { type: SIGNUP_USER, payload: errors })).toEqual({});
+    expect(commonReducer({}, { type: SIGNUP_SUCCESSFUL, payload: errors })).toEqual({});
   });
 });

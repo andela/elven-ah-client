@@ -3,11 +3,9 @@ import { connect } from 'react-redux';
 import { PropTypes } from 'prop-types';
 import Signup from './Signup';
 import signupUser from './signupAction';
-import SocialLogin from '../login/SocialLogin';
+import SocialLogin from '../SocialLogin';
 import ahLogo from '../../../shared/assets/img/AH_LOGO.svg';
-import '../../../shared/assets/css/authForm.css';
-import '../../../shared/assets/css/authPages.css';
-import Footer from '../../../shared/layouts/Footer';
+import Footer from '../Footer';
 
 export class SignupContainer extends Component {
   constructor() {
@@ -44,7 +42,7 @@ export class SignupContainer extends Component {
   render() {
     const { errors } = this.props;
     return (
-      <div>
+      <div className="auth-background">
         <div className="text-center mb-4">
           <img className="mb-4 mt-5" src={ahLogo} alt="logo" width="71" height="71" />
         </div>

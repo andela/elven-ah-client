@@ -19,12 +19,12 @@ const Signup = ({
           id="firstName"
           value={bindValues.firstName}
           name="firstName"
-          className="form-control formInput"
+          className="form-control form-input"
           placeholder="First name"
           onChange={handleChange}
           required
         />
-        {errors.firstName ? errors.firstName.map(error => <p><span className="invalid-feedback">{error}</span></p>) : ''}
+        {errors.firstName ? errors.firstName.map(error => <small key={error} className="invalid-feedback">{error}</small>) : ''}
       </div>
       <div className="form-label-group mb-3">
         <input
@@ -32,12 +32,12 @@ const Signup = ({
           id="lastName"
           value={bindValues.lastName}
           name="lastName"
-          className="form-control formInput"
+          className="form-control form-input"
           placeholder="Last name"
           onChange={handleChange}
           required
         />
-        {errors.lastName ? errors.lastName.map(error => <p><span className="invalid-feedback">{error}</span></p>) : ''}
+        {errors.lastName ? errors.lastName.map(error => <small key={error} className="invalid-feedback">{error}</small>) : ''}
       </div>
       <div className="form-label-group mb-3">
         <input
@@ -45,12 +45,12 @@ const Signup = ({
           id="email"
           value={bindValues.email}
           name="email"
-          className="form-control formInput"
+          className="form-control form-input"
           placeholder="Email"
           onChange={handleChange}
           required
         />
-        {errors.email ? errors.email.map(error => <p><span className="invalid-feedback">{error}</span></p>) : ''}
+        {errors.email ? errors.email.map(error => <small key={error} className="invalid-feedback">{error}</small>) : ''}
       </div>
       <div className="form-label-group mb-3">
         <input
@@ -58,12 +58,12 @@ const Signup = ({
           id="username"
           value={bindValues.username}
           name="username"
-          className="form-control formInput is"
+          className="form-control form-input is"
           placeholder="Username"
           onChange={handleChange}
           required
         />
-        {errors.username ? errors.username.map(error => <p><span className="invalid-feedback">{error}</span></p>) : ''}
+        {errors.username ? errors.username.map(error => <small key={error} className="invalid-feedback">{error}</small>) : ''}
       </div>
       <div className="form-label-group mb-3">
         <input
@@ -71,12 +71,12 @@ const Signup = ({
           id="password"
           value={bindValues.password}
           name="password"
-          className="form-control formInput"
+          className="form-control form-input"
           placeholder="Password"
           onChange={handleChange}
           required
         />
-        {errors.password ? errors.password.map(error => <p><span className="invalid-feedback">{error}</span></p>) : ''}
+        {errors.password ? errors.password.map(error => <small key={error} className="invalid-feedback">{error}</small>) : ''}
       </div>
       <div className="form-label-group mb-3">
         <input
@@ -84,18 +84,18 @@ const Signup = ({
           id="confirmPassword"
           value={bindValues.confirmPassword}
           name="confirmPassword"
-          className="form-control formInput"
+          className="form-control form-input"
           placeholder="Confirm Password"
           onChange={handleChange}
           required
         />
-        {errors.confirmPassword ? errors.confirmPassword.map(error => <p><span className="invalid-feedback">{error}</span></p>) : ''}
+        {errors.confirmPassword ? errors.confirmPassword.map(error => <small key={error} className="invalid-feedback">{error}</small>) : ''}
       </div>
-      <button className="btn btn-lg col-md-5 mx-auto btn-block authSubmitBtn" type="submit">Sign up</button>
+      <button className="btn btn-lg col-md-5 mx-auto btn-block auth-submit-btn" type="submit">Sign up</button>
     </form>
     <br />
     <div className="text-center mb-4">
-      <p>Already have an account? <Link to="/" className="loginText"> Log in </Link> </p>
+      <p>Already have an account? <Link to="/" className="login-text"> Log in </Link> </p>
     </div>
   </div>
 );

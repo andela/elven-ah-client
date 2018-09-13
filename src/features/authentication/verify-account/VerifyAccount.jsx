@@ -8,20 +8,35 @@ const VerifyAccount = ({
   <div className="container my-4">
     {
       resend ? (
-        <form className="form-signin" onSubmit={handleSubmit}>
-          <h2 className="form-signin-heading">Please provide your email</h2>
-          <div className="form-group">
-            <label htmlFor="email">Email Address</label>
-            <input onChange={handleChange} type="email" id="email" value={email} className="form-control" placeholder="Email address" required />
-            {errors.email ? errors.email.map(error => <p key={error}>{error}</p>) : ''}
+        <form className="form-login" onSubmit={handleSubmit}>
+          <div className="text-center mb-4">
+            <em>{message}</em>
           </div>
-          <button className="btn btn-md btn-primary btn-block" type="submit">Resend verification</button>
+          <div className="form-label-group mb-3">
+            <input
+              type="email"
+              id="email"
+              value={email}
+              name="email"
+              className="form-control formInput"
+              placeholder="Email"
+              onChange={handleChange}
+              required
+            />
+            {errors.email ? errors.email.map(error => <small key={error} className="invalid-feedback">{error}</small>) : ''}
+          </div>
+          <button
+            className="btn btn-lg col-xl-8 col-lg-6 col-md-8 col-sm-9 mx-auto btn-block authSubmitBtn"
+            type="submit"
+          >
+            Resend verification Link
+          </button>
         </form>
       ) : (
         <div>
-          <h2>Account verification</h2>
-          <p>{message}</p>
-          <button onClick={handleResendLink} className="btn btn-md btn-primary btn-block" type="submit">Resend verification link</button>
+          <h4>Account verification</h4>
+          <em>{message}</em>
+          <button onClick={handleResendLink} className="btn btn-lg col-xl-8 col-lg-6 col-md-8 col-sm-9 mx-auto btn-block authSubmitBtn" type="submit">Resend verification link</button>
         </div>)
     }
   </div>

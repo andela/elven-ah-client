@@ -1,11 +1,11 @@
-.authSubmitBtn {
+.auth-submit-btn {
   background-color: #3B87B8;
   color: white;
 }
-.formInput {
+.form-input {
   background-color: #FCFCFC;
 }
-.loginText {
+.login-text {
   font-style: normal;
   font-weight: bold;
   line-height: normal;
@@ -15,11 +15,9 @@
   text-decoration: none;
 }
 
-p > span.invalid-feedback {
-  margin-top: .2em;
+.invalid-feedback {
   color: rgb(218, 102, 102);
   display: block;
-  font-size: .9em;
 }
 
 ::-webkit-input-placeholder {

@@ -4,6 +4,7 @@ import { PropTypes } from 'prop-types';
 import { parse } from 'query-string';
 import VerifyAccount from './VerifyAccount';
 import verifyAccount, { resendVerificationLink } from './verifyAccountActions';
+import ahLogo from '../../../shared/assets/img/AH_LOGO.svg';
 
 export class VerifyAccountContainer extends Component {
   constructor() {
@@ -64,7 +65,7 @@ export class VerifyAccountContainer extends Component {
     }
     return this.setState({
       email: '',
-      message: 'Failed to resend verification link, please try again later',
+      message: 'Failed to resend verification link',
     });
   }
 
@@ -72,15 +73,22 @@ export class VerifyAccountContainer extends Component {
     const { errors } = this.props;
     const { email, resend, message } = this.state;
     return (
-      <VerifyAccount
-        handleChange={this.handleChange}
-        email={email}
-        resend={resend}
-        errors={errors}
-        message={message}
-        handleResendLink={this.handleResendLink}
-        handleSubmit={this.handleSubmit}
-      />
+      <div className="col-xl-3 col-lg-4 col-md-5 container-fluid">
+        <div className="text-center mb-4">
+          <img className="mb-4 mt-5" src={ahLogo} alt="logo" width="71" height="71" />
+        </div>
+        <div className="mt-6">
+          <VerifyAccount
+            handleChange={this.handleChange}
+            email={email}
+            resend={resend}
+            errors={errors}
+            message={message}
+            handleResendLink={this.handleResendLink}
+            handleSubmit={this.handleSubmit}
+          />
+        </div>
+      </div>
     );
   }
 }

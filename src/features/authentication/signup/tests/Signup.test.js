@@ -30,5 +30,24 @@ describe('Tests the signup form component', () => {
     />);
     expect(wrapper.find('form')).toHaveLength(1);
     expect(wrapper.find('input')).toHaveLength(6);
+    wrapper.find('[id="email"]').simulate('change', {
+      target: { value: 'user@test.com' },
+    });
+    wrapper.find('[id="firstName"]').simulate('change', {
+      target: { value: 'John' },
+    });
+    wrapper.find('[id="lastName"]').simulate('change', {
+      target: { value: 'Doe' },
+    });
+    wrapper.find('[id="username"]').simulate('change', {
+      target: { value: 'testUser' },
+    });
+    wrapper.find('[id="password"]').simulate('change', {
+      target: { value: 'Password123' },
+    });
+    wrapper.find('[id="confirmPassword"]').simulate('change', {
+      target: { value: 'Password123' },
+    });
+    wrapper.find('form').simulate('submit', { preventDefault: mockFunction });
   });
 });

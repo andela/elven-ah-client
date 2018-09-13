@@ -2,16 +2,16 @@ import {
   loading, complete, userError, networkError,
 } from './commonActions';
 import {
-  LOADING, COMPLETE, USER_ERROR, NETWORK_ERROR,
+  USER_ERROR, NETWORK_ERROR, IS_LOADING, IS_COMPLETE,
 } from '../constants/ActionTypes';
 
 describe('Tests common actions', () => {
   it('should return loading action', () => {
-    expect(loading()).toEqual({ type: LOADING });
+    expect(loading()).toEqual({ type: IS_LOADING });
   });
 
   it('should return complete action', () => {
-    expect(complete()).toEqual({ type: COMPLETE });
+    expect(complete()).toEqual({ type: IS_COMPLETE });
   });
 
   it('should return user errors action', () => {

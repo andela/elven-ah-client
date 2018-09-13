@@ -1,5 +1,5 @@
 import React from 'react';
-import { mount } from 'enzyme';
+import { shallow } from 'enzyme';
 import { SignupContainer } from '../SignupContainer';
 import Signup from '../Signup';
 
@@ -18,30 +18,11 @@ const history = {
 
 describe('Tests the signup container', () => {
   it('should render without errors', () => {
-    const wrapper = mount(<SignupContainer
+    const wrapper = shallow(<SignupContainer
       signup={mockFunction}
       history={history}
       errors={errors}
     />);
     expect(wrapper.find(Signup)).toHaveLength(1);
-    wrapper.find('[id="email"]').simulate('change', {
-      target: { value: 'user@test.com' },
-    });
-    wrapper.find('[id="firstName"]').simulate('change', {
-      target: { value: 'John' },
-    });
-    wrapper.find('[id="lastName"]').simulate('change', {
-      target: { value: 'Doe' },
-    });
-    wrapper.find('[id="username"]').simulate('change', {
-      target: { value: 'testUser' },
-    });
-    wrapper.find('[id="password"]').simulate('change', {
-      target: { value: 'Password123' },
-    });
-    wrapper.find('[id="confirmPassword"]').simulate('change', {
-      target: { value: 'Password123' },
-    });
-    wrapper.find('form').simulate('submit', { preventDefault: mockFunction });
   });
 });

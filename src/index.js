@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { applyMiddleware, compose, createStore } from 'redux';
+import { BrowserRouter } from 'react-router-dom';
 import { createBrowserHistory } from 'history';
 import { connectRouter, routerMiddleware } from 'connected-react-router';
 import { Provider } from 'react-redux';
@@ -19,7 +20,9 @@ const store = createStore(
 
 ReactDOM.render(
   <Provider store={store}>
-    <App history={history} />
+    <BrowserRouter>
+      <App history={history} />
+    </BrowserRouter>
   </Provider>,
   document.getElementById('root'),
 );
