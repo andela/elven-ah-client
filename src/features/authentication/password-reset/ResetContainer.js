@@ -21,7 +21,6 @@ class ResetContainer extends Component {
     const { verify, history, location } = this.props;
     const parsedQuery = queryString.parse(location.search);
     let token = parsedQuery.tokenId;
-    console.log(token);
     if (token) await verify(token, history);
     token = '';
   }

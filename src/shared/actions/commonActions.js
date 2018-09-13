@@ -1,5 +1,8 @@
 import {
-  IS_LOADING, USER_ERROR, NETWORK_ERROR, IS_COMPLETE,
+  IS_LOADING,
+  USER_ERROR,
+  NETWORK_ERROR,
+  IS_COMPLETE,
 } from '../constants/ActionTypes';
 
 export const loading = () => ({

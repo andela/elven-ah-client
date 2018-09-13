@@ -1,5 +1,8 @@
 import {
-  loading, complete, userError, networkError,
+  loading,
+  complete,
+  userError,
+  networkError,
 } from './commonActions';
 import {
   USER_ERROR, NETWORK_ERROR, IS_LOADING, IS_COMPLETE,

@@ -45,6 +45,7 @@ export class VerifyAccountContainer extends Component {
 
   /**
    * @description Handles the action to make resend link form visible
+   * @returns {null}
    */
   handleResendLink = () => {
     this.setState({

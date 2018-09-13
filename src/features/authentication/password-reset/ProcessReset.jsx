@@ -1,6 +1,6 @@
 import React from 'react';
-import './password-reset.css';
 import { connect } from 'react-redux';
+import './password-reset.css';
 
 const ProcessReset = () => (
   <div className="container my-4">

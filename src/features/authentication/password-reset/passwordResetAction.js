@@ -60,7 +60,6 @@ export const resetPassword = (resetData, history) => async (dispatch) => {
   dispatch({ type: IS_COMPLETE });
   if (response.status === 200) {
     const { data } = response;
-    console.log(data);
     dispatch({ type: PASSWORD_RESET_SUCCESSFUL, data });
     return history.push('/');
   }
