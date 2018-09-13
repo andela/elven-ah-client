@@ -11,6 +11,7 @@ import localStorageUtil from '../../../shared/utilities/localStorageUtil';
 /**
  * @description Verifies the account of a user
  * @param {String} token The verification token
+ * @returns {Object} The response object
  */
 const verifyAccount = token => async (dispatch) => {
   if (!token) {
@@ -39,7 +40,8 @@ const verifyAccount = token => async (dispatch) => {
 
 /**
  * @description Resends the verification link to an email
- * @param {String} token The user's email
+ * @param {String} email The user's email
+ * @returns {String} The resend verification message
  */
 export const resendVerificationLink = email => async (dispatch) => {
   dispatch({ type: IS_LOADING });

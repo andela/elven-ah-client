@@ -5,7 +5,6 @@ import Signup from './Signup';
 import signupUser from './signupAction';
 import SocialLogin from '../SocialLogin';
 import ahLogo from '../../../shared/assets/img/AH_LOGO.svg';
-import Footer from '../Footer';
 
 export class SignupContainer extends Component {
   constructor() {
@@ -42,7 +41,7 @@ export class SignupContainer extends Component {
   render() {
     const { errors } = this.props;
     return (
-      <div className="auth-background">
+      <div className="">
         <div className="text-center mb-4">
           <img className="mb-4 mt-5" src={ahLogo} alt="logo" width="71" height="71" />
         </div>
@@ -56,7 +55,6 @@ export class SignupContainer extends Component {
             />
           </div>
           <SocialLogin />
-          <Footer />
         </div>
       </div>
     );

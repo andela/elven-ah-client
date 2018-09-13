@@ -5,7 +5,7 @@ import '../login/login.css';
 const VerifyAccount = ({
   handleChange, handleSubmit, email, errors, resend, message, handleResendLink,
 }) => (
-  <div className="container my-4">
+  <div className="container mb-4">
     {
       resend ? (
         <form className="form-login" onSubmit={handleSubmit}>
@@ -18,7 +18,7 @@ const VerifyAccount = ({
               id="email"
               value={email}
               name="email"
-              className="form-control formInput"
+              className="form-control form-input"
               placeholder="Email"
               onChange={handleChange}
               required
@@ -26,7 +26,7 @@ const VerifyAccount = ({
             {errors.email ? errors.email.map(error => <small key={error} className="invalid-feedback">{error}</small>) : ''}
           </div>
           <button
-            className="btn btn-lg col-xl-8 col-lg-6 col-md-8 col-sm-9 mx-auto btn-block authSubmitBtn"
+            className="btn btn-lg mx-auto btn-block auth-submit-btn"
             type="submit"
           >
             Resend verification Link
@@ -34,9 +34,10 @@ const VerifyAccount = ({
         </form>
       ) : (
         <div>
-          <h4>Account verification</h4>
-          <em>{message}</em>
-          <button onClick={handleResendLink} className="btn btn-lg col-xl-8 col-lg-6 col-md-8 col-sm-9 mx-auto btn-block authSubmitBtn" type="submit">Resend verification link</button>
+          <div className="text-center mb-4">
+            <em>{message}</em>
+          </div>
+          <button onClick={handleResendLink} className="btn btn-lg mx-auto btn-block auth-submit-btn" type="submit">Resend verification link</button>
         </div>)
     }
   </div>

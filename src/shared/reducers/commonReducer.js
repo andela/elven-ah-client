@@ -1,5 +1,8 @@
 import {
-  IS_LOADING, IS_COMPLETE, USER_ERROR, NETWORK_ERROR,
+  IS_LOADING,
+  IS_COMPLETE,
+  USER_ERROR,
+  NETWORK_ERROR,
 } from '../constants/ActionTypes';
 
 const initialState = {
@@ -12,43 +15,32 @@ const initialState = {
 const commonReducer = (state = initialState, { type, payload }) => {
   switch (type) {
     case IS_LOADING:
-      return Object.assign(
-        {},
-        { ...state },
-        {
-          loading: true,
-          error: false,
-        },
-      );
+      return {
+        ...state,
+        loading: true,
+        error: false,
+      };
     case IS_COMPLETE:
-      return Object.assign(
-        {},
-        { ...state },
-        {
-          loading: false,
-          error: false,
-        },
-      );
+      return {
+        ...state,
+        loading: false,
+        error: false,
+      };
     case USER_ERROR:
-      return Object.assign(
-        {},
-        { ...state },
-        {
-          loading: false,
-          error: true,
-          errors: payload,
-        },
-      );
+      return {
+        ...state,
+        loading: false,
+        error: true,
+        errors: payload,
+      };
     case NETWORK_ERROR:
-      return Object.assign(
-        {},
-        { ...state },
-        {
-          loading: false,
-          error: true,
-          message: 'Oops! unable to connect to the Internet. Please check your connection and try again',
-        },
-      );
+      return {
+        ...state,
+        loading: false,
+        error: true,
+        message: 'Oops! unable to connect to the Internet. Please check your connection and try again',
+
+      };
     default:
       return state;
   }

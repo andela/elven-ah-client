@@ -19,7 +19,12 @@ export class VerifyAccountContainer extends Component {
   componentWillMount = async () => {
     const { history, verify } = this.props;
     const { evc } = parse(history.location.search);
-    if (!evc) return null;
+    if (!evc) {
+      this.setState({
+        message: '',
+      });
+      return null;
+    }
     const response = await verify(evc);
     if (response.status === 200) {
       history.push('/');
@@ -50,6 +55,7 @@ export class VerifyAccountContainer extends Component {
   /**
    * @description Handles the form submit
    * @param {Object} event The event object
+   * @returns {Object}
    */
   handleSubmit = async (event) => {
     event.preventDefault();
@@ -69,6 +75,9 @@ export class VerifyAccountContainer extends Component {
     });
   }
 
+  /**
+   * Renders the component on a DOM node
+   */
   render() {
     const { errors } = this.props;
     const { email, resend, message } = this.state;

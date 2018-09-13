@@ -11,6 +11,7 @@ import axios from 'axios';
  * the `method`: (eg. 'post', defaults to 'get'), `headers`: to be sent
  * with the request (eg. {x-access-token: 'hhdfdgdfdfdf'}), and
  * `data`: object to be sent in the request body (eg. {username: 'JohnAwesome'} )
+ * @returns {Object} The HTTP response object
  */
 const fetchData = async (payload) => {
   const {

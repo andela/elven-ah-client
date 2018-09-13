@@ -1,3 +1,7 @@
+/**
+ * Abstracts the localStorage api
+ * This would ensure that all items saved on the localStorage are uniform
+ */
 class localStorageUtil {
   /**
    * @description Retrieves an item from the localStorage

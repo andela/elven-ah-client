@@ -1,6 +1,10 @@
 import commonReducer from './commonReducer';
 import {
-  USER_ERROR, NETWORK_ERROR, IS_LOADING, IS_COMPLETE, SIGNUP_SUCCESSFUL,
+  USER_ERROR,
+  NETWORK_ERROR,
+  IS_LOADING,
+  IS_COMPLETE,
+  SIGNUP_SUCCESSFUL,
 } from '../constants/ActionTypes';
 
 const errors = {
