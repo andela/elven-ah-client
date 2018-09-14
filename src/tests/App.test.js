@@ -11,5 +11,4 @@ it('renders without crashing', () => {
   expect(wrapper.find('div'));
   expect(wrapper.find('NavBar'));
   expect(wrapper.find('Switch'));
-  expect(wrapper).toMatchSnapshot();
 });
