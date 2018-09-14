@@ -93,6 +93,7 @@ export class VerifyAccountContainer extends Component {
 
   /**
    * @description Renders the component on a DOM node
+   * @returns {Object}
    */
   render() {
     const { errors } = this.props;

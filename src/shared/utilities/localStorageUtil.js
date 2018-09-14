@@ -10,7 +10,7 @@ class localStorageUtil {
    */
   static getItem(name) {
     const result = localStorage.getItem(name);
-    return result === 'undefined' ? null : JSON.parse(result);
+    return result === 'undefined' ? undefined : JSON.parse(result);
   }
 
   /**
