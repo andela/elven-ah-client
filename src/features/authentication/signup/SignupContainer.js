@@ -6,6 +6,16 @@ import signupUser from './signupAction';
 import SocialLogin from '../SocialLogin';
 import ahLogo from '../../../shared/assets/img/AH_LOGO.svg';
 
+/**
+ * @class Handles Account verification
+ * @requires react
+ * @requires react-redux
+ * @requires prop-types
+ * @requires query-string
+ * @requires VerifyAccount
+ * @requires verifyAccountActions
+ * @requires AH_LOGO
+ */
 export class SignupContainer extends Component {
   constructor() {
     super();
@@ -38,6 +48,9 @@ export class SignupContainer extends Component {
     if (response) history.push('/');
   }
 
+  /**
+   * @description Renders the component on a DOM node
+   */
   render() {
     const { errors } = this.props;
     return (

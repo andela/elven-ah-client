@@ -4,6 +4,16 @@ import { PropTypes } from 'prop-types';
 import Login from './Login';
 import loginUser from './loginAction';
 
+/**
+ * @class Handles Account verification
+ * @requires react
+ * @requires react-redux
+ * @requires prop-types
+ * @requires query-string
+ * @requires VerifyAccount
+ * @requires verifyAccountActions
+ * @requires AH_LOGO
+ */
 class LoginContainer extends Component {
   constructor() {
     super();
@@ -13,11 +23,20 @@ class LoginContainer extends Component {
     };
   }
 
+  /**
+   * @description Handles the text change for input fields
+   * @param {Object} event The event object
+   */
   handleChange = (event) => {
     this.setState({ [event.target.id]: event.target.value });
   }
 
 
+  /**
+   * @description Handles the form submit
+   * @param {Object} event The event object
+   * @returns {Object}
+   */
   handleSubmit = (event) => {
     event.preventDefault();
     const { login, history } = this.props;
@@ -27,6 +46,9 @@ class LoginContainer extends Component {
     this.setState({ emailOrUsername: '', password: '' });
   }
 
+  /**
+   * @description Renders the component on a DOM node
+   */
   render() {
     const { errors } = this.props;
     return (

@@ -6,6 +6,16 @@ import VerifyAccount from './VerifyAccount';
 import verifyAccount, { resendVerificationLink } from './verifyAccountActions';
 import ahLogo from '../../../shared/assets/img/AH_LOGO.svg';
 
+/**
+ * @class Handles Account verification
+ * @requires react
+ * @requires react-redux
+ * @requires prop-types
+ * @requires query-string
+ * @requires VerifyAccount
+ * @requires verifyAccountActions
+ * @requires AH_LOGO
+ */
 export class VerifyAccountContainer extends Component {
   constructor() {
     super();
@@ -16,6 +26,10 @@ export class VerifyAccountContainer extends Component {
     };
   }
 
+  /**
+   * @description Handles the user account verification
+   * @returns {Object}
+   */
   componentWillMount = async () => {
     const { history, verify } = this.props;
     const { evc } = parse(history.location.search);
@@ -38,6 +52,7 @@ export class VerifyAccountContainer extends Component {
   /**
    * @description Handles the text change for input field
    * @param {Object} event The event object
+   * @returns {null}
    */
   handleChange = (event) => {
     this.setState({ [event.target.id]: event.target.value });
@@ -77,7 +92,7 @@ export class VerifyAccountContainer extends Component {
   }
 
   /**
-   * Renders the component on a DOM node
+   * @description Renders the component on a DOM node
    */
   render() {
     const { errors } = this.props;

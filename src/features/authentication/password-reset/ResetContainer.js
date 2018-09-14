@@ -7,6 +7,16 @@ import ProcessReset from './ProcessReset';
 import Request from './Request';
 import { requestPasswordReset, verifyResetLink, resetPassword } from './passwordResetAction';
 
+/**
+ * @class Handles Password Reset
+ * @requires react
+ * @requires react-redux
+ * @requires prop-types
+ * @requires query-string
+ * @requires Reset
+ * @requires ProcessReset
+ * @requires Request
+ */
 class ResetContainer extends Component {
   constructor() {
     super();
@@ -17,6 +27,10 @@ class ResetContainer extends Component {
     };
   }
 
+  /**
+   * @description Verifies the password change token in the query param
+   * @returns {null}
+   */
   async componentDidMount() {
     const { verify, history, location } = this.props;
     const parsedQuery = queryString.parse(location.search);
@@ -25,11 +39,20 @@ class ResetContainer extends Component {
     token = '';
   }
 
+  /**
+   * @description Handles the change event
+   * @param {Object} event The event object
+   * @returns {null}
+   */
   handleChange = (event) => {
     this.setState({ [event.target.id]: event.target.value });
   }
 
-
+  /**
+   * @description Handles the password reset request
+   * @param {Object} event The event object
+   * @returns {null}
+   */
   handleRequest = (event) => {
     event.preventDefault();
     const { request, history } = this.props;
@@ -38,6 +61,11 @@ class ResetContainer extends Component {
     this.setState({ email: '' });
   }
 
+  /**
+   * @description Handles the password reset
+   * @param {Object} event The event object
+   * @returns {null}
+   */
   handleReset = (event) => {
     event.preventDefault();
     const { password, confirmPassword } = this.state;
