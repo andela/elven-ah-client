@@ -8,7 +8,7 @@ describe('Tests auth reducer', () => {
     expect(authReducer({}, { type: SIGNUP_SUCCESSFUL, user })).toEqual({
       user,
       isAuthenticated: true,
-      errors: null,
+      errors: undefined,
     });
   });
 });

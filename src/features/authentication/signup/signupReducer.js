@@ -10,7 +10,7 @@ const signupReducer = (state, { type, user, errors }) => {
         ...state,
         user,
         isAuthenticated: true,
-        errors: null,
+        errors: undefined,
       };
     case SIGNUP_FAILED:
       return {

@@ -40,12 +40,12 @@ export class VerifyAccountContainer extends Component {
       return null;
     }
     const response = await verify(evc);
-    if (response.status === 200) {
+    if (response && response.status === 200) {
       history.push('/');
       return null;
     }
     return this.setState({
-      message: response.data.message,
+      message: response ? response.data.message : 'Can not connect to the internet',
     });
   }
 

@@ -63,7 +63,7 @@ export const resendVerificationLink = email => async (dispatch) => {
     }
     return message;
   } catch (error) {
-    toastr.error('Unable to connect to the Internet, please check your connection and try agian...');
+    toastr.error('Unable to connect to the Internet, please check your connection and try again...');
   }
 };
 
