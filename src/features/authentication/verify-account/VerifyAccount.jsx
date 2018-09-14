@@ -1,6 +1,5 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import '../login/login.css';
 
 const VerifyAccount = ({
   handleChange, handleSubmit, email, errors, resend, message, handleResendLink,

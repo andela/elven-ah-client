@@ -1,4 +1,4 @@
-
+import toastr from 'toastr';
 import {
   IS_LOADING,
   PASSWORD_RESET_REQUEST_SUCCESSFUL,
@@ -9,6 +9,7 @@ import {
   PASSWORD_RESET_SUCCESSFUL,
   PASSWORD_RESET_FAILED,
   IS_COMPLETE,
+  NETWORK_ERROR,
 } from '../../../shared/constants/ActionTypes';
 import fetchData from '../../../shared/utilities/fetchData';
 
@@ -23,15 +24,21 @@ export const requestPasswordReset = (email, history) => async (dispatch) => {
   if (response.status === 200) {
     const { data } = response;
     dispatch({ type: PASSWORD_RESET_REQUEST_SUCCESSFUL, data });
-    return history.push('/');
+    history.push('/');
+    return toastr.success(data.message);
   }
   if (response.status === 400) {
-    const { errors } = response.data;
-    errors.message = 'Validation Error(s)';
-    return dispatch({ type: VALIDATION_ERROR, errors });
+    const errors = response.data;
+    dispatch({ type: VALIDATION_ERROR, errors });
+    return toastr.error(errors.message);
+  }
+  if (response.status === 502) {
+    dispatch({ type: NETWORK_ERROR });
+    return toastr.error('Oops! unable to connect to the Internet. Please check your connection and try again');
   }
   const errors = response.data;
-  return dispatch({ type: PASSWORD_RESET_REQUEST_FAILED, errors });
+  dispatch({ type: PASSWORD_RESET_REQUEST_FAILED, errors });
+  return toastr.error(errors.message);
 };
 
 export const verifyResetLink = (token, history) => async (dispatch) => {
@@ -43,11 +50,17 @@ export const verifyResetLink = (token, history) => async (dispatch) => {
   if (response.status === 200) {
     const { data } = response;
     dispatch({ type: PASSWORD_RESET_LINK_VALID, data });
-    return history.push('/password/reset');
+    history.push('/password/reset');
+    return toastr.success(data.message);
+  }
+  if (response.status === 502) {
+    dispatch({ type: NETWORK_ERROR });
+    return toastr.error('Oops! unable to connect to the Internet. Please check your connection and try again');
   }
   const errors = response.data;
   dispatch({ type: PASSWORD_RESET_LINK_INVALID, errors });
-  return history.push('/password/reset');
+  history.push('/password/reset');
+  return toastr.error(errors.message);
 };
 
 export const resetPassword = (resetData, history) => async (dispatch) => {
@@ -61,9 +74,21 @@ export const resetPassword = (resetData, history) => async (dispatch) => {
   if (response.status === 200) {
     const { data } = response;
     dispatch({ type: PASSWORD_RESET_SUCCESSFUL, data });
-    return history.push('/');
+    history.push('/');
+    return toastr.success(data.message);
+  }
+  if (response.status === 400) {
+    const { errors } = response.data;
+    errors.message = 'Validation Error(s)';
+    dispatch({ type: VALIDATION_ERROR, errors });
+    return toastr.error(errors.message);
+  }
+  if (response.status === 502) {
+    dispatch({ type: NETWORK_ERROR });
+    return toastr.error('Oops! unable to connect to the Internet. Please check your connection and try again');
   }
   const errors = response.data;
   dispatch({ type: PASSWORD_RESET_FAILED, errors });
-  return history.push('/password/reset');
+  history.push('/password/reset');
+  return toastr.error(errors.message);
 };

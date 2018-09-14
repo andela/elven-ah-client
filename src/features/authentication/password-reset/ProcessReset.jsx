@@ -1,15 +1,10 @@
 import React from 'react';
-import { connect } from 'react-redux';
-import './password-reset.css';
 
 const ProcessReset = () => (
-  <div className="container my-4">
+  <div className="mx-auto centered col-xl-8 col-lg-8 col-md-6 col-sm-6 col-xs-6 my-5">
     <h2>Please wait ......</h2>
   </div>
 );
 
-const mapStateToProps = state => ({
-  location: state.router.location,
-});
 
-export default connect(mapStateToProps)(ProcessReset);
+export default ProcessReset;

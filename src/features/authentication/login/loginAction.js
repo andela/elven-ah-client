@@ -1,3 +1,4 @@
+import toastr from 'toastr';
 
 import {
   IS_LOADING,
@@ -5,6 +6,7 @@ import {
   LOGIN_FAILED,
   VALIDATION_ERROR,
   IS_COMPLETE,
+  NETWORK_ERROR,
 } from '../../../shared/constants/ActionTypes';
 import fetchData from '../../../shared/utilities/fetchData';
 import localStorageUtil from '../../../shared/utilities/localStorageUtil';
@@ -20,15 +22,22 @@ const loginUser = (user, history) => async (dispatch) => {
   if (response.status === 200) {
     dispatch({ type: LOGIN_SUCCESSFUL, user: response.data.user });
     localStorageUtil.setItem('ah_user', response.data.user);
-    return history.push('/');
+    history.push('/');
+    return toastr.success('You have logged in successfully');
+  }
+  if (response.status >= 500) {
+    dispatch({ type: NETWORK_ERROR });
+    return toastr.error('Oops! unable to connect to the Internet. Please check your connection and try again');
   }
   if (response.status === 400) {
     const { errors } = response.data;
     errors.message = 'Validation Error(s)';
-    return dispatch({ type: VALIDATION_ERROR, errors });
+    dispatch({ type: VALIDATION_ERROR, errors });
+    return toastr.error(errors.message);
   }
   const errors = response.data;
-  return dispatch({ type: LOGIN_FAILED, errors });
+  dispatch({ type: LOGIN_FAILED, errors });
+  return toastr.error(errors.message);
 };
 
 export default loginUser;

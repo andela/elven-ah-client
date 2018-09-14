@@ -33,6 +33,12 @@ const authReducer = (state = initialState, action) => {
     case type.startsWith('PROFILE'):
       return profileReducer(state, action);
 
+    case type.startsWith('CLEAR'):
+      return {
+        ...state,
+        errors,
+      };
+
     default:
       return state;
   }

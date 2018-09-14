@@ -1,26 +1,18 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { applyMiddleware, compose, createStore } from 'redux';
-import { Router } from 'react-router-dom';
-import { connectRouter, routerMiddleware } from 'connected-react-router';
+import { createBrowserHistory } from 'history';
 import { Provider } from 'react-redux';
-import ReduxThunk from 'redux-thunk';
-import history from './shared/utilities/history';
 
 import App from './App';
-import rootReducer from './shared/rootReducer';
+import configureStore from './store/store';
 
-const composeEnhancer = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
-const store = createStore(
-  connectRouter(history)(rootReducer),
-  composeEnhancer(applyMiddleware(ReduxThunk, routerMiddleware(history))),
-);
+const history = createBrowserHistory();
+const store = configureStore();
+
 
 ReactDOM.render(
   <Provider store={store}>
-    <Router history={history}>
-      <App history={history} />
-    </Router>
+    <App history={history} />
   </Provider>,
   document.getElementById('root'),
 );
