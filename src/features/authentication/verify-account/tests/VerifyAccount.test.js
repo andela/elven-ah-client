@@ -15,6 +15,7 @@ describe('Verify Account component', () => {
       handleSubmit={mockFunction}
       message="Account verification link"
       email="user@test.com"
+      type="success"
       errors={errors}
       resend
     />);

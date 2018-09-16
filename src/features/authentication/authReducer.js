@@ -36,7 +36,17 @@ const authReducer = (state = initialState, action) => {
     case type.startsWith('CLEAR'):
       return {
         ...state,
-        errors,
+        errors: {
+          ...state.errors,
+          message: '',
+          [action.errorField]: undefined,
+        },
+        resetLinkError: undefined,
+      };
+    case type.startsWith('@@router'):
+      return {
+        ...state,
+        errors: {},
       };
 
     default:

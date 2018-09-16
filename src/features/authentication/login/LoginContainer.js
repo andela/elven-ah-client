@@ -1,13 +1,15 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { PropTypes } from 'prop-types';
-import Login from './Login';
+
 import loginUser from './loginAction';
+import { clearValidationErrors } from '../authAction';
+
+import Login from './Login';
 import SocialLogin from '../SocialLogin';
 import Footer from '../Footer';
-import '../authPages.css';
+
 import logo from '../../../shared/assets/img/AH_LOGO.svg';
-import { clearValidationErrors } from '../authAction';
 
 /**
  * @class Handles Account verification
@@ -58,7 +60,7 @@ export class LoginContainer extends Component {
   render() {
     const { errors } = this.props;
     return (
-      <div className="h-100 justify-content-center align-items-center">
+      <div className="">
         <div className="text-center mb-4">
           <img className="mb-4 mt-5" src={logo} alt="logo" width="71" height="71" />
         </div>
@@ -81,9 +83,9 @@ export class LoginContainer extends Component {
 
 
 LoginContainer.propTypes = {
-  login: PropTypes.func.isRequired,
   clearValidation: PropTypes.func.isRequired,
   history: PropTypes.shape({}).isRequired,
+  login: PropTypes.func.isRequired,
   errors: PropTypes.shape({}),
 };
 

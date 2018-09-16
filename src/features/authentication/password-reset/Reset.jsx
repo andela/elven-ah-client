@@ -5,35 +5,34 @@ import { PropTypes } from 'prop-types';
 const Reset = ({
   handleChange, values, handleReset, errors,
 }) => (
-  <div className="mx-auto centered col-xl-4 col-lg-4 col-md-6 col-sm-6 col-xs-6">
+  <div className="mx-auto centered text-center col-xl-4 col-lg-4 col-md-6 col-sm-6 col-xs-6">
     <form className="form-login" onSubmit={handleReset}>
-      <h4 className="text-centre">Enter your new password</h4>
-      <div className="error">{errors.message}</div>
-      <input
-        onChange={handleChange}
-        type="password"
-        className="form-control form-input"
-        id="password"
-        value={values.password}
-        placeholder="Enter your password"
-        required
-      />
-      {errors.password ? errors.password.map((error, index) => <span className="error" key={index}>{error}</span>) : ''}
-      <input
-        onChange={handleChange}
-        type="password"
-        className="form-control form-input"
-        id="confirmPassword"
-        value={values.confirmPassword}
-        placeholder="Repeat password"
-        required
-      />
-      {errors.confirmPassword ? errors.confirmPassword.map((error, index) => (
-        <span className="error" key={index}>
-          {error}
-          <br />
-        </span>
-      )) : ''}
+      <h4>Enter your new password</h4>
+      <div className="form-label-group mb-3">
+        <input
+          onChange={handleChange}
+          type="password"
+          className="form-control form-input"
+          id="password"
+          value={values.password}
+          placeholder="Enter your password"
+          required
+        />
+        {errors.password ? errors.password.map((error, index) => <span className="invalid-feedback" key={index}>{error}</span>) : ''}
+      </div>
+      <div className="form-label-group mb-3">
+        <input
+          onChange={handleChange}
+          type="password"
+          className="form-control form-input"
+          id="confirmPassword"
+          value={values.confirmPassword}
+          placeholder="Repeat password"
+          required
+        />
+        <span className="invalid-feedback">{!errors.password && !errors.confirmPassword ? errors.message : ''}</span>
+        {errors.confirmPassword ? errors.confirmPassword.map((error, index) => <span className="invalid-feedback" key={index}>{error}</span>) : ''}
+      </div>
       <button className="btn mx-auto btn-block auth-submit-btn" type="submit"> Update Password</button>
     </form>
   </div>

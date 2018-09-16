@@ -9,10 +9,9 @@ const Login = ({
   <div className="container-fluid col-xl-6 col-lg-10 col-md-10 col-sm-6 col-xs-7">
     <form className="form-login" onSubmit={handleSubmit}>
       <br />
-      <div className="text-center mt-4 mb-1">
+      <div className="text-center my-4">
         <em>Log into your account with email/username</em>
       </div>
-      <div className="error">{errors.message}</div>
       <div className="form-label-group mb-3">
         <input
           onChange={handleChange}
@@ -23,7 +22,7 @@ const Login = ({
           placeholder="Enter your email or username"
           required
         />
-        <span className="invalid-feedback" />
+        <span className="invalid-feedback">{errors.email}</span>
       </div>
       <div className="form-label-group mb-3">
         <input
@@ -35,16 +34,16 @@ const Login = ({
           placeholder="Enter your password"
           required
         />
-        {errors.password ? errors.password.map((error, index) => <span className="error" key={index}>{error}</span>) : ''}
+        {errors.password ? errors.password.map((error, index) => <span className="invalid-feedback" key={index}>{error}</span>) : ''}
       </div>
       <button className="btn mx-auto btn-block auth-submit-btn" type="submit">Sign in</button>
-      <div className="text-center mb-4">
+      <div className="text-center my-4">
         <p>
           Don&apos;t have an account?
           {' '}
-          <Link to="/signup" className="btn btn-sm btn-link col-md-5"> Sign Up </Link>
-          {' '}
-          <Link to="/password/reset" className="btn btn-sm col-md-5">Forgot Password?</Link>
+          <Link to="/signup" className="login-text"> Create One </Link>
+          <br />
+          <Link to="/password/reset" className="login-text">Forgot Password?</Link>
         </p>
       </div>
     </form>

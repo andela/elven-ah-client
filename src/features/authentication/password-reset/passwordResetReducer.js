@@ -29,6 +29,7 @@ const passwordResetReducer = (state, { type, data, errors }) => {
       return {
         ...state,
         passwordResetToken: undefined,
+        resetLinkError: errors.message,
         errors,
       };
     // Handle the new password

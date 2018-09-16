@@ -16,15 +16,15 @@ const fetchData = async (payload) => {
   const {
     url, method, data, headers,
   } = payload;
-  axios.defaults.headers.common['Access-Control-Allow-Origin'] = '*';
+  const baseURL = process.env.NODE_ENV !== 'development'
+    ? 'https://authors-haven-staging.herokuapp.com/api/v1'
+    : '';
   const response = await axios({
-    baseURL: 'http://authors-haven-staging.herokuapp.com/api/v1/',
+    baseURL,
     url,
     method: method || 'get',
     data,
-    headers: {
-      'access-control-allow-origin': '*',
-    },
+    headers,
 
   })
     .then(resp => resp)

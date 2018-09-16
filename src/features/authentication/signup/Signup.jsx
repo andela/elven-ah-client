@@ -91,11 +91,11 @@ const Signup = ({
         />
         {errors.confirmPassword ? errors.confirmPassword.map(error => <small key={error} className="invalid-feedback">{error}</small>) : ''}
       </div>
-      <button className="btn btn-lg col-md-5 mx-auto btn-block auth-submit-btn" type="submit">Sign up</button>
+      <button className="btn mx-auto btn-block auth-submit-btn" type="submit">Sign up</button>
     </form>
     <br />
     <div className="text-center mb-4">
-      <p>Already have an account? <Link to="/" className="login-text"> Log in </Link> </p>
+      <p>Already have an account? <Link to="/login" className="login-text"> Log in </Link> </p>
     </div>
   </div>
 );
