@@ -16,12 +16,16 @@ const fetchData = async (payload) => {
   const {
     url, method, data, headers,
   } = payload;
+  const baseURL = process.env.NODE_ENV !== 'development'
+    ? 'https://authors-haven-staging.herokuapp.com/api/v1'
+    : '';
   const response = await axios({
-    baseURL: 'https://authors-haven-staging.herokuapp.com/api/v1',
+    baseURL,
     url,
     method: method || 'get',
     data,
     headers,
+
   })
     .then(resp => resp)
     .catch((error) => {

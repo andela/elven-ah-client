@@ -12,11 +12,11 @@ const routes = (
   <div>
     <Switch>
       <Route path="/" component={Home} exact />
-      <Route path="/login" component={LoginContainer} />
-      <Route path="/signup" component={SignupContainer} />
-      <Route path="/password/reset" component={ResetContainer} />
-      <Route path="/auth/verify" component={VerifyAccountContainer} />
       <Route path="/profile" component={ProfilePage} />
+      <Route path="/login" component={DefaultLoginContainer} />
+      <Route path="/signup" component={DefaultSignupContainer} />
+      <Route path="/password/reset" component={PasswordResetContainer} />
+      <Route path="/auth/verify" component={DefaultVerifyAccountContainer} />
     </Switch>
     <Footer />
   </div>

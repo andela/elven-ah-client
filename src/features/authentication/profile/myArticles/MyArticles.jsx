@@ -3,7 +3,7 @@ import React from 'react';
 import { PropTypes } from 'prop-types';
 import StarRatings from '../../../../common/StarRatings';
 
-const MyStories = ({
+const MyArticles = ({
   firstName, lastName, article, image, rating,
 }) => (
   <React.Fragment>
@@ -58,15 +58,15 @@ const MyStories = ({
     </div>
   </React.Fragment>
 );
-MyStories.propTypes = {
+MyArticles.propTypes = {
   lastName: PropTypes.string.isRequired,
   firstName: PropTypes.string.isRequired,
   article: PropTypes.shape([]).isRequired,
   rating: PropTypes.number.isRequired,
   image: PropTypes.string,
 };
-MyStories.defaultProps = {
+MyArticles.defaultProps = {
   image: '',
 };
 
-export default MyStories;
+export default MyArticles;

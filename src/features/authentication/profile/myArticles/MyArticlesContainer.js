@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import shortId from 'short-id';
 import MyArticles from './MyArticles';
 
-export default class MyStoriesContainer extends React.Component {
+export default class MyArticlesContainer extends React.Component {
   constructor(props) {
     super(props);
     this.state = {};
@@ -46,6 +46,6 @@ export default class MyStoriesContainer extends React.Component {
   }
 }
 
-MyStoriesContainer.propTypes = {
+MyArticlesContainer.propTypes = {
   user: PropTypes.shape({}).isRequired,
 };
