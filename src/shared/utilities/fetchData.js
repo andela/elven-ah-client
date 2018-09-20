@@ -22,7 +22,6 @@ const fetchData = async (payload) => {
     method: method || 'get',
     data,
     headers,
-
   })
     .then(resp => resp)
     .catch((error) => {

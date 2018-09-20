@@ -4,14 +4,10 @@ import { connect } from 'react-redux';
 import { PropTypes } from 'prop-types';
 import { logoutUser } from '../authentication/authAction';
 
-const Home = ({ auth, logout }) => {
-  const name = auth.isAuthenticated ? `${auth.user.firstName} ${auth.user.lastName}` : 'Guest';
-  const loginButton = !auth.isAuthenticated
-    ? <Link to="/login" className="btn btn-primary btn-xl js-scroll-trigger mb-2">Get Started</Link>
-    : <button type="button" className="btn btn-primary btn-xl js-scroll-trigger mb-2" onClick={logout}>Logout</button>;
-  const ProfileButton = auth.isAuthenticated
-    ? <Link to="/Profile" className="btn btn-primary btn-xl js-scroll-trigger mb-2 ml-2">Profile Button</Link>
-    : '';
+const Home = ({ auth }) => {
+  const name = auth.user.firstName ? `${auth.user.firstName} ${auth.user.lastName}` : 'Guest';
+  const loginButton = !auth.name ? <Link to="/login" className="btn btn-primary btn-xl js-scroll-trigger mb-2">Get Started</Link> : null;
+  const ProfileButton = <Link to="/Profile">Profile Button</Link>;
   return (
     <div className="text-center my-4">
       <header className="d-flex mt-2">
@@ -19,7 +15,7 @@ const Home = ({ auth, logout }) => {
           <div className="row">
             <div className="mx-auto">
               <h1 className="text-uppercase">
-                <strong>A social platform for authors and readers</strong>
+                <strong>A social platform for authors and readers.</strong>
               </h1>
               <hr />
               <h1 className={auth.isAuthenticated ? 'text-uppercase text-success' : 'text-uppercase'}>
