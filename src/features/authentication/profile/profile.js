@@ -1,0 +1,129 @@
+import React from 'react';
+import { connect } from 'react-redux';
+import { PropTypes } from 'prop-types';
+import NavBar from '../../../shared/layouts/Navbar';
+import ViewProfile from './viewProfile/ViewProfile';
+import EditProfile from './editProfile/EditProfileContainer';
+import MyArticles from './myArticles/MyArticlesContainer';
+import { getUserProfile, editUserImage, editUserProfile } from './profileAction';
+import history from '../../../shared/utilities/history';
+
+export class Profile extends React.PureComponent {
+  componentWillMount = async () => {
+    const { auth } = await this.props;
+    const authToken = auth.user.token;
+    if (!authToken || authToken === 'undefined') {
+      history.push('/login');
+      return null;
+    }
+    const { getProfile } = await this.props;
+    return getProfile();
+  }
+
+  render() {
+    const {
+      editProfile, editImage, auth,
+    } = this.props;
+    return (
+      <div className="container">
+        <NavBar />
+        <div className="row profile" id="profile">
+          <div className="col-12 col-sm-12 col-md-2" />
+          <div className="col-12 col-sm-12 col-md-8">
+            <ViewProfile
+              {...auth.user}
+              isUser
+              followingLength={!auth.user.token ? '' : auth.user.followings.length }
+              followerLength={!auth.user.token ? '' : auth.user.followers.length}
+            />
+            <div className="profile-content">
+              <ul className="nav nav-pills mb-4" id="pills-tab" role="tablist">
+                <li className="nav-item">
+                  <a
+                    className="tab-color nav-link active"
+                    id="pills-article-tab"
+                    data-toggle="pill"
+                    href="#pills-home"
+                    role="tab"
+                    aria-controls="pills-home"
+                    aria-selected="true"
+                  >
+                    My Stories
+                  </a>
+                </li>
+                <li className="nav-item">
+                  <a
+                    className="nav-link"
+                    id="pills-profile-tab"
+                    data-toggle="pill"
+                    href="#pills-profile"
+                    role="tab"
+                    aria-controls="pills-profile"
+                    aria-selected="false"
+                  >
+                    Edit Profile
+                  </a>
+                </li>
+              </ul>
+              <div
+                className="tab-content"
+                id="pills-tabContent"
+              >
+                <div
+                  className="tab-pane fade show active"
+                  id="pills-home"
+                  role="tabpanel"
+                  aria-labelledby="pills-home-tab"
+                >
+                  <MyArticles user={auth.user} />
+                </div>
+                <div
+                  className="tab-pane fade"
+                  id="pills-profile"
+                  role="tabpanel"
+                  aria-labelledby="pills-profile-tab"
+                >
+                  <EditProfile
+                    editImage={editImage}
+                    editProfile={editProfile}
+                    profile={auth.user}
+                  />
+
+                </div>
+                <div
+                  className="tab-pane fade"
+                  id="pills-contact"
+                  role="tabpanel"
+                  aria-labelledby="pills-contact-tab"
+                >
+                  Settings goes here
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div className="col-12 col-sm-12 col-md-2" />
+        </div>
+      </div>
+    );
+  }
+}
+
+Profile.propTypes = {
+  getProfile: PropTypes.func.isRequired,
+  editImage: PropTypes.func.isRequired,
+  editProfile: PropTypes.func.isRequired,
+  auth: PropTypes.shape({}).isRequired,
+};
+
+const mapStateToProps = state => ({
+  auth: state.auth,
+});
+
+const mapDispatchToProps = dispatch => ({
+  getProfile: () => dispatch(getUserProfile()),
+  editProfile: () => dispatch(editUserProfile()),
+  editImage: () => dispatch(editUserImage()),
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(Profile);

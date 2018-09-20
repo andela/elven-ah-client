@@ -7,6 +7,7 @@ import {
   IS_COMPLETE,
 } from '../../../shared/constants/ActionTypes';
 import fetchData from '../../../shared/utilities/fetchData';
+import localStorageUtil from '../../../shared/utilities/localStorageUtil';
 
 const loginUser = (user, history) => async (dispatch) => {
   dispatch({ type: IS_LOADING });
@@ -18,6 +19,7 @@ const loginUser = (user, history) => async (dispatch) => {
   dispatch({ type: IS_COMPLETE });
   if (response.status === 200) {
     dispatch({ type: LOGIN_SUCCESSFUL, user: response.data.user });
+    localStorageUtil.setItem('ah_user', response.data.user);
     return history.push('/');
   }
   if (response.status === 400) {
