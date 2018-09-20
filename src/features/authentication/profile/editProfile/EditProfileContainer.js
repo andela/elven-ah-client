@@ -104,7 +104,7 @@ export default class EditProfileContainer extends React.Component {
                 value="Save"
               >
                 <i className="fas fa-edit" />
-                {' '}Update Profile
+                Update Profile
               </button>
             </div>
           </div>
@@ -133,7 +133,7 @@ export default class EditProfileContainer extends React.Component {
                 value="Save"
               >
                 <i className="fas fa-camera" />
-                {' '}Update Profile Photo
+                Update Profile Photo
               </button>
             </div>
           </div>

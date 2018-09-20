@@ -22,20 +22,17 @@ const ViewProfile = ({
           <div className="col-12 col-sm-12 col-md-8">
             <h5 className="profile-name-container">
               <font className="profile-name">{firstName}</font>
-              {' '}
               {lastName}
               {isUser ? '' : (
                 <button type="button" className="btn follow-button">
               follow
                 </button>
               ) }
-
               {isUser ? '' : (
                 <button type="button" className="btn unfollow-button">
               follow
                 </button>
               )}
-
             </h5>
             <div className="profile-story">
               {bio}
@@ -43,14 +40,11 @@ const ViewProfile = ({
             <div className="following-metrics">
               <Link to="/">
                 {followingLength}
-                {' '}
                   Following
               </Link>
               <Link to="/">
                 {followerLength}
-                {' '}
                   Followers
-
               </Link>
             </div>
           </div>
