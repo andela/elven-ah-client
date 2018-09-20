@@ -4,7 +4,7 @@ import { PropTypes } from 'prop-types';
 import './login.css';
 
 const Login = ({ handleChange, handleSubmit, errors }) => (
-  <div className="container my-4">
+  <div className="containers my-4">
     <form className="form-signin" onSubmit={handleSubmit}>
       <h2 className="form-signin-heading">Please Sign in</h2>
       <div className="error">{errors.message}</div>
