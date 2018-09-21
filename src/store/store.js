@@ -2,12 +2,11 @@ import { applyMiddleware, compose, createStore } from 'redux';
 import { connectRouter, routerMiddleware } from 'connected-react-router';
 import ReduxThunk from 'redux-thunk';
 import throttle from 'lodash/throttle';
-import { createBrowserHistory } from 'history';
 
 import rootReducer from '../shared/rootReducer';
 import { saveState, loadState } from '../shared/utilities/persistState';
+import history from '../shared/utilities/history';
 
-const history = createBrowserHistory();
 
 const configureStore = () => {
   const persistedState = loadState();
@@ -22,7 +21,7 @@ const configureStore = () => {
 
   store.subscribe(throttle(() => {
     saveState(store.getState());
-  }, 5000));
+  }, 1000));
   return store;
 };
 

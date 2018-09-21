@@ -1,12 +1,11 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { createBrowserHistory } from 'history';
 import { Provider } from 'react-redux';
 
 import RootApp from './App';
 import configureStore from './store/store';
+import history from './shared/utilities/history';
 
-const history = createBrowserHistory();
 const store = configureStore();
 
 
