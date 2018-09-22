@@ -1,6 +1,6 @@
 import React from 'react';
 import { Route, Switch } from 'react-router-dom';
-import Home from '../features/home/Home';
+import DefaultHome from '../features/home/Home';
 import DefaultLoginContainer from '../features/authentication/login/LoginContainer';
 import DefaultSignupContainer from '../features/authentication/signup/SignupContainer';
 import DefaultVerifyAccountContainer from '../features/authentication/verify-account/VerifyAccountContainer';
@@ -12,7 +12,7 @@ import DefaultSocialLoginContainer from '../features/authentication/social-login
 const routes = (
   <div>
     <Switch>
-      <Route path="/" component={Home} exact />
+      <Route path="/" component={DefaultHome} exact />
       <Route path="/profile" component={ProfilePage} />
       <Route path="/login" component={DefaultLoginContainer} />
       <Route path="/signup" component={DefaultSignupContainer} />
