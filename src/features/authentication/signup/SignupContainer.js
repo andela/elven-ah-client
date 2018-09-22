@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { PropTypes } from 'prop-types';
 import Signup from './Signup';
 import signupUser from './signupAction';
-import SocialLogin from '../SocialLogin';
+import SocialLogin from '../social-login/SocialLogin';
 import ahLogo from '../../../shared/assets/img/AH_LOGO.svg';
 import { clearValidationErrors } from '../authAction';
 
