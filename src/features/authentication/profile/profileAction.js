@@ -46,7 +46,7 @@ export const getUserProfile = userProfile => async (dispatch, getState) => {
     if (response.statusText === 'Unauthorized') {
       return history.push('/login');
     } if (response.status === 200) {
-      localStorageUtil.setItem('ah_user', Object.assign({}, { ...state.auth.user }, { ...response.data.user }));
+      localStorageUtil.setItem('ah_user', { ...state.auth.user, ...response.data.user });
       return dispatch(viewUserProfile(response.data.user));
     }
     const error = Object.assign({}, {
@@ -172,11 +172,17 @@ export const editUserImage = user => async (dispatch) => {
     dispatch({ type: IS_COMPLETE });
     if (response.statusText === 'Unauthorized') {
       return history.push('/login');
-    } if (response.status === 200) {
+    }
+    if (response.status === 200) {
       cloudImageUrl = response.data.secure_url;
       return dispatch(uploadUserImage(cloudImageUrl));
     }
-  } catch ({ response }) {
+    const error = Object.assign({}, {
+      status: response.data.status,
+      message: response.data.message,
+    });
+    return Promise.reject(error);
+  } catch (error) {
     return toastr.error('Failed to upload image. Try again');
   }
 };

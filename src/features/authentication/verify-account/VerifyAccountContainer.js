@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { PropTypes } from 'prop-types';
-import { parse } from 'query-string';
+import { parse } from '../../../query-string';
 import VerifyAccount from './VerifyAccount';
 import verifyAccount, { resendVerificationLink } from './verifyAccountActions';
 import ahLogo from '../../../shared/assets/img/AH_LOGO.svg';
@@ -23,6 +23,7 @@ export class VerifyAccountContainer extends Component {
       email: '',
       resend: false,
       message: 'Processing request',
+      type: '',
     };
   }
 
@@ -81,7 +82,8 @@ export class VerifyAccountContainer extends Component {
     if (response) {
       this.setState({
         resend: false,
-        message: response,
+        message: response.message,
+        type: response.type,
       });
       return null;
     }
@@ -97,7 +99,9 @@ export class VerifyAccountContainer extends Component {
    */
   render() {
     const { errors } = this.props;
-    const { email, resend, message } = this.state;
+    const {
+      email, resend, message, type,
+    } = this.state;
     return (
       <div className="col-xl-3 col-lg-4 col-md-5 container-fluid">
         <div className="text-center mb-4">
@@ -109,6 +113,7 @@ export class VerifyAccountContainer extends Component {
             email={email}
             resend={resend}
             errors={errors}
+            type={type}
             message={message}
             handleResendLink={this.handleResendLink}
             handleSubmit={this.handleSubmit}

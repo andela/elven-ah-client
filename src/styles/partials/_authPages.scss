@@ -15,6 +15,14 @@ body {
  max-width: 680px;
  padding: 0 15px;
 }
+.loader {
+ position: absolute;
+ z-index: 1;
+ margin-top: -110Px;
+ margin-left: -100Px;
+ left: 50%;
+ top: 40%;
+}
 .divider {
  border-right: 0.75px solid rgba(0, 0, 0, 0.5);
 }

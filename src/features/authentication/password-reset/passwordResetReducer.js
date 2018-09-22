@@ -28,6 +28,8 @@ const passwordResetReducer = (state, { type, data, errors }) => {
     case PASSWORD_RESET_LINK_INVALID:
       return {
         ...state,
+        passwordResetToken: undefined,
+        resetLinkError: errors.message,
         errors,
       };
     // Handle the new password
@@ -40,6 +42,7 @@ const passwordResetReducer = (state, { type, data, errors }) => {
       return {
         ...state,
         errors,
+        passwordResetToken: undefined,
       };
     default:
       return state;

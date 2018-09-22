@@ -20,7 +20,9 @@ describe('Tests the signup container', () => {
   it('should render without errors', () => {
     const wrapper = shallow(<SignupContainer
       signup={mockFunction}
+      clearValidation={mockFunction}
       history={history}
+      loading={false}
       errors={errors}
     />);
     expect(wrapper.find(Signup)).toHaveLength(1);

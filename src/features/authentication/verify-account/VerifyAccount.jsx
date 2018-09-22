@@ -1,16 +1,17 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import '../login/login.css';
 
 const VerifyAccount = ({
-  handleChange, handleSubmit, email, errors, resend, message, handleResendLink,
+  handleChange, handleSubmit, email, errors, resend, message, type, handleResendLink,
 }) => (
   <div className="containers mb-4">
     {
       resend ? (
         <form className="form-login" onSubmit={handleSubmit}>
           <div className="text-center mb-4">
-            <em>{message}</em>
+            <em className={type === 'error' ? 'invalid-feedback' : 'success-feedback'}>
+              {message}
+            </em>
           </div>
           <div className="form-label-group mb-3">
             <input
@@ -35,7 +36,9 @@ const VerifyAccount = ({
       ) : (
         <div>
           <div className="text-center mb-4">
-            <em>{message}</em>
+            <em className={type === 'error' ? 'invalid-feedback' : 'success-feedback'}>
+              {message}
+            </em>
           </div>
           <button onClick={handleResendLink} className="btn btn-lg mx-auto btn-block auth-submit-btn" type="submit">Resend verification link</button>
         </div>)
@@ -50,6 +53,7 @@ VerifyAccount.propTypes = {
   email: PropTypes.string.isRequired,
   errors: PropTypes.shape({}).isRequired,
   message: PropTypes.string.isRequired,
+  type: PropTypes.string.isRequired,
   resend: PropTypes.bool.isRequired,
 };
 
