@@ -7,6 +7,7 @@ import DefaultVerifyAccountContainer from '../features/authentication/verify-acc
 import PasswordResetContainer from '../features/authentication/password-reset/PasswordResetContainer';
 import Footer from '../features/authentication/Footer';
 import ProfilePage from '../features/authentication/profile/profile';
+import DefaultSocialLoginContainer from '../features/authentication/social-login/SocialLoginContainer';
 
 const routes = (
   <div>
@@ -17,6 +18,7 @@ const routes = (
       <Route path="/signup" component={DefaultSignupContainer} />
       <Route path="/password/reset" component={PasswordResetContainer} />
       <Route path="/auth/verify" component={DefaultVerifyAccountContainer} />
+      <Route path="/oauth2/:socialLogin" component={DefaultSocialLoginContainer} />
     </Switch>
     <Footer />
   </div>
