@@ -1,159 +1,55 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { PropTypes } from 'prop-types';
+import SingleArticleComment from './SingleArticleComment';
+import SingleArticleCommentForm from './SingleArticleCommentForm';
 
 /* eslint-disable react/no-array-index-key */
-const SingleArticle = ({ article, errors }) => (
+const SingleArticle = () => (
   <React.Fragment>
-  <div class="container">
 
-
-    <div class="jumbotron p-3 p-md-12 text-white rounded bg-dark">
-      <div class="col-md-6 px-0">
-        <h1 class="display-4 font-italic">Title of a longer featured blog post</h1>
-        <p class="lead my-3">Multiple lines of text that form the lede, informing new readers quickly and efficiently about
-          what's most interesting in this post's contents.</p>
-        <p class="lead mb-0"><a href="#" class="text-white font-weight-bold">Continue reading...</a></p>
-      </div>
-    </div>
-  </div>
-
-  <main role="main" class="container">
-    <div class="row">
-      <div class="col-md-8 blog-main">
-        <h3 class="pb-3 mb-4 font-italic border-bottom">
-          From the Firehose
-        </h3>
-
-        <div class="blog-post">
-          <h2 class="blog-post-title">Sample blog post</h2>
-          <p class="blog-post-meta">January 1, 2014 by <a href="#">Mark</a></p>
-
-          <p>This blog post shows a few different types of content that's supported and styled with Bootstrap. Basic typography,
-            images, and code are all supported.</p>
-          <hr />
-          <p>Cum sociis natoque penatibus et magnis <a href="#">dis parturient montes</a>, nascetur ridiculus mus. Aenean
-            eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Sed posuere consectetur est at lobortis.
-            Cras mattis consectetur purus sit amet fermentum.</p>
-          <blockquote>
-            <p>Curabitur blandit tempus porttitor. <strong>Nullam quis risus eget urna mollis</strong> ornare vel eu leo.
-              Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
-          </blockquote>
-          <p>Etiam porta <em>sem malesuada magna</em> mollis euismod. Cras mattis consectetur purus sit amet fermentum. Aenean
-            lacinia bibendum nulla sed consectetur.</p>
-          <h2>Heading</h2>
-          <p>Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. Duis mollis, est non commodo luctus,
-            nisi erat porttitor ligula, eget lacinia odio sem nec elit. Morbi leo risus, porta ac consectetur ac, vestibulum
-            at eros.</p>
-          <h3>Sub-heading</h3>
-          <p>Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.</p>
-          <pre><code>Example code block</code></pre>
-          <p>Aenean lacinia bibendum nulla sed consectetur. Etiam porta sem malesuada magna mollis euismod. Fusce dapibus,
-            tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa.</p>
-          <h3>Sub-heading</h3>
-          <p>Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Aenean lacinia bibendum
-            nulla sed consectetur. Etiam porta sem malesuada magna mollis euismod. Fusce dapibus, tellus ac cursus commodo,
-            tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
-          <ul>
-            <li>Praesent commodo cursus magna, vel scelerisque nisl consectetur et.</li>
-            <li>Donec id elit non mi porta gravida at eget metus.</li>
-            <li>Nulla vitae elit libero, a pharetra augue.</li>
-          </ul>
-          <p>Donec ullamcorper nulla non metus auctor fringilla. Nulla vitae elit libero, a pharetra augue.</p>
-          <ol>
-            <li>Vestibulum id ligula porta felis euismod semper.</li>
-            <li>Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.</li>
-            <li>Maecenas sed diam eget risus varius blandit sit amet non magna.</li>
-          </ol>
-          <p>Cras mattis consectetur purus sit amet fermentum. Sed posuere consectetur est at lobortis.</p>
+    <main role="main" className="container">
+      <div className="row">
+        <div className="col-md-8">
+          <div className="col-md-12 blog-main border-top">
+            <div className="blog-post">
+              <h5 className="blog-post-title single-article-blog-post-title">Article Title Goes here.....</h5>
+              <hr className="" />
+              <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis nam, quasi velit ipsum
+            consequuntur laborum inventore iure, at voluptatibus reiciendis magnam. Eveniet eaque error
+            corrupti deleniti ut rem possimus facilis! Lorem ipsum dolor sit amet consectetur adipisicing elit. Soluta assumenda asperiores cupiditate. Eaque perspiciatis perferendis et aliquam cupiditate animi numquam facere, non nihil repudiandae quo enim sapiente, dolore quaerat quos sit voluptatem aperiam unde alias sint optio. Officiis nemo ipsum cum accusamus obcaecati culpa quae porro rerum aperiam. Vero atque deserunt numquam deleniti adipisci error dolores distinctio blanditiis explicabo quia praesentium aut, minima odit ipsam accusamus iste repellendus consequuntur nobis recusandae? Inventore quod quibusdam debitis, facilis quia id sapiente, et magni aliquid, odit dolores suscipit exercitationem. Ex nam perspiciatis rerum vel deserunt, qui eum deleniti obcaecati repellat non at ab error, corrupti numquam earum quae doloribus nihil iste officiis! Ipsum fuga debitis quod assumenda, minus ullam quam harum, similique quis dolore saepe facere commodi eos? Odit dolores architecto rem sint ut quisquam illum vitae voluptas quia ad tempora nobis optio, saepe illo unde similique necessitatibus voluptatibus assumenda porro, culpa omnis corrupti temporibus ipsum? Maiores quod aspernatur nulla. Delectus asperiores non reiciendis ratione iure debitis, neque facilis tenetur at ipsum, ullam quidem blanditiis ipsam vero atque velit quos soluta eius. Itaque commodi nulla harum nobis error odit amet quam porro dolore facere molestias consequuntur, voluptas rerum fuga sequi dicta qui maiores vero! Aut fuga animi at nam voluptatem molestias, asperiores, ipsa reprehenderit corporis, aliquid a placeat. Suscipit eos quo optio vel eaque ipsam eum, possimus veritatis magnam asperiores fugiat incidunt sint laborum voluptas repellendus voluptate vero laboriosam. Porro soluta animi doloribus vitae deleniti quasi, a ipsa libero nostrum corrupti sed accusamus ipsam dignissimos quam laboriosam ut alias illo quis. Deserunt, sint sapiente! Commodi illo cumque ex quia illum, magni quidem! Ipsa sapiente, explicabo totam voluptatum ipsam quos, laborum, quia in odio nesciunt dicta. Fugiat perferendis omnis a sequi officia itaque. Recusandae nam deleniti veritatis culpa ut pariatur vitae nostrum exercitationem facilis voluptatum. Placeat pariatur tempora ea excepturi! Numquam iusto voluptatem culpa molestias similique qui non pariatur cumque accusamus nostrum. Laboriosam illum quam distinctio iste ea itaque aut voluptatem quod. Dolorem doloribus eveniet non perferendis omnis neque tempora consequuntur quisquam voluptatem! Quis, inventore nihil,
+              </p>
+            </div>
+          </div>
         </div>
 
-        <div class="blog-post">
-          <h2 class="blog-post-title">Another blog post</h2>
-          <p class="blog-post-meta">December 23, 2013 by <a href="#">Jacob</a></p>
+        <aside className="col-md-4 blog-sidebar">
+          <div className="p-3 mb-3 bg-light rounded">
+            <h5 className="single-article-author-name">
+              <img src="https://i.imgur.com/oW1dGDI.jpg" className="rounded-circle single-article-profile-photo border border-info" alt="profile" />
 
-          <p>Cum sociis natoque penatibus et magnis <a href="#">dis parturient montes</a>, nascetur ridiculus mus. Aenean
-            eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Sed posuere consectetur est at lobortis.
-            Cras mattis consectetur purus sit amet fermentum.</p>
-          <blockquote>
-            <p>Curabitur blandit tempus porttitor. <strong>Nullam quis risus eget urna mollis</strong> ornare vel eu leo.
-              Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
-          </blockquote>
-          <p>Etiam porta <em>sem malesuada magna</em> mollis euismod. Cras mattis consectetur purus sit amet fermentum. Aenean
-            lacinia bibendum nulla sed consectetur.</p>
-          <p>Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. Duis mollis, est non commodo luctus,
-            nisi erat porttitor ligula, eget lacinia odio sem nec elit. Morbi leo risus, porta ac consectetur ac, vestibulum
-            at eros.</p>
-        </div>
-
-        <div class="blog-post">
-          <h2 class="blog-post-title">New feature</h2>
-          <p class="blog-post-meta">December 14, 2013 by <a href="#">Chris</a></p>
-
-          <p>Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Aenean lacinia bibendum
-            nulla sed consectetur. Etiam porta sem malesuada magna mollis euismod. Fusce dapibus, tellus ac cursus commodo,
-            tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
-          <ul>
-            <li>Praesent commodo cursus magna, vel scelerisque nisl consectetur et.</li>
-            <li>Donec id elit non mi porta gravida at eget metus.</li>
-            <li>Nulla vitae elit libero, a pharetra augue.</li>
-          </ul>
-          <p>Etiam porta <em>sem malesuada magna</em> mollis euismod. Cras mattis consectetur purus sit amet fermentum. Aenean
-            lacinia bibendum nulla sed consectetur.</p>
-          <p>Donec ullamcorper nulla non metus auctor fringilla. Nulla vitae elit libero, a pharetra augue.</p>
-        </div>
-
-        <nav class="blog-pagination">
-          <a class="btn btn-outline-primary" href="#">Older</a>
-          <a class="btn btn-outline-secondary disabled" href="#">Newer</a>
-        </nav>
+              <b>Author name</b>
+            </h5>
+            <p className="mb-0">
+          Biography of the author here.....
+            </p>
+          </div>
+        </aside>
 
       </div>
-
-      <aside class="col-md-4 blog-sidebar">
-        <div class="p-3 mb-3 bg-light rounded">
-          <h4 class="font-italic">About</h4>
-          <p class="mb-0">Etiam porta <em>sem malesuada magna</em> mollis euismod. Cras mattis consectetur purus sit amet
-            fermentum. Aenean lacinia bibendum nulla sed consectetur.</p>
+      <div className="col-md-8">
+        <div className="row">
+          <SingleArticleCommentForm />
         </div>
 
-        <div class="p-3">
-          <h4 class="font-italic">Archives</h4>
-          <ol class="list-unstyled mb-0">
-            <li><a href="#">March 2014</a></li>
-            <li><a href="#">February 2014</a></li>
-            <li><a href="#">January 2014</a></li>
-            <li><a href="#">December 2013</a></li>
-            <li><a href="#">November 2013</a></li>
-            <li><a href="#">October 2013</a></li>
-            <li><a href="#">September 2013</a></li>
-            <li><a href="#">August 2013</a></li>
-            <li><a href="#">July 2013</a></li>
-            <li><a href="#">June 2013</a></li>
-            <li><a href="#">May 2013</a></li>
-            <li><a href="#">April 2013</a></li>
-          </ol>
+        <div className="row">
+          <SingleArticleComment />
+          <SingleArticleComment />
         </div>
+      </div>
 
-        <div class="p-3">
-          <h4 class="font-italic">Elsewhere</h4>
-          <ol class="list-unstyled">
-            <li><a href="#">GitHub</a></li>
-            <li><a href="#">Twitter</a></li>
-            <li><a href="#">Facebook</a></li>
-          </ol>
-        </div>
-      </aside>
-
-    </div> 
-
-  </main>
-
-  <footer class="blog-footer">
-    <p>Blog template built for <a href="https://getbootstrap.com/">Bootstrap</a> by <a href="https://twitter.com/mdo">@mdo</a>.</p>
-    <p>
-      <a href="#">Back to top</a>
-    </p>
-  </footer>
+    </main>
 
   </React.Fragment>
 

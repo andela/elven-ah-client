@@ -3,12 +3,13 @@ html {
  min-height: 100%;
 }
 body {
- margin-bottom: 90px !important;
- max-width: 100vw;
- overflow-x: hidden;
- overflow-y: scroll;
- background: #ececec url('https://res.cloudinary.com/dvcaeuvee/image/upload/v1536744518/AuthPageBackground.svg') repeat-y;
- background-size: auto;
+  margin-bottom: 90px !important;
+  max-width: 100vw;
+  overflow-x: hidden;
+  overflow-y: scroll;
+  background: #fafafa url("https://res.cloudinary.com/cj-odina/image/upload/v1537715062/Background_wkvut1.svg") repeat-y;
+  background-size: 100%;
+  font-family: 'Cardo', serif; 
 }
 .divider {
  border-right: 0.75px solid rgba(0, 0, 0, 0.5);
