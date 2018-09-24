@@ -122,7 +122,14 @@
   left: 260px;
   top: -180px;
 }
-
+.profile-article-title {
+  text-decoration: none;
+  color: #000;
+}
+.profile-article-title:hover {
+  text-decoration: none;
+  color: #26519A;
+}
 .profile-settings-dropdown-text {
   font-size: 15px;
 }
@@ -186,6 +193,7 @@ textarea {
 }
 .card-title {
  font-size: 20px;
+ margin-bottom: 25px;
 }
 .card-text {
   font-size: 14px;
@@ -489,5 +497,5 @@ textarea {
 }
 .cards {
   margin-top: 20px;
-  height: 500px;
+  height: 505px;
 }
