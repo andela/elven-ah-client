@@ -18,7 +18,7 @@ const fetchData = async (payload) => {
   } = payload;
   const baseURL = process.env.NODE_ENV !== 'development'
     ? 'https://authors-haven-staging.herokuapp.com/api/v1'
-    : 'http://localhost:4000/api/v1';
+    : 'http://localhost:3000/api/v1';
   const response = await axios({
     baseURL,
     url,

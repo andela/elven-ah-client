@@ -4,7 +4,7 @@ import { PropTypes } from 'prop-types';
 import Signup from './Signup';
 import signupUser from './signupAction';
 import SocialLogin from '../social-login/SocialLogin';
-import ahLogo from '../../../shared/assets/img/AH_LOGO.svg';
+import ahLogo from '../../../shared/assets/img/logo.svg';
 import { clearValidationErrors } from '../authAction';
 
 /**

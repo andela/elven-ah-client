@@ -44,7 +44,7 @@ export default class EditProfileContainer extends React.Component {
 
   render() {
     const {
-      firstName, lastName, bio, fileName,
+      firstName, lastName, bio, fileName, username,
     } = this.state;
     return (
       <React.Fragment>
@@ -83,6 +83,21 @@ export default class EditProfileContainer extends React.Component {
             <span
               className="col-sm-2 col-form-span"
             >
+            Username
+            </span>
+            <div className="col-sm-8">
+              <EditProfile
+                className="form-control profile-input"
+                name="lastName"
+                value={username}
+                onChange={this.handleChange}
+              />
+            </div>
+          </div>
+          <div className="form-group row">
+            <span
+              className="col-sm-2 col-form-span"
+            >
                     Biography
             </span>
             <div className="col-sm-8">
@@ -104,7 +119,7 @@ export default class EditProfileContainer extends React.Component {
                 value="Save"
               >
                 <i className="fas fa-edit" />
-                Update Profile
+                &nbsp; Update Profile
               </button>
             </div>
           </div>
@@ -133,7 +148,7 @@ export default class EditProfileContainer extends React.Component {
                 value="Save"
               >
                 <i className="fas fa-camera" />
-                Update Profile Photo
+                &nbsp; Update Profile Photo
               </button>
             </div>
           </div>

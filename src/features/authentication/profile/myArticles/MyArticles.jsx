@@ -2,6 +2,7 @@
 import React from 'react';
 import { PropTypes } from 'prop-types';
 import { Link } from 'react-router-dom';
+import moment from 'moment';
 import StarRatings from '../../../../common/StarRatings';
 
 const MyStories = ({
@@ -26,7 +27,7 @@ const MyStories = ({
             <font className="profile-name"><b>{firstName}</b></font>
             <font className="profile-name"><b>{lastName} </b></font>
               (
-            {new Date(article.createdAt).toLocaleString('en-GB', { hour12: true })}
+            {moment(article.createdAt).fromNow()}
               )
           </div>
           <p className="card-text justify-content-center">

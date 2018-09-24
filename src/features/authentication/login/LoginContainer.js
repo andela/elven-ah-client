@@ -9,7 +9,7 @@ import Login from './Login';
 import SocialLogin from '../social-login/SocialLogin';
 import Footer from '../Footer';
 
-import logo from '../../../shared/assets/img/AH_LOGO.svg';
+import logo from '../../../shared/assets/img/logo.svg';
 
 /**
  * @class Handles Account verification
