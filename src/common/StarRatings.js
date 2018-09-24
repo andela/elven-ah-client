@@ -5,7 +5,7 @@ import StarRatings from 'react-star-ratings';
 const StarRating = ({
   rating, starRatedColor, changeRating,
   numberOfStars, name, starHoverColor,
-  starDimension, starSpacing,
+  starDimension, starSpacing, starEmptyColor,
 }) => (
   <React.Fragment>
     <StarRatings
@@ -17,6 +17,7 @@ const StarRating = ({
       starHoverColor={starHoverColor}
       starDimension={starDimension}
       starSpacing={starSpacing}
+      starEmptyColor={starEmptyColor}
     />
   </React.Fragment>
 );
@@ -30,6 +31,7 @@ StarRating.propTypes = {
   starHoverColor: PropTypes.string.isRequired,
   starDimension: PropTypes.string.isRequired,
   starSpacing: PropTypes.string.isRequired,
+  starEmptyColor: PropTypes.string.isRequired,
 };
 
 StarRating.defaultProps = {
