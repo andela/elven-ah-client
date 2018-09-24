@@ -1,6 +1,7 @@
 
 import React from 'react';
 import { PropTypes } from 'prop-types';
+import { Link } from 'react-router-dom';
 import StarRatings from '../../../../common/StarRatings';
 
 const MyStories = ({
@@ -14,7 +15,6 @@ const MyStories = ({
           src="http://2.bp.blogspot.com/-D-zBI0KBqns/UbRG757mNzI/AAAAAAAAA3Y/dQGkALwgZyo/s1600/background1.jpg"
           alt=""
         />
-
         <div className="card-body">
           <h5 className="card-title">
             <b>{article.title}</b>
@@ -33,7 +33,7 @@ const MyStories = ({
           </p>
           <div className="row card-activity">
             <div className="rating col-5 col-sm-5 col-md-5">
-              <p>
+              <p className="star-rating-position">
                 <font className="rating-total">
                   {typeof article.ratings === 'undefined' || article.ratings.length === 0 ? '' : article.ratings.length}
                 </font>
@@ -41,11 +41,13 @@ const MyStories = ({
                   rating={rating}
                   numberOfStars={5}
                   name="artcile"
-                  starHoverColor="yellow"
                   starDimension="15px"
                   starSpacing={0}
                   starRatedColor="#26519A"
-                  className="rating-stars"
+                  className="star-ratings"
+                  isSelectable="false"
+                  starEmptyColor="grey"
+                  starHoverColor="grey"
                 />
               </p>
             </div>
@@ -56,6 +58,7 @@ const MyStories = ({
                 <i className="far fa-comment" />
               </p>
             </div>
+
           </div>
         </div>
       </div>
