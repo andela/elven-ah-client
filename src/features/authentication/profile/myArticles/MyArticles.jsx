@@ -2,6 +2,7 @@
 import React from 'react';
 import { PropTypes } from 'prop-types';
 import { Link } from 'react-router-dom';
+import moment from 'moment';
 import StarRatings from '../../../../common/StarRatings';
 
 const MyStories = ({
@@ -16,15 +17,17 @@ const MyStories = ({
           alt=""
         />
         <div className="card-body">
-          <h5 className="card-title">
-            <b>{article.title}</b>
-          </h5>
+          <Link className="profile-article-title" to={`/articles/${article.slug}`}>
+            <h5 className="card-title">
+              <b>{article.title}</b>
+            </h5>
+          </Link>
           <div className="card-name col-md-12">
             <img src={image} className="rounded-circle profile-photo-content border border-info" alt="profile" />
             <font className="profile-name"><b>{firstName}</b></font>
             <font className="profile-name"><b>{lastName} </b></font>
               (
-            {new Date(article.createdAt).toLocaleString('en-GB', { hour12: true })}
+            {moment(article.createdAt).fromNow()}
               )
           </div>
           <p className="card-text justify-content-center">
