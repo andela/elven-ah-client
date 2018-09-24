@@ -29,86 +29,75 @@ export class Profile extends React.PureComponent {
     return (
       <div className="container">
         <NavBar />
-        {auth.user.followings
-          ? (
-            <div className="row profile" id="profile">
-              <div className="col-12 col-sm-12 col-md-2" />
-              <div className="col-12 col-sm-12 col-md-8">
-                <ViewProfile
-                  {...auth.user}
-                  isUser
-                  followingLength={auth.user.followings.length}
-                  followerLength={auth.user.followers.length}
-                />
-                <div className="profile-content">
-                  <ul className="nav nav-pills mb-4" id="pills-tab" role="tablist">
-                    <li className="nav-item">
-                      <a
-                        className="tab-color nav-link active"
-                        id="pills-article-tab"
-                        data-toggle="pill"
-                        href="#pills-home"
-                        role="tab"
-                        aria-controls="pills-home"
-                        aria-selected="true"
-                      >
-                        My Stories
-                      </a>
-                    </li>
-                    <li className="nav-item">
-                      <a
-                        className="nav-link"
-                        id="pills-profile-tab"
-                        data-toggle="pill"
-                        href="#pills-profile"
-                        role="tab"
-                        aria-controls="pills-profile"
-                        aria-selected="false"
-                      >
-                        Edit Profile
-                      </a>
-                    </li>
-                  </ul>
-                  <div
-                    className="tab-content"
-                    id="pills-tabContent"
+        <div className="row profile" id="profile">
+          <div className="col-12 col-sm-12 col-md-12">
+            <ViewProfile
+              {...auth.user}
+              isUser
+              followingLength={auth.user.followings.length}
+              followerLength={auth.user.followers.length}
+            />
+            <div className="profile-content">
+              <ul className="nav nav-pills mb-4" id="pills-tab" role="tablist">
+                <li className="nav-item">
+                  <a
+                    className="tab-color nav-link active"
+                    id="pills-article-tab"
+                    data-toggle="pill"
+                    href="#pills-home"
+                    role="tab"
+                    aria-controls="pills-home"
+                    aria-selected="true"
                   >
-                    <div
-                      className="tab-pane fade show active"
-                      id="pills-home"
-                      role="tabpanel"
-                      aria-labelledby="pills-home-tab"
-                    >
-                      <MyArticles user={auth.user} />
-                    </div>
-                    <div
-                      className="tab-pane fade"
-                      id="pills-profile"
-                      role="tabpanel"
-                      aria-labelledby="pills-profile-tab"
-                    >
-                      <EditProfile
-                        editUserImage={editUserImageAlias}
-                        editUserProfile={editUserProfileAlias}
-                        profile={auth.user}
-                      />
+                    My Stories
+                  </a>
+                </li>
+                <li className="nav-item">
+                  <a
+                    className="nav-link"
+                    id="pills-profile-tab"
+                    data-toggle="pill"
+                    href="#pills-profile"
+                    role="tab"
+                    aria-controls="pills-profile"
+                    aria-selected="false"
+                  >
+                    Edit Profile
+                  </a>
+                </li>
+              </ul>
+              <div
+                className="tab-content"
+                id="pills-tabContent"
+              >
+                <div
+                  className="tab-pane fade show active"
+                  id="pills-home"
+                  role="tabpanel"
+                  aria-labelledby="pills-home-tab"
+                >
+                  <div className="card-deck">
 
-                    </div>
-                    <div
-                      className="tab-pane fade"
-                      id="pills-contact"
-                      role="tabpanel"
-                      aria-labelledby="pills-contact-tab"
-                    >
-                      Settings goes here
-                    </div>
+                    <MyArticles user={auth.user} />
                   </div>
                 </div>
-              </div>
+                <div
+                  className="tab-pane fade"
+                  id="pills-profile"
+                  role="tabpanel"
+                  aria-labelledby="pills-profile-tab"
+                >
+                  <EditProfile
+                    editUserImage={editUserImageAlias}
+                    editUserProfile={editUserProfileAlias}
+                    profile={auth.user}
+                  />
 
-              <div className="col-12 col-sm-12 col-md-2" />
+                </div>
+              </div>
             </div>
-          ) : false}
+          </div>
+        </div>
       </div>
     );
   }

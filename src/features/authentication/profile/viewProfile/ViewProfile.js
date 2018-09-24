@@ -9,42 +9,47 @@ const ViewProfile = ({
 }) => (
   <React.Fragment>
     <div className="row profile" id="profile">
-      <div className="col-12 col-sm-12 col-md-2" />
       <div className="col-12 col-sm-12 col-md-8">
         <div className="row profile-info">
-          <div className="col-12 col-sm-12 col-md-4 profile-info profile-info-details">
+          <div className="col-12 col-sm-12 col-md-3">
             <img
-              src={image || 'https://res.cloudinary.com/authorshaven/image/upload/v1537220880/garqpt79lrm3dpyfvob9.jpg'}
+              src={image}
               className="rounded-circle profile-photo-big border border-info"
               alt="profile"
             />
           </div>
-          <div className="col-12 col-sm-12 col-md-8">
+          <div className="profile-container col-12 col-sm-12 col-md-8">
             <h5 className="profile-name-container">
-              <font className="profile-name">{firstName}</font>
-              {lastName}
+              <b className="profile-name-header">{firstName}</b>
+              {' '}
+              <b className="profile-name-header">{lastName}</b>
               {isUser ? '' : (
                 <button type="button" className="btn follow-button">
               follow
                 </button>
               ) }
+
               {isUser ? '' : (
                 <button type="button" className="btn unfollow-button">
               follow
                 </button>
               )}
+
             </h5>
-            <div className="profile-story">
+            <div className="profile-story ">
               {bio}
             </div>
             <div className="following-metrics">
-              <Link to="/">
+              <Link to="d">
                 {followingLength}
+                {' '}
                   Following
               </Link>
-              <Link to="/">
+              <Link to="d">
                 {followerLength}
+                {' '}
                   Followers
+
               </Link>
             </div>
           </div>
