@@ -1,3 +1,28 @@
+.single-article-chip {
+  display: inline-block;
+  padding: 0 25px;
+  height: 30px;
+  font-size: 16px;
+  line-height: 30px;
+  border-radius: 15px;
+  background-color: #bdbdbd;
+  color: #fff;
+  margin-bottom: 10px;
+  margin-right: 10px;
+}
+.single-article-star {
+  color: #2E5295;
+  font-size: 15px;
+}
+.single-article-rate {
+  left:-15px;
+  position: relative;
+  top: 13px;
+}
+.single-article-share {
+  left: 25px;
+  position: relative;
+}
 .single-article-story-image-placeholder {
   width: 100%;
 }
