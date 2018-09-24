@@ -30,8 +30,7 @@ export class Profile extends React.PureComponent {
       <div className="container">
         <NavBar />
         <div className="row profile" id="profile">
-          <div className="col-12 col-sm-12 col-md-2" />
-          <div className="col-12 col-sm-12 col-md-8">
+          <div className="col-12 col-sm-12 col-md-12">
             <ViewProfile
               {...auth.user}
               isUser
@@ -77,7 +76,10 @@ export class Profile extends React.PureComponent {
                   role="tabpanel"
                   aria-labelledby="pills-home-tab"
                 >
-                  <MyArticles user={auth.user} />
+                  <div className="card-deck">
+
+                    <MyArticles user={auth.user} />
+                  </div>
                 </div>
                 <div
                   className="tab-pane fade"
@@ -92,19 +94,9 @@ export class Profile extends React.PureComponent {
                   />
 
                 </div>
-                <div
-                  className="tab-pane fade"
-                  id="pills-contact"
-                  role="tabpanel"
-                  aria-labelledby="pills-contact-tab"
-                >
-                  Settings goes here
-                </div>
               </div>
             </div>
           </div>
-
-          <div className="col-12 col-sm-12 col-md-2" />
         </div>
       </div>
     );
