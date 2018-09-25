@@ -1,5 +1,7 @@
 import singleArticleReducer from './single-article/singleArticleReducer';
 import allArticlesReducer from './allArticles/allArticlesReducer';
+import createArticleReducer from './create-article/createArticleReducer';
+import updateArticleReducer from './update-article/updateArticleReducer';
 
 const initialState = {
   currentArticle: {},
@@ -36,6 +38,10 @@ const articlesReducer = (state = initialState, action) => {
         ...state,
         errors: {},
       };
+    case type.startsWith('CREATE_ARTICLE'):
+      return createArticleReducer(state, action);
+    case type.startsWith('UPDATE_ARTICLE'):
+      return updateArticleReducer(state, action);
     default:
       return state;
   }

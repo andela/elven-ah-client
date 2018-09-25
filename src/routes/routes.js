@@ -8,6 +8,8 @@ import PasswordResetContainer from '../features/authentication/password-reset/Pa
 import Footer from '../features/authentication/Footer';
 import ProfilePage from '../features/authentication/profile/profile';
 import DefaultSocialLoginContainer from '../features/authentication/social-login/SocialLoginContainer';
+import DefaultCreateArticleContainer from '../features/articles/create-article/CreateArticleContainer';
+import DefaultUpdateArticleContainer from '../features/articles/update-article/UpdateArticleContainer';
 
 const routes = (
   <div>
@@ -19,6 +21,8 @@ const routes = (
       <Route path="/password/reset" component={PasswordResetContainer} />
       <Route path="/auth/verify" component={DefaultVerifyAccountContainer} />
       <Route path="/oauth2/:socialLogin" component={DefaultSocialLoginContainer} />
+      <Route path="/articles/publish" component={DefaultCreateArticleContainer} />
+      <Route path="/articles/update/:slug" component={DefaultUpdateArticleContainer} />
     </Switch>
     <Footer />
   </div>
