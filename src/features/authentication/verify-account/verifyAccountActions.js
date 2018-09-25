@@ -6,7 +6,6 @@ import {
   VALIDATION_ERROR,
 } from '../../../shared/constants/ActionTypes';
 import fetchData from '../../../shared/utilities/fetchData';
-import localStorageUtil from '../../../shared/utilities/localStorageUtil';
 
 /**
  * @description Verifies the account of a user
@@ -28,7 +27,6 @@ const verifyAccount = token => async (dispatch) => {
     if (response.status === 200) {
       toastr.success(response.data.message);
       dispatch({ type: SIGNUP_SUCCESSFUL, user: response.data.user });
-      localStorageUtil.setItem('ah_user', response.data.user);
       return response;
     }
     toastr.error('Account activation failed');

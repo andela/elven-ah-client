@@ -56,7 +56,6 @@
     "short-id": "0.1.0-1",
     "toastr": "^2.1.4"
   },
-  "proxy": "http://authors-haven-staging.herokuapp.com/api/v1",
   "devDependencies": {
     "babel-eslint": "^9.0.0",
     "coveralls": "^3.0.2",

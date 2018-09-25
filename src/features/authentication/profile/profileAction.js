@@ -5,7 +5,6 @@ import {
 } from '../../../shared/constants/ActionTypes';
 import fetchData from '../../../shared/utilities/fetchData';
 import history from '../../../shared/utilities/history';
-import localStorageUtil from '../../../shared/utilities/localStorageUtil';
 
 export const viewUserProfile = profile => ({
   type: PROFILE_VIEW,
@@ -46,7 +45,6 @@ export const getUserProfile = userProfile => async (dispatch, getState) => {
     if (response.statusText === 'Unauthorized') {
       return history.push('/login');
     } if (response.status === 200) {
-      localStorageUtil.setItem('ah_user', { ...state.auth.user, ...response.data.user });
       return dispatch(viewUserProfile(response.data.user));
     }
     const error = Object.assign({}, {
@@ -90,7 +88,6 @@ export const editUserProfile = user => async (dispatch, getState) => {
     if (response.statusText === 'Unauthorized') {
       return history.push('/login');
     } if (response.status === 200) {
-      localStorageUtil.setItem('ah_user', Object.assign({}, { ...state.auth.user }, { ...response.data.user }));
       dispatch(updateUserProfile(response.data.user));
       return toastr.success('Your profile has been successfully updated');
     }
@@ -132,7 +129,6 @@ export const uploadUserImage = cloudImageUrl => async (dispatch, getState) => {
     if (response.statusText === 'Unauthorized') {
       return history.push('/login');
     } if (response.status === 200) {
-      localStorageUtil.setItem('ah_user', Object.assign({}, { ...state.auth.user }, { ...response.data.user }));
       dispatch(updateUserImage(response.data.user.image));
       return toastr.success('Your profile picture has been successfully updated');
     }
