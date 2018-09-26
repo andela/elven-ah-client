@@ -19,7 +19,7 @@ const signupUser = user => async (dispatch) => {
   dispatch({ type: IS_LOADING });
   try {
     const response = await fetchData({
-      url: 'auth/signup',
+      url: '/auth/signup',
       method: 'post',
       data: user,
     });
@@ -38,7 +38,7 @@ const signupUser = user => async (dispatch) => {
     dispatch({ type: SIGNUP_FAILED, errors: { errors } });
     return null;
   } catch (error) {
-    toastr.error('Unable to connect to the Internet, please check your connection and try agian...');
+    return toastr.error('Unable to connect to the Internet, please check your connection and try agian...');
   }
 };
 

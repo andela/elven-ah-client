@@ -1,0 +1,55 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Test the Request password reset presentation component renders without crashing 1`] = `
+<div
+  className="mx-auto centered text-center col-xl-4 col-lg-4 col-md-6 col-sm-6 col-xs-6"
+>
+  <form
+    className="form-login"
+    onSubmit={[Function]}
+  >
+    <h4>
+      Enter your registered email to request a password reset link
+    </h4>
+    <div
+      className="form-label-group mb-3"
+    >
+      <input
+        className="form-control form-input"
+        id="email"
+        onChange={[Function]}
+        placeholder="Enter your registered email"
+        required={true}
+        type="email"
+        value=""
+      />
+      <span
+        className="invalid-feedback"
+      />
+      <span
+        className="invalid-feedback"
+      >
+        resetLinkError
+      </span>
+      <span
+        className="invalid-feedback"
+        key="0"
+      >
+        The password field is required
+      </span>
+    </div>
+    <span
+      className="error"
+      key="0"
+    >
+      The password field is required
+    </span>
+    <button
+      className="btn mx-auto btn-block auth-submit-btn"
+      type="submit"
+    >
+      Request Password Reset
+    </button>
+  </form>
+</div>
+`;

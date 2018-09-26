@@ -1,0 +1,63 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Test the Reset password presentation component renders without crashing 1`] = `
+<div
+  className="mx-auto centered text-center col-xl-4 col-lg-4 col-md-6 col-sm-6 col-xs-6"
+>
+  <form
+    className="form-login"
+    onSubmit={[Function]}
+  >
+    <h4>
+      Enter your new password
+    </h4>
+    <div
+      className="form-label-group mb-3"
+    >
+      <input
+        className="form-control form-input"
+        id="password"
+        onChange={[Function]}
+        placeholder="Enter your password"
+        required={true}
+        type="password"
+        value=""
+      />
+      <span
+        className="invalid-feedback"
+        key="0"
+      >
+        The password field is required
+      </span>
+    </div>
+    <div
+      className="form-label-group mb-3"
+    >
+      <input
+        className="form-control form-input"
+        id="confirmPassword"
+        onChange={[Function]}
+        placeholder="Repeat password"
+        required={true}
+        type="password"
+        value=""
+      />
+      <span
+        className="invalid-feedback"
+      />
+      <span
+        className="invalid-feedback"
+        key="0"
+      >
+        The password field is required
+      </span>
+    </div>
+    <button
+      className="btn mx-auto btn-block auth-submit-btn"
+      type="submit"
+    >
+       Update Password
+    </button>
+  </form>
+</div>
+`;
