@@ -5,7 +5,7 @@ import Categories from './Categories';
 
 const NavBar = () => (
   <React.Fragment>
-    <div className="container">
+    <div className="container-fluid">
       <header className="blog-header py-1">
         <nav className="navbar navbar-expand-lg navbar-light">
           <Link to="/" className="nav-link text-muted text-spaces">
@@ -39,7 +39,7 @@ const NavBar = () => (
               </li>
               <li className="nav-item">
                 <Link to="notification" className="nav-link text-muted text-spaces">
-                  <i className="fas fa-lg fa-bell notification-bell-true" />
+                  <i className="fas fa-2x fa-bell notification-bell-true" />
                   <div className="notification-value">0</div>
                 </Link>
               </li>

@@ -31,12 +31,6 @@
 .notification-cont {
   margin-left: -27px;
 }
-.notification-bell-true {
-  color: #000;
-  position: relative;
-  left: -35px;
-  top: 140px;
-}
 .profile-photo {
   width: 30px;
   height: 30px;
@@ -379,9 +373,9 @@ textarea {
   color: #26519A;
 }
 .profile-photo {
-  width: 30px;
-  height: 30px;
-  margin-top: -18px;
+  width: 40px;
+  height: 40px;
+  margin-top: -27px;
   object-fit: cover;
   position: relative;
   right: -25px;
@@ -455,7 +449,6 @@ textarea {
   color: #000;
   position: relative;
   right: -20px;
-  top: 14px;
 }
 
 .nav-scroller .nav {
@@ -485,7 +478,7 @@ textarea {
   font-size: 14px;
   position: relative;
   text-align: center;
-  top: -21px;
+  top: -38px;
   right: -30px;
 
 }

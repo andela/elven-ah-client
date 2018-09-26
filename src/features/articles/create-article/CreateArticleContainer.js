@@ -15,8 +15,8 @@ export class CreateArticleContainer extends Component {
     super(props);
     this.state = {
       imageUrl: '',
-      title: 'Title here',
-      body: 'Body here',
+      title: 'Title',
+      body: 'Start typing...',
       tags: [],
       category: { label: 'Select a category' },
       isAttributed: false,
@@ -25,6 +25,53 @@ export class CreateArticleContainer extends Component {
     const { isAuthenticated } = auth;
     if (!isAuthenticated) {
       history.push('/login');
+    }
+  }
+
+  /**
+   * @description Handles the title placeholder when focused
+   */
+  handleTitlePlaceholderTextFocusIn = () => {
+    if (this.state.title.trim() === 'Title') {
+      this.setState({
+        title: '',
+      });
+    }
+  }
+
+  /**
+   * @description Handles the body placeholder when focused
+   * @param {String} The title editor content
+   */
+  handleBodyPlaceholderTextFocusIn = () => {
+    if (this.state.body .trim() === 'Start typing...' || this.state.body.trim() === '<p>Start typing...</p>') {
+      this.setState({
+        body: '',
+      });
+    }
+  }
+
+  /**
+   * @description Handles the title placeholder when unfocused
+   * @param {String} The title editor content
+   */
+  handleTitlePlaceholderTextFocusOut = () => {
+    if (this.state.title.trim() === '') {
+      this.setState({
+        title: 'Title',
+      });
+    }
+  }
+
+  /**
+   * @description Handles the body placeholder when focused
+   * @param {String} The title editor content
+   */
+  handleBodyPlaceholderTextFocusOut = () => {
+    if (this.state.body.trim() === '') {
+      this.setState({
+        body: 'Start typing...',
+      });
     }
   }
 
@@ -177,30 +224,31 @@ export class CreateArticleContainer extends Component {
         <div className="row mx-auto col-md-8">
           <div className="editors col-md-8">
             <div className="title-editor">
-              {/* <span className="editor-placeholder">Title</span> */}
               <TitleEditor
                 handleChange={this.handleTitleChange}
                 handlePaste={this.handleTitlePaste}
+                handleTitlePlaceholderTextFocusIn={this.handleTitlePlaceholderTextFocusIn}
+                handleTitlePlaceholderTextFocusOut={this.handleTitlePlaceholderTextFocusOut}
                 value={title}
               />
             </div>
             <div className="body-editor">
-              {/* <span className="editor-placeholder">Body</span> */}
               <MainEditor
                 handleChange={this.handleEditorChange}
                 imageUploadHandler={this.imageUploadHandler}
+                handleBodyPlaceholderTextFocusIn={this.handleBodyPlaceholderTextFocusIn}
+                handleBodyPlaceholderTextFocusOut={this.handleBodyPlaceholderTextFocusOut}
                 value={body}
               />
             </div>
           </div>
-          <div className="col-md-4 navbar-fixed-right">
-            {/* <span>Categories</span> */}
+          <br />
+          <div className="col-md-4 create-article-sidebar">
             <ArticleCategory
               category={category}
               handleChange={this.handleSelectChange}
             />
             <br />
-            {/* <span>Tags</span> */}
             <ArticleTag
               tags={tags}
               handleChange={this.handleTagChange}
