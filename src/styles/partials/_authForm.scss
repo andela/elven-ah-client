@@ -1,23 +1,31 @@
 .auth-submit-btn {
-  background-color: #3B87B8;
+  background-color: #2164C0;
+  opacity: 0.8;
   color: white;
 }
 .form-input {
   background-color: #FCFCFC;
+  border-radius: 10px;
 }
 .login-text {
   font-style: normal;
   font-weight: bold;
   line-height: normal;
-  font-size: 2em;
+  font-size: 1em;
   text-align: center;
-  color: #1C5B0C;
+  color: #000;
   text-decoration: none;
 }
 
 .invalid-feedback {
   color: rgb(218, 102, 102);
   display: block;
+  text-align: center;
+}
+.success-feedback {
+  color: rgb(8, 153, 8);
+  display: block;
+  text-align: center;
 }
 
 ::-webkit-input-placeholder {

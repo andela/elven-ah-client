@@ -15,6 +15,7 @@ export default class EditProfileContainer extends React.Component {
       email: '',
       fileName: 'Select Profile Photo...',
       ...props.profile,
+      previousProfile: props.profile,
     };
   }
 
@@ -44,11 +45,26 @@ export default class EditProfileContainer extends React.Component {
 
   render() {
     const {
-      firstName, lastName, bio, fileName,
+      username, firstName, lastName, bio, fileName,
     } = this.state;
     return (
       <React.Fragment>
         <form className="form-text" onSubmit={this.handleSubmit}>
+          <div className="form-group row">
+            <span
+              className="col-sm-2 col-form-span"
+            >
+              Username
+            </span>
+            <div className="col-sm-8">
+              <EditProfile
+                className="form-control profile-input"
+                name="username"
+                value={username}
+                onChange={this.handleChange}
+              />
+            </div>
+          </div>
           <div className="form-group row">
             <span
               className="col-sm-2 col-form-span"
@@ -90,7 +106,7 @@ export default class EditProfileContainer extends React.Component {
                 className="form-control"
                 rows="3"
                 name="bio"
-                value={bio}
+                value={bio || ''}
                 onChange={this.handleChange}
               />
             </div>

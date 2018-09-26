@@ -3,8 +3,9 @@ import { connect } from 'react-redux';
 import { PropTypes } from 'prop-types';
 import Signup from './Signup';
 import signupUser from './signupAction';
-import SocialLogin from '../SocialLogin';
+import SocialLogin from '../social-login/SocialLogin';
 import ahLogo from '../../../shared/assets/img/AH_LOGO.svg';
+import { clearValidationErrors } from '../authAction';
 
 /**
  * @class Handles Account verification
@@ -23,7 +24,6 @@ export class SignupContainer extends Component {
       email: '',
       firstName: '',
       lastName: '',
-      username: '',
       password: '',
       confirmPassword: '',
     };
@@ -34,7 +34,9 @@ export class SignupContainer extends Component {
    * @param {Object} event The event object
    */
   handleChange = (event) => {
+    const { clearValidation } = this.props;
     this.setState({ [event.target.id]: event.target.value });
+    clearValidation(event.target.id);
   }
 
   /**
@@ -77,6 +79,7 @@ export class SignupContainer extends Component {
 
 const mapDispatchToProps = dispatch => ({
   signup: user => dispatch(signupUser(user)),
+  clearValidation: field => dispatch(clearValidationErrors(field)),
 });
 
 const mapStateToProps = state => ({
@@ -85,6 +88,7 @@ const mapStateToProps = state => ({
 
 SignupContainer.propTypes = {
   signup: PropTypes.func.isRequired,
+  clearValidation: PropTypes.func.isRequired,
   history: PropTypes.shape({}).isRequired,
   errors: PropTypes.shape({}).isRequired,
 };

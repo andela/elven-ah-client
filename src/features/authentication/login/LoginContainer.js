@@ -1,8 +1,14 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { PropTypes } from 'prop-types';
-import Login from './Login';
+
 import loginUser from './loginAction';
+import { clearValidationErrors } from '../authAction';
+
+import Login from './Login';
+import SocialLogin from '../social-login/SocialLogin';
+
+import logo from '../../../shared/assets/img/AH_LOGO.svg';
 
 /**
  * @class Handles Account verification
@@ -14,7 +20,7 @@ import loginUser from './loginAction';
  * @requires verifyAccountActions
  * @requires AH_LOGO
  */
-class LoginContainer extends Component {
+export class LoginContainer extends Component {
   constructor() {
     super();
     this.state = {
@@ -28,7 +34,9 @@ class LoginContainer extends Component {
    * @param {Object} event The event object
    */
   handleChange = (event) => {
+    const { clearValidation } = this.props;
     this.setState({ [event.target.id]: event.target.value });
+    clearValidation(event.target.id);
   }
 
 
@@ -39,11 +47,10 @@ class LoginContainer extends Component {
    */
   handleSubmit = (event) => {
     event.preventDefault();
-    const { login, history } = this.props;
+    const { login, location } = this.props;
     const { emailOrUsername, password } = this.state;
     const field = emailOrUsername.includes('@') && emailOrUsername.includes('.') ? 'email' : 'username';
-    login({ [field]: emailOrUsername, password }, history);
-    this.setState({ emailOrUsername: '', password: '' });
+    login({ [field]: emailOrUsername, password }, location);
   }
 
   /**
@@ -52,15 +59,31 @@ class LoginContainer extends Component {
   render() {
     const { errors } = this.props;
     return (
-      <Login handleChange={this.handleChange} handleSubmit={this.handleSubmit} errors={errors} />
+      <div className="">
+        <div className="text-center mb-4">
+          <img className="mb-4 mt-5" src={logo} alt="logo" width="71" height="71" />
+        </div>
+        <div className="body row mt-6">
+          <div className="col-md-6 divider justify-content-center">
+            <Login
+              handleChange={this.handleChange}
+              handleSubmit={this.handleSubmit}
+              values={this.state}
+              errors={errors}
+            />
+          </div>
+          <SocialLogin />
+        </div>
+      </div>
     );
   }
 }
 
 
 LoginContainer.propTypes = {
+  clearValidation: PropTypes.func.isRequired,
+  location: PropTypes.shape({}).isRequired,
   login: PropTypes.func.isRequired,
-  history: PropTypes.shape({}).isRequired,
   errors: PropTypes.shape({}),
 };
 
@@ -69,7 +92,8 @@ LoginContainer.defaultProps = {
 };
 
 const mapDispatchToProps = dispatch => ({
-  login: (user, history) => dispatch(loginUser(user, history)),
+  login: (user, location) => dispatch(loginUser(user, location)),
+  clearValidation: field => dispatch(clearValidationErrors(field)),
 });
 
 const mapStateToProps = state => ({

@@ -10,7 +10,6 @@ const loginReducer = (state, { type, user, errors }) => {
         ...state,
         user,
         isAuthenticated: true,
-        token: user.token,
         errors: undefined,
       };
     case LOGIN_FAILED:

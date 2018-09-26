@@ -15,7 +15,6 @@ const errors = {
   email: ['The email field is required'],
   firstName: ['The firstName field is required'],
   lastName: ['The lastName field is required'],
-  username: ['The username field is required'],
   password: ['The password field is required'],
   confirmPassword: ['The confirmPassword field is required'],
 };
@@ -29,7 +28,7 @@ describe('Tests the signup form component', () => {
       bindValues={bindValues}
     />);
     expect(wrapper.find('form')).toHaveLength(1);
-    expect(wrapper.find('input')).toHaveLength(6);
+    expect(wrapper.find('input')).toHaveLength(5);
     wrapper.find('[id="email"]').simulate('change', {
       target: { value: 'user@test.com' },
     });
@@ -38,9 +37,6 @@ describe('Tests the signup form component', () => {
     });
     wrapper.find('[id="lastName"]').simulate('change', {
       target: { value: 'Doe' },
-    });
-    wrapper.find('[id="username"]').simulate('change', {
-      target: { value: 'testUser' },
     });
     wrapper.find('[id="password"]').simulate('change', {
       target: { value: 'Password123' },

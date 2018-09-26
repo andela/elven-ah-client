@@ -1,17 +1,27 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { ConnectedRouter } from 'connected-react-router';
+import { connect } from 'react-redux';
 import './styles/App.css';
 import routes from './routes/routes';
+import Spinner from './shared/loaders/Spinner';
 
-const App = ({ history }) => (
+export const App = ({ history, loading }) => (
   <ConnectedRouter history={history}>
-    { routes }
+    <div>
+      {loading ? <Spinner /> : ''}
+      { routes }
+    </div>
   </ConnectedRouter>
 );
 
 App.propTypes = {
   history: PropTypes.shape({}).isRequired,
+  loading: PropTypes.bool.isRequired,
 };
 
-export default App;
+const mapStateToProps = state => ({
+  loading: state.common.loading,
+});
+
+export default connect(mapStateToProps)(App);

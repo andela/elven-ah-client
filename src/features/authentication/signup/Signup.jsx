@@ -54,19 +54,6 @@ const Signup = ({
       </div>
       <div className="form-label-group mb-3">
         <input
-          type="text"
-          id="username"
-          value={bindValues.username}
-          name="username"
-          className="form-control form-input is"
-          placeholder="Username"
-          onChange={handleChange}
-          required
-        />
-        {errors.username ? errors.username.map(error => <small key={error} className="invalid-feedback">{error}</small>) : ''}
-      </div>
-      <div className="form-label-group mb-3">
-        <input
           type="password"
           id="password"
           value={bindValues.password}
@@ -91,11 +78,11 @@ const Signup = ({
         />
         {errors.confirmPassword ? errors.confirmPassword.map(error => <small key={error} className="invalid-feedback">{error}</small>) : ''}
       </div>
-      <button className="btn btn-lg col-md-5 mx-auto btn-block auth-submit-btn" type="submit">Sign up</button>
+      <button className="btn mx-auto btn-block auth-submit-btn" type="submit">Sign up</button>
     </form>
     <br />
     <div className="text-center mb-4">
-      <p>Already have an account? <Link to="/" className="login-text"> Log in </Link> </p>
+      <p>Already have an account? <Link to="/login" className="login-text"> Log in </Link> </p>
     </div>
   </div>
 );

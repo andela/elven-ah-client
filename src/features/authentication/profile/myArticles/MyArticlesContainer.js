@@ -9,23 +9,11 @@ export default class MyStoriesContainer extends React.Component {
     this.state = {};
   }
 
-  ratingAverage = (ratings) => {
-    if (!ratings || ratings.length === 0) {
-      return 0;
-    }
-    let sum = 0;
-    ratings.map((rating) => {
-      sum += rating.value;
-      return sum;
-    });
-    return Math.floor(sum / ratings.length);
-  }
-
   render() {
-    const { user } = this.props;
+    const { profile } = this.props;
     const {
       firstName, lastName, image, articles,
-    } = user;
+    } = profile;
     return (
       <React.Fragment>
         {
@@ -36,7 +24,6 @@ export default class MyStoriesContainer extends React.Component {
                 firstName={firstName}
                 lastName={lastName}
                 article={article}
-                rating={this.ratingAverage(article.ratings)}
                 image={image}
               />
             )) : ''
@@ -47,5 +34,5 @@ export default class MyStoriesContainer extends React.Component {
 }
 
 MyStoriesContainer.propTypes = {
-  user: PropTypes.shape({}).isRequired,
+  profile: PropTypes.shape({}).isRequired,
 };

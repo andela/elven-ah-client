@@ -1,11 +1,11 @@
 import toastr from 'toastr';
 import {
   IS_LOADING, IS_COMPLETE,
-  PROFILE_VIEW, PROFILE_UPDATE, PROFILE_UPDATE_USER_IMAGE,
+  PROFILE_VIEW, PROFILE_UPDATE, PROFILE_UPDATE_USER_IMAGE, PROFILE_CLEAR,
 } from '../../../shared/constants/ActionTypes';
 import fetchData from '../../../shared/utilities/fetchData';
 import history from '../../../shared/utilities/history';
-import localStorageUtil from '../../../shared/utilities/localStorageUtil';
+import errorHandler from '../../../shared/utilities/errorHandler';
 
 export const viewUserProfile = profile => ({
   type: PROFILE_VIEW,
@@ -28,11 +28,11 @@ export const updateUserImage = image => ({
  * @param {object} Users profile - contains users profile
  * @returns {object} success/failed users profile
  */
-export const getUserProfile = userProfile => async (dispatch, getState) => {
-  const state = getState();
-  const { token, username } = state.auth.user;
+export const updateProfile = data => async (dispatch) => {
+  const { token, username } = data;
   try {
     dispatch({ type: IS_LOADING });
+    dispatch({ type: PROFILE_CLEAR });
     const response = await fetchData({
       url: `users/${username}`,
       method: 'get',
@@ -40,20 +40,48 @@ export const getUserProfile = userProfile => async (dispatch, getState) => {
         'Content-Type': 'application/json',
         'x-access-token': `${token}`,
       },
-      data: userProfile,
     });
     dispatch({ type: IS_COMPLETE });
-    if (response.statusText === 'Unauthorized') {
-      return history.push('/login');
-    } if (response.status === 200) {
-      localStorageUtil.setItem('ah_user', Object.assign({}, { ...state.auth.user }, { ...response.data.user }));
+    if (response.status === 200) {
       return dispatch(viewUserProfile(response.data.user));
     }
-    const error = Object.assign({}, {
-      status: response.data.status,
-      message: response.data.message,
+    if (response.status > 400 && response.status < 500) {
+      response.pathname = `users/${username}`;
+      return errorHandler(dispatch, response);
+    }
+    return null;
+  } catch (error) {
+    return toastr.error(error);
+  }
+};
+
+/**
+ * @description action to View User Profile Picture
+ * @param {object} Users profile - contains users profile
+ * @returns {object} success/failed users profile
+ */
+export const getUserProfile = data => async (dispatch) => {
+  const { token, username } = data;
+  try {
+    dispatch({ type: IS_LOADING });
+    dispatch({ type: PROFILE_CLEAR });
+    const response = await fetchData({
+      url: `users/${username}`,
+      method: 'get',
+      headers: {
+        'Content-Type': 'application/json',
+        'x-access-token': `${token}`,
+      },
     });
-    return Promise.reject(error);
+    dispatch({ type: IS_COMPLETE });
+    if (response.status === 200) {
+      return dispatch(viewUserProfile(response.data.user));
+    }
+    if (response.status > 400 && response.status < 500) {
+      response.pathname = `users/${username}`;
+      return errorHandler(dispatch, response);
+    }
+    return null;
   } catch (error) {
     return toastr.error(error);
   }
@@ -64,11 +92,10 @@ export const getUserProfile = userProfile => async (dispatch, getState) => {
  * @param {object} updated profile - contains updated profile
  * @returns {object} success/failed profile update
  */
-export const editUserProfile = user => async (dispatch, getState) => {
-  const state = getState();
+export const editUserProfile = user => async (dispatch) => {
   const {
     token, username, firstName, lastName, bio, email,
-  } = state.auth.user;
+  } = user.previousProfile;
   try {
     dispatch({ type: IS_LOADING });
     const response = await fetchData({
@@ -90,15 +117,14 @@ export const editUserProfile = user => async (dispatch, getState) => {
     if (response.statusText === 'Unauthorized') {
       return history.push('/login');
     } if (response.status === 200) {
-      localStorageUtil.setItem('ah_user', Object.assign({}, { ...state.auth.user }, { ...response.data.user }));
       dispatch(updateUserProfile(response.data.user));
       return toastr.success('Your profile has been successfully updated');
     }
-    const error = Object.assign({}, {
-      status: response.data.status,
-      message: response.data.message,
-    });
-    return Promise.reject(error);
+    if (response.status > 400 && response.status < 500) {
+      response.pathname = `users/${username}`;
+      return errorHandler(dispatch, response);
+    }
+    return null;
   } catch (error) {
     return toastr.error(error);
   }
@@ -132,15 +158,14 @@ export const uploadUserImage = cloudImageUrl => async (dispatch, getState) => {
     if (response.statusText === 'Unauthorized') {
       return history.push('/login');
     } if (response.status === 200) {
-      localStorageUtil.setItem('ah_user', Object.assign({}, { ...state.auth.user }, { ...response.data.user }));
       dispatch(updateUserImage(response.data.user.image));
       return toastr.success('Your profile picture has been successfully updated');
     }
-    const error = Object.assign({}, {
-      status: response.data.status,
-      message: response.data.message,
-    });
-    return Promise.reject(error);
+    if (response.status > 400 && response.status < 500) {
+      response.pathname = `users/${username}`;
+      return errorHandler(dispatch, response);
+    }
+    return null;
   } catch (error) {
     return toastr.error(error);
   }
@@ -172,11 +197,17 @@ export const editUserImage = user => async (dispatch) => {
     dispatch({ type: IS_COMPLETE });
     if (response.statusText === 'Unauthorized') {
       return history.push('/login');
-    } if (response.status === 200) {
+    }
+    if (response.status === 200) {
       cloudImageUrl = response.data.secure_url;
       return dispatch(uploadUserImage(cloudImageUrl));
     }
-  } catch ({ response }) {
+    if (response.status > 400 && response.status < 500) {
+      response.pathname = `users/${user.username}`;
+      return errorHandler(dispatch, response);
+    }
+    return null;
+  } catch (error) {
     return toastr.error('Failed to upload image. Try again');
   }
 };

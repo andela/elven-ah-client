@@ -10,6 +10,7 @@ const history = {
   },
   push: mockFunction,
 };
+const type = '';
 const verify = jest.fn(() => ({ status: 400, data: { message: 'Invalid email format ' } }));
 
 describe('Account Verification container', () => {
@@ -18,6 +19,7 @@ describe('Account Verification container', () => {
       verify={verify}
       resendLink={mockFunction}
       history={history}
+      type={type}
       errors={{ email: ['Invalid email format'] }}
     />);
     expect(wrapper.find(VerifyAccount)).toHaveLength(1);

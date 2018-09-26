@@ -25,9 +25,6 @@ yarn-error.log*
 # Package lock
 package-lock.json
 
-# Environment Variables
-.env
-
 # ID
 .vscode
 src/styles/**/*.css

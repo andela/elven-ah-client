@@ -12,7 +12,7 @@ const inputForm = ({
 
 inputForm.propTypes = {
   type: PropTypes.string.isRequired,
-  name: PropTypes.string,
+  name: PropTypes.string, 
   value: PropTypes.string,
   onChange: PropTypes.func,
 };

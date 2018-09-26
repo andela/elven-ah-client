@@ -1,8 +1,7 @@
-
+import toastr from 'toastr';
 import {
   IS_LOADING,
   PASSWORD_RESET_REQUEST_SUCCESSFUL,
-  VALIDATION_ERROR,
   PASSWORD_RESET_REQUEST_FAILED,
   PASSWORD_RESET_LINK_INVALID,
   PASSWORD_RESET_LINK_VALID,
@@ -11,11 +10,17 @@ import {
   IS_COMPLETE,
 } from '../../../shared/constants/ActionTypes';
 import fetchData from '../../../shared/utilities/fetchData';
+import errorHandler from '../../../shared/utilities/errorHandler';
+
+const handlePasswordError = (dispatch, response, type) => {
+  const errors = response.data;
+  return dispatch({ type, errors });
+};
 
 export const requestPasswordReset = (email, history) => async (dispatch) => {
   dispatch({ type: IS_LOADING });
   const response = await fetchData({
-    url: 'users/account/password/reset',
+    url: '/users/account/password/reset',
     method: 'post',
     data: email,
   });
@@ -23,37 +28,37 @@ export const requestPasswordReset = (email, history) => async (dispatch) => {
   if (response.status === 200) {
     const { data } = response;
     dispatch({ type: PASSWORD_RESET_REQUEST_SUCCESSFUL, data });
-    return history.push('/');
+    history.push('/');
+    return toastr.success(data.message);
   }
-  if (response.status === 400) {
-    const { errors } = response.data;
-    errors.message = 'Validation Error(s)';
-    return dispatch({ type: VALIDATION_ERROR, errors });
+  if (response.status > 400 && response.status < 500) {
+    return handlePasswordError(dispatch, response, PASSWORD_RESET_REQUEST_FAILED);
   }
-  const errors = response.data;
-  return dispatch({ type: PASSWORD_RESET_REQUEST_FAILED, errors });
+  return errorHandler(dispatch, response);
 };
 
 export const verifyResetLink = (token, history) => async (dispatch) => {
   dispatch({ type: IS_LOADING });
   const response = await fetchData({
-    url: `users/account/password/reset?tokenId=${token}`,
+    url: `/users/account/password/reset?tokenId=${token}`,
   });
   dispatch({ type: IS_COMPLETE });
   if (response.status === 200) {
     const { data } = response;
     dispatch({ type: PASSWORD_RESET_LINK_VALID, data });
+    history.push('/password/reset');
+    return toastr.success(data.message);
+  }
+  if (response.status > 400 && response.status < 500) {
+    handlePasswordError(dispatch, response, PASSWORD_RESET_LINK_INVALID);
     return history.push('/password/reset');
   }
-  const errors = response.data;
-  dispatch({ type: PASSWORD_RESET_LINK_INVALID, errors });
-  return history.push('/password/reset');
+  return errorHandler(dispatch, response);
 };
-
 export const resetPassword = (resetData, history) => async (dispatch) => {
   dispatch({ type: IS_LOADING });
   const response = await fetchData({
-    url: `users/account/password/reset?tokenId=${resetData.resetToken}`,
+    url: `/users/account/password/reset?tokenId=${resetData.resetToken}`,
     method: 'put',
     data: resetData,
   });
@@ -61,9 +66,12 @@ export const resetPassword = (resetData, history) => async (dispatch) => {
   if (response.status === 200) {
     const { data } = response;
     dispatch({ type: PASSWORD_RESET_SUCCESSFUL, data });
-    return history.push('/');
+    history.push('/');
+    return toastr.success(data.message);
   }
-  const errors = response.data;
-  dispatch({ type: PASSWORD_RESET_FAILED, errors });
-  return history.push('/password/reset');
+  if (response.status > 400 && response.status < 500) {
+    handlePasswordError(dispatch, response, PASSWORD_RESET_FAILED);
+    return history.push('/password/reset');
+  }
+  return errorHandler(dispatch, response);
 };
