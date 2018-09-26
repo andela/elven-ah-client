@@ -8,7 +8,7 @@ import ArticleTag from './ArticleTag';
 import MainEditor from './MainEditor';
 import ArticleCategory from './ArticleCategory';
 import fetchData from '../../../shared/utilities/fetchData';
-import createArticle from './createArticleActions';
+import createArticle, { checkPlagiarism } from './createArticleActions';
 
 export class CreateArticleContainer extends Component {
   constructor(props) {
@@ -184,15 +184,24 @@ export class CreateArticleContainer extends Component {
       const { value } = tag;
       tags += `${value},`;
     });
-    const { create, history } = this.props;
+    const { create, history, plagiarismScan } = this.props;
     const article = {
       title,
       body,
       tags: tags.substring(0, tags.length - 1),
-      isAttributed: `${isAttributed}`,
+      isAttributed: 'true',
       categoryId: category.value,
       imageUrl,
     };
+    if (!isAttributed) {
+      const plagiarismScanResult = plagiarismScan(body);
+      if (plagiarismScanResult) {
+        this.setState({
+          scanResults: plagiarismScanResult,
+        });
+        return false;
+      }
+    }
     const response = await create(article);
     if (response) {
       switch (response.status) {
@@ -207,6 +216,7 @@ export class CreateArticleContainer extends Component {
           break;
       }
     }
+    return false;
   };
 
   /**
@@ -277,6 +287,7 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = dispatch => ({
   create: article => dispatch(createArticle(article)),
+  plagiarismScan: htmlText => dispatch(checkPlagiarism(htmlText)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(CreateArticleContainer);

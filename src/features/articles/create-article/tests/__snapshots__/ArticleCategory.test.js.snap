@@ -1,0 +1,41 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Article Category component should render without errors 1`] = `
+<StateManager
+  defaultInputValue=""
+  defaultMenuIsOpen={false}
+  defaultValue={null}
+  onChange={[Function]}
+  options={
+    Array [
+      Object {
+        "label": "Arts",
+        "value": 1,
+      },
+      Object {
+        "label": "Media",
+        "value": 2,
+      },
+      Object {
+        "label": "Religion",
+        "value": 3,
+      },
+      Object {
+        "label": "Technology",
+        "value": 4,
+      },
+      Object {
+        "label": "Commerce",
+        "value": 5,
+      },
+    ]
+  }
+  placeholder="Select a category"
+  value={
+    Object {
+      "label": "Technology",
+      "value": 1,
+    }
+  }
+/>
+`;

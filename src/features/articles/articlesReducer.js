@@ -2,6 +2,7 @@ import singleArticleReducer from './single-article/singleArticleReducer';
 import allArticlesReducer from './allArticles/allArticlesReducer';
 import createArticleReducer from './create-article/createArticleReducer';
 import updateArticleReducer from './update-article/updateArticleReducer';
+import deleteArticleReducer from './delete-article/deleteArticleReducer';
 
 const initialState = {
   currentArticle: {},
@@ -42,6 +43,8 @@ const articlesReducer = (state = initialState, action) => {
       return createArticleReducer(state, action);
     case type.startsWith('UPDATE_ARTICLE'):
       return updateArticleReducer(state, action);
+    case type.startsWith('DELETE_ARTICLE'):
+      return deleteArticleReducer(state, action);
     default:
       return state;
   }
