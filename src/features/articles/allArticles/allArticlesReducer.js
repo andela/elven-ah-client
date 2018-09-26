@@ -1,6 +1,4 @@
-import {
-  ALL_ARTICLES_FETCH_SUCCESSFUL, ALL_ARTICLES_FETCH_FAILED,
-} from '../../../shared/constants/ActionTypes';
+import { ALL_ARTICLES_FETCH_SUCCESSFUL, ALL_ARTICLES_FETCH_FAILED } from '../../../shared/constants/ActionTypes';
 
 const allArticlesReducer = (state, action) => {
   switch (action.type) {

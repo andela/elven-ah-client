@@ -1,6 +1,4 @@
-import {
-  SINGLE_ARTICLE_FETCH_SUCCESSFUL, SINGLE_ARTICLE_FETCH_FAILED,
-} from '../../../shared/constants/ActionTypes';
+import { SINGLE_ARTICLE_FETCH_SUCCESSFUL, SINGLE_ARTICLE_FETCH_FAILED } from '../../../shared/constants/ActionTypes';
 
 const singleArticleReducer = (state, { type, article, errors }) => {
   switch (type) {

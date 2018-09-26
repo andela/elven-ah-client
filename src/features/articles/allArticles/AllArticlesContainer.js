@@ -25,10 +25,11 @@ export default class AllArticlesContainer extends React.Component {
       <React.Fragment>
         {
           articles
-            ? articles.map((article, i) => {
+            ? articles.map((article) => {
               classArrayIndex += 1;
-              console.log(classArrayIndex, i);
-              if (classArrayIndex === undefined || classArrayIndex > classArray.length - 1 || Number.isNaN(classArrayIndex)) {
+              if (classArrayIndex === undefined
+                || classArrayIndex > classArray.length - 1
+                || Number.isNaN(classArrayIndex)) {
                 classArrayIndex = 0;
               }
               return (

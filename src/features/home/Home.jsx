@@ -25,7 +25,7 @@ export class Home extends React.PureComponent {
             {/* logo */}
             <div className="col-4 pt-1">
               <img src="https://res.cloudinary.com/cj-odina/image/upload/v1537734888/Logo_sywa2j.png" height="50px" alt="" />
-              <Link className="landing-header-logo text-dark" style={{ paddingTop: '50px' }} to="/">&nbsp;&nbsp;Authors' Haven</Link>
+              <Link className="landing-header-logo text-dark" style={{ paddingTop: '50px' }} to="/">&nbsp; &nbsp; Authors{"'"} Haven</Link>
             </div>
             {/* search and auth buttons */}
             <div className="col-4 d-flex justify-content-end align-items-center">
@@ -105,7 +105,6 @@ const mapDispatchToProps = dispatch => ({
 
 Home.propTypes = {
   auth: PropTypes.shape({}).isRequired,
-  logout: PropTypes.func.isRequired,
   articles: PropTypes.shape([]).isRequired,
 };
 
