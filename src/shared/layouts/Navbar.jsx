@@ -5,7 +5,7 @@ import Categories from './Categories';
 
 const NavBar = () => (
   <React.Fragment>
-    <div className="container-fluid">
+    <div className="container-fluid profile">
       <header className="blog-header py-1">
         <nav className="navbar navbar-expand-lg navbar-light">
           <Link to="/" className="nav-link text-muted text-spaces">

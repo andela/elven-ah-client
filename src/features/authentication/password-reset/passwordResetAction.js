@@ -8,7 +8,6 @@ import {
   PASSWORD_RESET_SUCCESSFUL,
   PASSWORD_RESET_FAILED,
   IS_COMPLETE,
-  NETWORK_ERROR,
 } from '../../../shared/constants/ActionTypes';
 import fetchData from '../../../shared/utilities/fetchData';
 import errorHandler from '../../../shared/utilities/errorHandler';
