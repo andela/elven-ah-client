@@ -17,8 +17,8 @@ export class Home extends React.PureComponent {
     const {
       articles,
     } = this.props;
-    const articlesWithImages = articles.articles
-      .filter(article => HTMLUtil.hasImage(article.body) === true);
+    const { articles: allArticles } = articles;
+    const withImages = allArticles.filter(article => HTMLUtil.hasImage(article.body) === true);
     return (
       /* main container */
       <div className="container-fluid">
@@ -87,7 +87,7 @@ export class Home extends React.PureComponent {
         <div className="articles-container">
           <div className="row mb-2">
             <AllArticles
-              articles={articlesWithImages}
+              articles={withImages}
             />
           </div>
         </div>
