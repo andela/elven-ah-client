@@ -1,0 +1,24 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Title Editor component should render without errors 1`] = `
+<Editor
+  apiKey="3eytfdm1nnstcd6m2hzat9gpfvgg0ik5im0he4tpolgyqne9"
+  init={
+    Object {
+      "content_css": "css/content.css",
+      "inline": true,
+      "insert_toolbar": "",
+      "menubar": false,
+      "selection_toolbar": "",
+      "theme": "inlite",
+    }
+  }
+  name="title-editor"
+  onEditorChange={[Function]}
+  onFocusIn={[Function]}
+  onFocusOut={[Function]}
+  onPaste={[Function]}
+  tagName="h1"
+  value="<h1>This is my Title</p>"
+/>
+`;

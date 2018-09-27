@@ -27,7 +27,7 @@ export class Profile extends React.PureComponent {
       auth,
     } = this.props;
     return (
-      <div className="container">
+      <div className="container profile">
         <NavBar />
         {auth.user.followings
           ? (

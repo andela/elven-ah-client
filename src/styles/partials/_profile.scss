@@ -1,259 +1,494 @@
-@media (min-width: 768px) {
-  .navbar-brand.abs {
-    position: absolute;
-    width: 100%;
-    left: 0;
-    text-align: center;
-    z-index: -1;
+.profile {
+  @media (min-width: 768px) {
+    .navbar-brand.abs {
+      position: absolute;
+      width: 100%;
+      left: 0;
+      text-align: center;
+      z-index: -1;
+    }
   }
-}
-@media (max-width: 991px) {
-  .profile-name-container {
+  @media (max-width: 768px) {
+      .notification-value {
+        background-color: #000;
+        border-radius: 100%;
+        color: #ffffff;
+        font-size: 11px bold;
+        left: -25px;
+        position: relative;
+        text-align: center;
+        top: -40px;
+    }
+    .profile-info{
+      text-align: center;
+    }
+
+  .nav-bar-profile-image {
+    position: relative;
+    top: 11.5px;
+    margin-top: -11px;
+    left: -30px;
+  }
+  .notification-cont {
+    margin-left: -27px;
+  }
+  .profile-photo {
+    width: 30px;
+    height: 30px;
+    margin-top: -18px;
+    object-fit: cover;
+    position: relative;
+    left: -10px;
+  }
+  .notification-value {
+    background-color: #000;
+    border-radius: 100%;
+    color: #ffffff;
+    font-size: 11px bold;
+    left: -20px;
+    position: relative;
+    text-align: center;
+    top: -40px;
+  }
+  }
+  @media (max-width: 991px) {
+    .profile-name-container {
+      text-align: center;
+      margin-left: 0px;
+    } 
+      .profile-story {
+      margin-left: 10px;
+    }
+    .profile-following-metrics {
+      color: #26519A;
+      font-size: 13px;
+      text-align: center;
+      text-decoration: none;
+    }
+    .notification-value {
+      background-color: #000;
+      border-radius: 100%;
+      color: #ffffff;
+      font-size: 11px bold;
+      left: -20px;
+      position: relative;
+      text-align: center;
+      top: -40px;
+    }
+    .profile-info {
+      text-align: center;
+    }
+    .profile-photo-big {
+      width: 120px;
+      height: 120px;
+      margin-bottom: 20px;
+      object-fit: cover;
+      text-align: center;
+    }
+  }
+  .wrapper-dropdown-3 {
+    position: relative;
+    width: 200px;
+    margin: 0 auto;
+    padding: 10px;
+    background: #fff;
+    border-radius: 7px;
+    border: 1px solid rgba(0,0,0,0.15);
+    box-shadow: 0 1px 1px rgba(50,50,50,0.1);
+    cursor: pointer;
+    outline: none;
+    font-weight: bold;
+    color: #8AA8BD;
+  }
+  .star-rating-position {
+    top: 100px;
+  }
+  .card-body {
+    padding: 5%;
+  }
+  .card-container {
+    padding-left: 1px;
+    margin-bottom: 20px;
+
+  }
+  .profile-settings-dropdown {
+    left: 260px;
+    top: -180px;
+  }
+  .profile-article-title {
+    text-decoration: none;
+    color: #000;
+  }
+  .profile-article-title:hover {
+    text-decoration: none;
+    color: #26519A;
+  }
+  .profile-settings-dropdown-text {
+    font-size: 15px;
+  }
+  .card{
+    padding: 0%;
+    box-shadow: 0 .125rem .25rem rgba(0,0,0,.075)!important;
+  }
+  .rating-total {
+    font-size: 14px;
+    position: relative;
+    right: 22px;
+    top: 15px;
+  }
+  .star-ratings {
+    margin-left: -19px;
+    position: relative;
+    right: 1px;
+    top: 12.5px;
+  }
+  .profile-name {
+    text-transform: capitalize;
+    font-size: 12px;
+  }
+  .profile-name-header {
+    text-transform: capitalize;
+    font-size: 18px;
+  }
+  .fixed-bottom {
+    background-color: #000000;
+    color: #ffffff;
+    font-size: 14px;
+    height: 40px;
+    text-align: center;
+    margin-top: 100px;
+  }
+  .fixed-bottom-text {
+    margin-top: 10px;
+  }
+  input[type="text"] {
+    background-color:#FCFCFC;
+    border-color: #bdbdbd;  
+  }
+  .profile-input {
+    text-transform: capitalize;
+  }
+  textarea {
+    background-color:#FCFCFC;
+    border-color: #bdbdbd;  
+  }
+  .card {
+    width: 65em;
+  }
+  .card-name {
+    font-size: 12px;
+    margin-left: -14px;
+    margin-top: 10px;
+    margin-bottom: 25px;
+  }
+  .card-date {
+    font-size: 12px;
+  }
+  .card-title {
+  font-size: 20px;
+  margin-bottom: 25px;
+  }
+  .card-text {
+    font-size: 14px;
+  }
+  .card-activity {
+    margin-bottom: 5px;
+  }
+  .form-text {
+    font-size: 14px;
+  }
+  .rating {
+    color:#26519A;
+    font-size: 13px;
+    margin-left: 20px;
+  }
+  .comments {
+    color:#26519A;
+    font-size: 13px;
+    margin-right: 20px;
+    margin-left: 6px;
+    position: relative;
+    right: 1px;
+    top: 18.5px;
+  }
+  .navbar-nav {
+    margin-top: 5px;
+  }
+  .nav-bar-profile-image {
+    position: relative;
+    right: 1px;
+    top: 16px;
+    
+  }
+  .tab-color {
+    color: #f5f5f5;
+  }
+  .update-profile-button {
+    background-color: #26519A;
+    color: #ffffff;
+    font-size: 13px;
+    margin-top: 5px;
+    margin-bottom: 40px;
+  }
+  #pills-article-tab {
+    color: #000;
+    font-size: 14px;
+    background-color: #f5f5f5;
+    margin-right: 10px;
+  }
+  #pills-settings-tab {
+    color: #f5f5f5;
+    font-size: 14px;
+  }
+  #pills-profile-tab {
+    background-color: #f5f5f5;
+    color: #000;
+    font-size: 14px;
+  }
+  .card-info {
+    margin-bottom: 1em;
+  }
+  .card-user-name{
     text-align: center;
     margin-left: 0px;
   }
-  .profile-story {
-    margin-left: 0px;
+  .profile-content {
+    margin-bottom: 20px;
+    margin-top: 70px;
   }
-  .profile-following-metrics {
+  .profile-container {
+    margin-bottom: 20px;
+    margin-left: -15px;
+  }
+  .nav-pills > li > a.active {
+    background-color: #f5f5f5!important;
+    display: inline-block;
+    text-decoration: none;
+    border-bottom: solid 1px #000;
+  }
+  .pill-color {
+    color: #26519A;
+  }
+  .following-metrics {
+    margin-top: 1em;
+  }
+  .follow-button {
+    background-color: #f5f5f5;
+    border-color: #000000;
+    color: #000;
+    font-size: 12px;
+    margin-left: 5px;
+  }
+  .upgrade-button {
+    background-color: #fafaff;
+    border-color: #bdbdbd;
+    color: #000;
+    font-size: 14px;
+    margin-left: -15px;
+    position: relative;
+    right: 20px;
+
+  }
+  .create-story-button {
+    background-color: #26519A;
+    border-color: #26519A;
+    color: #ffffff;
+    font-size: 14px;
+    position: relative;
+    margin-left: -15px;
+    margin-right: -50px;
+    right: 20px;
+
+  }
+
+  .upgrade-button:hover {
+    background-color: #26519A;
+    border-color: #26519A;
+    color: #ffffff;
+  }
+  .follow-button:hover {
+    background-color: #26519A;
+    color: #ffffff;
+    font-size: 12px;
+  }
+  .unfollow-button {
+    background-color: #26519A;
+    color: #ffffff;
+    font-size: 12px;
+    margin-left: 5px;
+  }
+  .unfollow-button:hover {
+    background-color: #c33539;
+    color: #ffffff;
+    font-size: 12px;
+  }
+  .following-metrics a {
     color: #26519A;
     font-size: 13px;
-    text-align: center;
+    margin-right: 15px;
     text-decoration: none;
   }
-}
-.rating-total {
-  font-size: 14px;
-  position: relative;
-  right: 1px;
-  top: 3.5px;
-}
-.rating-stars {
-  margin-left: 100px;
-}
-.profile-name {
-  text-transform: capitalize;
-}
-.fixed-bottom {
-  background-color: #000000;
-  color: #ffffff;
-  font-size: 14px;
-  height: 40px;
-  text-align: center;
-  margin-top: 100px;
-}
-.fixed-bottom-text {
-  margin-top: 10px;
-}
-input[type="text"] {
-  background-color:#FCFCFC;
-  border-color: #bdbdbd;  
-}
-.profile-input {
-  text-transform: capitalize;
-}
-textarea {
-  background-color:#FCFCFC;
-  border-color: #bdbdbd;  
-}
-.card {
-  margin-bottom: 35px;
-}
-.card-name {
-  font-size: 12px;
-  margin-left: 12px;
-  margin-top: 15px;
-}
-.card-date {
-  font-size: 12px;
-}
-.card-title {
- font-size: 16px;
-}
-.card-text {
-  font-size: 14px;
-}
-.card-activity {
-  margin-bottom: 5px;
-}
-.form-text {
-  font-size: 14px;
-}
-.rating {
-  color:#26519A;
-  font-size: 13px;
-  margin-left: 20px;
-}
-.comments {
-  color:#26519A;
-  font-size: 13px;
-  margin-right: 20px;
-}
-.navbar-nav {
-  margin-top: 20px;
-}
-.tab-color {
-  color: #f5f5f5;
-}
-.update-profile-button {
-  background-color: #26519A;
-  color: #ffffff;
-  font-size: 13px;
-  margin-top: 5px;
-  margin-bottom: 40px;
-}
-#pills-article-tab {
-  color: #000;
-  font-size: 14px;
-  background-color: #f5f5f5;
-  margin-right: 10px;
-}
-#pills-settings-tab {
-  color: #f5f5f5;
-  font-size: 14px;
-}
-#pills-profile-tab {
-  background-color: #f5f5f5;
-  color: #000;
-  font-size: 14px;
-}
-.card-info {
-  margin-bottom: 1em;
-}
-.card-user-name{
-  text-align: center;
-  margin-left: 0px;
-}
-.profile-content {
-  margin-bottom: 20px;
-  margin-top: 70px;
-}
-.nav-pills > li > a.active {
-  background-color: #f5f5f5!important;
-  display: inline-block;
-  text-decoration: none;
-  border-bottom: solid 1px #000;
-}
-.pill-color {
-  color: #26519A;
-}
-.following-metrics {
-  margin-top: 1em;
-}
-.follow-button {
-  background-color: #f5f5f5;
-  border-color: #000000;
-  color: #000;
-  font-size: 12px;
-  margin-left: 5px;
-}
-.upgrade-button {
-  background-color: #fafaff;
-  border-color: #bdbdbd;
-  color: #000;
-  font-size: 12px;
-  margin-top: -8px;
-}
-.upgrade-button:hover {
-  background-color: #26519A;
-  border-color: #26519A;
-  color: #ffffff;
-}
-.follow-button:hover {
-  background-color: #26519A;
-  color: #ffffff;
-  font-size: 12px;
-}
-.unfollow-button {
-  background-color: #26519A;
-  color: #ffffff;
-  font-size: 12px;
-  margin-left: 5px;
-}
-.unfollow-button:hover {
-  background-color: #c33539;
-  color: #ffffff;
-  font-size: 12px;
-}
-.following-metrics a {
-  color: #26519A;
-  font-size: 13px;
-  margin-right: 15px;
-  text-decoration: none;
-}
-.following-metrics a:hover {
-  color: #000000;
-  text-decoration-line: underline;
-}
-.profile-info {
-  margin-bottom: 1em;
-}
-.profile-name {
-  margin-left: 1px;
-}
-.profile-story {
-  font-size: 15px;
-}
-.profile {
-  margin-bottom: 2em;
-  margin-top: 1.5em;
-  text-align: justify;
-}
-.profile-info-details {
-  text-align: center;
-}
-.brand-color {
-  background-color: #fafaff;
-}
-.notification-true {
-  color: #4F7AC3;
-}
-.notification-false {
-  color: #000;
-}
-.notification-number {
-  font-size: 14px;
-}
-.profile-photo {
-  width: 22px;
-  height: 22px;
-  margin-top: -5px;
-  object-fit: cover;
-}
-.profile-photo-card {
-  width: 40px;
-  height: 40px;
-  margin-top: 15px;
-}
-.profile-photo-big {
-  width: 120px;
-  height: 120px;
-  object-fit: cover;
-}
-.brand-logo {
-  height: 45px;
-  width: 45px;
-}
-.text-spaces {
-  margin-left: 1em;
-}
-.right {
-  margin-right: 3em;
-}
-.search-box {
-  background-color: #ececec;
-  border-color: #000000;
-  border-radius: 20px;
-  font-size: 15px;
-  height: 32px;
-}
-form span {
-  margin-top: .5em;
-  font-weight: 600;
-}
-.profile-story {
-  width: 400px;
-}
-.rating {
-  display: inline;
+  .following-metrics a:hover {
+    color: #000000;
+    text-decoration-line: underline;
+  }
+  .profile-photo-content {
+    width: 30px;
+    height: 30px;
+    margin-top: -10px;
+    object-fit: cover;
+    position: relative;
+    left: -5px;
+  }
+  .profile-info {
+    margin-bottom: 1em;
+    margin-top: 2.0em;
+    text-justify: inherit;
+  }
+  .profile-name {
+    margin-left: 1px;
+  }
+  .profile-story {
+    font-size: 15px;
+  }
+  .profile {
+    margin-bottom: 2em;
+    margin-top: 1.5em;
+  }
+  .profile-info-details {
+    text-align: left;
+  }
+  .brand-color {
+    background-color: #fafaff;
+  }
+  .notification-true {
+    color: #4F7AC3;
+    right: 1px;
+    top: 11.5px;
+  }
+  .notification-false {
+    color: #000;
+  }
+  .notification-number {
+    font-size: 14px;
+    color: #26519A;
+  }
+  .profile-photo {
+    width: 40px;
+    height: 40px;
+    margin-top: -27px;
+    object-fit: cover;
+    position: relative;
+    right: -25px;
+  }
+  .profile-photo-card {
+    width: 40px;
+    height: 40px;
+    margin-top: 15px;
+  }
+  .profile-photo-big {
+    width: 145px;
+    height: 145px;
+    object-fit: cover;
+  }
+  .brand-logo {
+    height: 45px;
+    width: 45px;
+    position: relative;
+    right: 50px;
+  }
+  .text-spaces {
+    margin-left: 1em;
+  }
+  .right {
+    margin-right: 3em;
+  }
+  .search-box {
+    background-color: #ececec;
+    border-color: #000000;
+    border-radius: 20px;
+    color: #000000;
+    font-size: 15px;
+    height: 35px;
+    margin-right: 10px;
+    position: relative;
+    right: 20px;
+    top: 10px;
+  }
+  .nav-bar-right-element{
+    margin-right: -25px;
+    margin-top: -4px;
+    position: relative;
+    top: 14px;
+  }
+  .nav-bar-left-text {
+    color: #000;
+    font-size: 16px;
+    position: relative;
+    right: -4px;
+    top: 10px;
+  }
+  .nav-bar-left-text-color {
+    color: #000000;
+    
+  }
+  .nav-bar-left-text-color:hover {
+    color: #26519A;
+  }
+  .nav-bar-icon-color {
+    color: #ffffff;
+  }
+  .nav-bar-icon-color:hover {
+    color: #000000 ;
+  }
+  .notification-items {
+    color: #000000;
+    font-size: 14px;
+    font-family: 'Franklin Gothic Medium';
+  }
+  .notification-bell-true {
+    color: #000;
+    position: relative;
+    right: -20px;
+  }
+
+  .nav-scroller .nav {
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: nowrap;
+    flex-wrap: nowrap;
+    padding-bottom: 1rem;
+    margin-top: -1px;
+    overflow-x: auto;
+    text-align: center;
+    white-space: nowrap;
+    -webkit-overflow-scrolling: touch;
+  }
+  .top-hr {
+    margin: 1px 0px;
+  }
+  .below-hr {
+    margin: -20px 0px;
+  }
+  .notification-value {
+    background-color: #26519A;
+    height: 22px;
+    width: 22px;
+    border-radius: 50%;
+    color: #ffffff;
+    font-size: 14px;
+    position: relative;
+    text-align: center;
+    top: -38px;
+    right: -30px;
+
+  }
+  .category {
+    border-color: #000000;
+    height: 40px;
+  }
+  .cards {
+    margin-top: 20px;
+    height: 505px;
+  }
 }

@@ -30,7 +30,7 @@ export class Home extends React.PureComponent {
     }
     return (
       /* main container */
-      <div className="container-fluid">
+      <div className="container-fluid home">
         {/* header */}
         <header className="landing-header py-3">
           <div className="row flex-nowrap justify-content-between align-items-center">

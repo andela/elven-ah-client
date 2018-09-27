@@ -6,7 +6,7 @@ const singleArticleReducer = (state, { type, article, errors }) => {
       return {
         ...state,
         currentArticle: article,
-        errors: undefined,
+        errors: {},
       };
     case SINGLE_ARTICLE_FETCH_FAILED:
       return {
