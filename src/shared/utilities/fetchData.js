@@ -16,7 +16,7 @@ const fetchData = async (payload) => {
   const {
     url, method, data, headers,
   } = payload;
-  const baseURL = 'https://authors-haven-staging.herokuapp.com/api/v1';
+  const baseURL = process.env.REACT_APP_BASE_URL;
   const response = await axios({
     baseURL,
     url,
