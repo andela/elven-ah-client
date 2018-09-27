@@ -12,7 +12,7 @@ const PlagiarismDisplay = ({ scanResults }) => (
           <a href={url} rel="noopener noreferrer" target="_blank">
             {title}
           </a>
-          <span className="badge badge-primary badge-pill">{totalMatchedPercents}%</span>
+          <span className="badge badge-primary badge-pill">{totalMatchedPercents}% match</span>
         </li>
       ))}
     </ul>

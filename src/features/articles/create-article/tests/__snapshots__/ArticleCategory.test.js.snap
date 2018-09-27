@@ -9,15 +9,15 @@ exports[`Article Category component should render without errors 1`] = `
   options={
     Array [
       Object {
-        "label": "Arts",
+        "label": "Politics",
         "value": 1,
       },
       Object {
-        "label": "Media",
+        "label": "Design",
         "value": 2,
       },
       Object {
-        "label": "Religion",
+        "label": "Africa",
         "value": 3,
       },
       Object {
@@ -25,8 +25,36 @@ exports[`Article Category component should render without errors 1`] = `
         "value": 4,
       },
       Object {
-        "label": "Commerce",
+        "label": "Culture",
         "value": 5,
+      },
+      Object {
+        "label": "Business",
+        "value": 6,
+      },
+      Object {
+        "label": "Romance",
+        "value": 7,
+      },
+      Object {
+        "label": "Health",
+        "value": 8,
+      },
+      Object {
+        "label": "Style",
+        "value": 9,
+      },
+      Object {
+        "label": "Travel",
+        "value": 10,
+      },
+      Object {
+        "label": "DIY",
+        "value": 11,
+      },
+      Object {
+        "label": "Opinion",
+        "value": 12,
       },
     ]
   }

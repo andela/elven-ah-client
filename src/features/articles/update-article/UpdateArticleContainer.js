@@ -199,7 +199,7 @@ export class UpdateArticleContainer extends Component {
    */
   render() {
     const {
-      article, auth, history, errors,
+      article, auth, history, errors = {},
     } = this.props;
     const { title, body, category } = this.state;
     if (article && auth) {

@@ -2,10 +2,9 @@ import loginReducer from './login/loginReducer';
 import passwordResetReducer from './password-reset/passwordResetReducer';
 import profileReducer from './profile/profileReducer';
 import signupReducer from './signup/signupReducer';
-import localStorageUtil from '../../shared/utilities/localStorageUtil';
 
 const initialState = {
-  user: localStorageUtil.getItem('ah_user') || {},
+  user: {},
   errors: {},
   token: '',
   isAuthenticated: false,
@@ -42,6 +41,8 @@ const authReducer = (state = initialState, action) => {
         },
         resetLinkError: undefined,
       };
+    case type.startsWith('USER_LOGOUT'):
+      return initialState;
     case type.startsWith('@@router'):
       return {
         ...state,

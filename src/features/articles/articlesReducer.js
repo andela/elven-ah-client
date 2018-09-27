@@ -5,6 +5,7 @@ import updateArticleReducer from './update-article/updateArticleReducer';
 import deleteArticleReducer from './delete-article/deleteArticleReducer';
 
 const initialState = {
+  articles: [],
   currentArticle: {},
   errors: {},
 };
