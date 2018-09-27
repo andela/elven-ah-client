@@ -6,7 +6,7 @@ import loginUser from './loginAction';
 import { clearValidationErrors } from '../authAction';
 
 import Login from './Login';
-import SocialLogin from '../SocialLogin';
+import SocialLogin from '../social-login/SocialLogin';
 import Footer from '../Footer';
 
 import logo from '../../../shared/assets/img/AH_LOGO.svg';

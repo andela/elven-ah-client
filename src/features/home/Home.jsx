@@ -10,15 +10,24 @@ import HTMLUtil from '../../shared/utilities/HTMLUtil';
 export class Home extends React.PureComponent {
   componentWillMount = async () => {
     const { getAllArticles } = await this.props;
-    return getAllArticles();
+    await getAllArticles();
+  }
+
+  getArticlesWithImages = (articles) => {
+    const articlesWithImages = articles.articles
+      ? articles.articles.filter(article => HTMLUtil.hasImage(article.body) === true)
+      : false;
+    return articlesWithImages;
   }
 
   render() {
     const {
       articles,
     } = this.props;
-    const articlesWithImages = articles.articles
-      .filter(article => HTMLUtil.hasImage(article.body) === true);
+    let articlesWithImages;
+    if (articles) {
+      articlesWithImages = this.getArticlesWithImages(articles);
+    }
     return (
       /* main container */
       <div className="container-fluid">
