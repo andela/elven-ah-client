@@ -5,6 +5,7 @@ import { PropTypes } from 'prop-types';
 import { logoutUser } from '../authentication/authAction';
 import { viewAllArticles } from '../articles/allArticles/allArticlesAction';
 import AllArticles from '../articles/allArticles/AllArticlesContainer';
+import HTMLUtil from '../../shared/utilities/HTMLUtil';
 
 export class Home extends React.PureComponent {
   componentWillMount = async () => {
@@ -16,6 +17,8 @@ export class Home extends React.PureComponent {
     const {
       articles,
     } = this.props;
+    const articlesWithImages = articles.articles
+      .filter(article => HTMLUtil.hasImage(article.body) === true);
     return (
       /* main container */
       <div className="container-fluid">
@@ -84,7 +87,7 @@ export class Home extends React.PureComponent {
         <div className="articles-container">
           <div className="row mb-2">
             <AllArticles
-              articles={articles.articles}
+              articles={articlesWithImages}
             />
           </div>
         </div>

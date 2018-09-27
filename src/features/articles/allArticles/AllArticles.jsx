@@ -7,7 +7,7 @@ const AllArticles = ({ article, rating, bootstrapGrid }) => (
     title={article.title}
     author={`${article.author.firstName} ${article.author.lastName}`}
     timeToRead="10 minutes"
-    snippet={article.body}
+    body={article.body}
     articleUrl={`/articles/${article.slug}`}
     gridSpan={bootstrapGrid}
     rating={rating}
