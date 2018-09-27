@@ -16,7 +16,7 @@ export class Home extends React.PureComponent {
   getArticlesWithImages = (articles) => {
     const articlesWithImages = articles.articles
       ? articles.articles.filter(article => HTMLUtil.hasImage(article.body) === true)
-      : false;
+      : [];
     return articlesWithImages;
   }
 
