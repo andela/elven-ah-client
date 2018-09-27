@@ -90,7 +90,7 @@ export default class EditProfileContainer extends React.Component {
                 className="form-control"
                 rows="3"
                 name="bio"
-                value={bio}
+                value={bio || ''}
                 onChange={this.handleChange}
               />
             </div>

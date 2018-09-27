@@ -36,6 +36,7 @@ export class Profile extends React.PureComponent {
               <div className="col-12 col-sm-12 col-md-8">
                 <ViewProfile
                   {...auth.user}
+                  bio={auth.user.bio || ''}
                   isUser
                   followingLength={auth.user.followings.length}
                   followerLength={auth.user.followers.length}
