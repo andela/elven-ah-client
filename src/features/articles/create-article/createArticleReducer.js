@@ -9,7 +9,7 @@ const createArticleReducer = (state, { type, article, errors }) => {
       return {
         ...state,
         currentArticle: article,
-        errors: undefined,
+        errors: {},
       };
     case CREATE_ARTICLE_FAILED:
       return {

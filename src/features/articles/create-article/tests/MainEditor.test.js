@@ -11,6 +11,8 @@ describe('Main Editor component', () => {
       value="<p>My new article</p>"
       handleChange={mockFunction}
       imageUploadHandler={mockFunction}
+      handleBodyPlaceholderTextFocusIn={mockFunction}
+      handleBodyPlaceholderTextFocusOut={mockFunction}
     />);
     expect(wrapper.find(Editor)).toHaveLength(1);
     expect(wrapper).toMatchSnapshot();

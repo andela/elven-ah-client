@@ -8,7 +8,7 @@ import {
 const state = {
   articles: [],
   currentArticle: {},
-  errors: undefined,
+  errors: {},
 };
 const article = { id: 1, slug: 'my-article-n8upi3', title: 'My new article' };
 const errors = { title: 'You have forgot to inlude a title' };

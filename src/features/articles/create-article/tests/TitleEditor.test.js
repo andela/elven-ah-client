@@ -11,6 +11,8 @@ describe('Title Editor component', () => {
       handleChange={mockFunction}
       handlePaste={mockFunction}
       value="<h1>This is my Title</p>"
+      handleTitlePlaceholderTextFocusIn={mockFunction}
+      handleTitlePlaceholderTextFocusOut={mockFunction}
     />);
     expect(wrapper.find(Editor)).toHaveLength(1);
     expect(wrapper).toMatchSnapshot();

@@ -33,6 +33,57 @@ export class UpdateArticleContainer extends Component {
   }
 
   /**
+   * @description Handles the title placeholder when focused
+   */
+  handleTitlePlaceholderTextFocusIn = () => {
+    const { title } = this.state;
+    if (title.trim() === 'Title') {
+      this.setState({
+        title: '',
+      });
+    }
+  }
+
+  /**
+   * @description Handles the body placeholder when focused
+   * @param {String} The title editor content
+   */
+  handleBodyPlaceholderTextFocusIn = () => {
+    const { body } = this.state;
+    if (body.trim() === 'Start typing...' || body.trim() === '<p>Start typing...</p>') {
+      this.setState({
+        body: '',
+      });
+    }
+  }
+
+  /**
+   * @description Handles the title placeholder when unfocused
+   * @param {String} The title editor content
+   */
+  handleTitlePlaceholderTextFocusOut = () => {
+    const { title } = this.state;
+    if (title.trim() === '') {
+      this.setState({
+        title: 'Title',
+      });
+    }
+  }
+
+  /**
+   * @description Handles the body placeholder when focused
+   * @param {String} The title editor content
+   */
+  handleBodyPlaceholderTextFocusOut = () => {
+    const { body } = this.state;
+    if (body.trim() === '') {
+      this.setState({
+        body: 'Start typing...',
+      });
+    }
+  }
+
+  /**
    * @description Uploads images added to the editor to cloudinary
    * It then returns the location of the image
    * Add replaces the src in the img tags with the image location
@@ -147,10 +198,12 @@ export class UpdateArticleContainer extends Component {
    * @description Renders the component on a DOM node
    */
   render() {
-    const { article, auth, history } = this.props;
+    const {
+      article, auth, history, errors,
+    } = this.props;
     const { title, body, category } = this.state;
     if (article && auth) {
-      if (article.userId !== auth.user.id) {
+      if (article.userId && (article.userId !== auth.user.id)) {
         toastr.warning('The article you want to update belongs to another author.');
         history.push('/profile');
       }
@@ -163,29 +216,35 @@ export class UpdateArticleContainer extends Component {
         <div className="row mx-auto col-md-8">
           <div className="editors col-md-8">
             <div className="title-editor">
-              {/* <span className="editor-placeholder">Title</span> */}
               <TitleEditor
                 handleChange={this.handleTitleChange}
                 handlePaste={this.handleTitlePaste}
                 value={title || article.title}
+                handleTitlePlaceholderTextFocusIn={this.handleTitlePlaceholderTextFocusIn}
+                handleTitlePlaceholderTextFocusOut={this.handleTitlePlaceholderTextFocusOut}
               />
             </div>
             <div className="body-editor">
-              {/* <span className="editor-placeholder">Body</span> */}
               <MainEditor
                 handleChange={this.handleEditorChange}
                 imageUploadHandler={this.imageUploadHandler}
                 value={body || article.body}
+                handleBodyPlaceholderTextFocusIn={this.handleBodyPlaceholderTextFocusIn}
+                handleBodyPlaceholderTextFocusOut={this.handleBodyPlaceholderTextFocusOut}
               />
             </div>
           </div>
           <div className="col-md-4 navbar-fixed-right">
-            {/* <span>Categories</span> */}
             <ArticleCategory
               category={category || categoryOptions
                 .find(option => option.value === Number.parseInt(article.categoryId, 10))}
               handleChange={this.handleSelectChange}
             />
+            {
+              errors.categoryId
+                ? <span className="invalid-feedback">You did not select a category</span>
+                : ''
+            }
             <br />
             <button onClick={this.handleSubmit} type="button" className="btn btn-primary col-md-12">Update article</button>
           </div>

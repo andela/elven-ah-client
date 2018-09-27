@@ -9,6 +9,7 @@ import MainEditor from './MainEditor';
 import ArticleCategory from './ArticleCategory';
 import fetchData from '../../../shared/utilities/fetchData';
 import createArticle, { checkPlagiarism } from './createArticleActions';
+import PlagiarismDisplay from './PlagiarismDisplay';
 
 export class CreateArticleContainer extends Component {
   constructor(props) {
@@ -20,6 +21,7 @@ export class CreateArticleContainer extends Component {
       tags: [],
       category: { label: 'Select a category' },
       isAttributed: false,
+      scanResults: [],
     };
     const { auth, history } = this.props;
     const { isAuthenticated } = auth;
@@ -32,7 +34,8 @@ export class CreateArticleContainer extends Component {
    * @description Handles the title placeholder when focused
    */
   handleTitlePlaceholderTextFocusIn = () => {
-    if (this.state.title.trim() === 'Title') {
+    const { title } = this.state;
+    if (title.trim() === 'Title') {
       this.setState({
         title: '',
       });
@@ -44,7 +47,8 @@ export class CreateArticleContainer extends Component {
    * @param {String} The title editor content
    */
   handleBodyPlaceholderTextFocusIn = () => {
-    if (this.state.body .trim() === 'Start typing...' || this.state.body.trim() === '<p>Start typing...</p>') {
+    const { body } = this.state;
+    if (body.trim() === 'Start typing...' || body.trim() === '<p>Start typing...</p>') {
       this.setState({
         body: '',
       });
@@ -56,7 +60,8 @@ export class CreateArticleContainer extends Component {
    * @param {String} The title editor content
    */
   handleTitlePlaceholderTextFocusOut = () => {
-    if (this.state.title.trim() === '') {
+    const { title } = this.state;
+    if (title.trim() === '') {
       this.setState({
         title: 'Title',
       });
@@ -68,7 +73,8 @@ export class CreateArticleContainer extends Component {
    * @param {String} The title editor content
    */
   handleBodyPlaceholderTextFocusOut = () => {
-    if (this.state.body.trim() === '') {
+    const { body } = this.state;
+    if (body.trim() === '') {
       this.setState({
         body: 'Start typing...',
       });
@@ -173,6 +179,8 @@ export class CreateArticleContainer extends Component {
 
   /**
    * @description Handles submit event of the article
+   * It runs a plagiarism check if the isAttributed button is not checked
+   * If plagiarised contents are found it diplays it and prompts a user to take action
    * Dispatches to the create action to the create article thunk/middleware
    */
   handleSubmit = async () => {
@@ -194,7 +202,7 @@ export class CreateArticleContainer extends Component {
       imageUrl,
     };
     if (!isAttributed) {
-      const plagiarismScanResult = plagiarismScan(body);
+      const plagiarismScanResult = await plagiarismScan(body);
       if (plagiarismScanResult) {
         this.setState({
           scanResults: plagiarismScanResult,
@@ -224,8 +232,9 @@ export class CreateArticleContainer extends Component {
    */
   render() {
     const {
-      title, body, category, tags, isAttributed,
+      title, body, category, tags, isAttributed, scanResults,
     } = this.state;
+    const { errors } = this.props;
     return (
       <React.Fragment>
         <NavBar />
@@ -258,6 +267,11 @@ export class CreateArticleContainer extends Component {
               category={category}
               handleChange={this.handleSelectChange}
             />
+            {
+              errors.categoryId
+                ? <span className="invalid-feedback">You did not select a category</span>
+                : ''
+            }
             <br />
             <ArticleTag
               tags={tags}
@@ -266,6 +280,11 @@ export class CreateArticleContainer extends Component {
             <br />
             <input value={isAttributed} onChange={this.handleCheckBoxChange} type="checkbox" name="isAttributed" id="isAttributed" /> I have attributed all relevant sources <br /><br />
             <button onClick={this.handleSubmit} type="button" className="btn btn-primary col-md-12">Publish</button>
+            {
+              scanResults[0]
+                ? <PlagiarismDisplay scanResults={scanResults} />
+                : ''
+            }
           </div>
         </div>
       </React.Fragment>

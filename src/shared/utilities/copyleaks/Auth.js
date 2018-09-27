@@ -33,7 +33,7 @@ class Auth {
       const response = await httpClient(this.config);
       this.accessToken = response;
     } catch (error) {
-      throw error;
+      this.accessToken = {};
     }
   }
 }

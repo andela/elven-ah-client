@@ -1,0 +1,78 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Plagiarism Display component should render without errors 1`] = `
+<Fragment>
+  <br />
+  <br />
+  <span
+    className="invalid-feedback"
+  >
+    The content of your article was dicovered below.
+  </span>
+  <br />
+  <ul
+    className="list-group"
+  >
+    <li
+      className="list-group-item d-flex justify-content-between align-items-center"
+      key="Plagiarism Articlehttps://medium.com/test-user/plagiarised-article-mi9i4f"
+    >
+      <a
+        href="https://medium.com/test-user/plagiarised-article-mi9i4f"
+        rel="noopener noreferrer"
+        target="_blank"
+      >
+        Plagiarism Article
+      </a>
+      <span
+        className="badge badge-primary badge-pill"
+      >
+        34
+        %
+      </span>
+    </li>
+    <li
+      className="list-group-item d-flex justify-content-between align-items-center"
+      key="Plagiarism Articlehttps://medium.com/test-user/plagiarised-article-mi9i4f"
+    >
+      <a
+        href="https://medium.com/test-user/plagiarised-article-mi9i4f"
+        rel="noopener noreferrer"
+        target="_blank"
+      >
+        Plagiarism Article
+      </a>
+      <span
+        className="badge badge-primary badge-pill"
+      >
+        34
+        %
+      </span>
+    </li>
+    <li
+      className="list-group-item d-flex justify-content-between align-items-center"
+      key="Plagiarism Articlehttps://medium.com/test-user/plagiarised-article-mi9i4f"
+    >
+      <a
+        href="https://medium.com/test-user/plagiarised-article-mi9i4f"
+        rel="noopener noreferrer"
+        target="_blank"
+      >
+        Plagiarism Article
+      </a>
+      <span
+        className="badge badge-primary badge-pill"
+      >
+        34
+        %
+      </span>
+    </li>
+  </ul>
+  <br />
+  <span
+    className="invalid-feedback"
+  >
+    Please ensure that you resolve them or attribute all relevant sources.
+  </span>
+</Fragment>
+`;

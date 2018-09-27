@@ -9,7 +9,7 @@ const updateArticleReducer = (state, { type, article, errors }) => {
       return {
         ...state,
         currentArticle: article,
-        errors: undefined,
+        errors: {},
       };
     case UPDATE_ARTICLE_FAILED:
       return {

@@ -1,7 +1,6 @@
 import toastr from 'toastr';
 import {
   IS_LOADING,
-  VALIDATION_ERROR,
   IS_COMPLETE,
   CREATE_ARTICLE_FAILED,
   CREATE_ARTICLE_SUCESSFUL,
@@ -37,12 +36,11 @@ const createArticle = article => async (dispatch, getState) => {
         toastr.success(response.data.message);
         return response;
       case 400:
-      case 599:
-        dispatch({ type: VALIDATION_ERROR, errors: response.data.errors });
+        dispatch({ type: CREATE_ARTICLE_FAILED, errors: { ...response.data.errors } });
         return null;
       default:
         dispatch({ type: CREATE_ARTICLE_FAILED, errors: { ...response.data.errors } });
-        toastr.info(response.data.message || 'Failed to publish your article please try again later!');
+        toastr.error('Failed to publish your article please try again later.');
         return null;
     }
   } catch (error) {

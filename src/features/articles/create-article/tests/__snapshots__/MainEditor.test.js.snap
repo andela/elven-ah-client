@@ -31,6 +31,8 @@ exports[`Main Editor component should render without errors 1`] = `
   }
   name="body-editor"
   onEditorChange={[Function]}
+  onFocusIn={[Function]}
+  onFocusOut={[Function]}
   value="<p>My new article</p>"
 />
 `;
