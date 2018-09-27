@@ -49,5 +49,5 @@ export default class AllArticlesContainer extends React.Component {
 }
 
 AllArticlesContainer.propTypes = {
-  articles: PropTypes.shape([]).isRequired,
+  articles: PropTypes.arrayOf(PropTypes.shape({})).isRequired,
 };

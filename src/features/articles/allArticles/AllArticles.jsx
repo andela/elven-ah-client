@@ -14,7 +14,7 @@ const AllArticles = ({ article, rating, bootstrapGrid }) => (
   />
 );
 AllArticles.propTypes = {
-  article: PropTypes.shape([]).isRequired,
+  article: PropTypes.shape({}).isRequired,
   rating: PropTypes.number.isRequired,
   bootstrapGrid: PropTypes.string.isRequired,
 };

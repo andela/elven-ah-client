@@ -105,7 +105,7 @@ const mapDispatchToProps = dispatch => ({
 
 Home.propTypes = {
   auth: PropTypes.shape({}).isRequired,
-  articles: PropTypes.shape([]).isRequired,
+  articles: PropTypes.shape({}).isRequired,
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(Home);
