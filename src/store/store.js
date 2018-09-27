@@ -10,6 +10,8 @@ import history from '../shared/utilities/history';
 
 const configureStore = () => {
   const persistedState = loadState();
+
+
   const composeEnhancer = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
   const store = createStore(
     connectRouter(history)(rootReducer),

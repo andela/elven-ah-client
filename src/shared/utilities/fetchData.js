@@ -16,7 +16,7 @@ const fetchData = async (payload) => {
   const {
     url, method, data, headers,
   } = payload;
-  const baseURL = 'http://localhost:4000/api/v1' || process.env.REACT_APP_BASE_URL;
+  const baseURL = process.env.REACT_APP_BASE_URL;
   const response = await axios({
     baseURL,
     url,

@@ -1,0 +1,429 @@
+.articles {
+  @media (min-width: 768px) {
+      .navbar-brand.abs {
+        position: absolute;
+        width: 100%;
+        left: 0;
+        text-align: center;
+        z-index: -1;
+      }
+    }
+    @media (max-width: 768px) {
+        .notification-value {
+          background-color: #000;
+          border-radius: 100%;
+          color: #ffffff;
+          font-size: 11px bold;
+          left: -25px;
+          position: relative;
+          text-align: center;
+          top: -40px;
+      }
+      .profile-info{
+        text-align: center;
+      }
+    .upgrade-button {
+      margin-top: -33px;
+      left: -30px;
+    }
+    .nav-bar-profile-image {
+      position: relative;
+      top: 11.5px;
+      margin-top: -11px;
+      left: -30px;
+    }
+    .notification-cont {
+      margin-left: -27px;
+    }
+    }
+    @media (max-width: 991px) {
+      .profile-name-container {
+        text-align: center;
+        margin-left: 0px;
+      } 
+        .profile-story {
+        margin-left: 0px;
+      }
+      .profile-following-metrics {
+        color: #26519A;
+        font-size: 13px;
+        text-align: center;
+        text-decoration: none;
+      }
+      .notification-value {
+        background-color: #000;
+        border-radius: 100%;
+        color: #ffffff;
+        font-size: 11px bold;
+        left: 16px;
+        position: relative;
+        text-align: center;
+        top: -40px;
+      }
+      .profile-info {
+        text-align: center;
+      }
+      .profile-photo-big {
+        width: 120px;
+        height: 120px;
+        margin-bottom: 20px;
+        object-fit: cover;
+        text-align: center;
+      }
+    }
+    .card-body {
+      padding: 5%;
+    }
+    .card-container {
+      padding-left: 1px;
+      margin-bottom: 20px;
+    
+    }
+    .card{
+      padding: 0%;
+      box-shadow: 0 .125rem .25rem rgba(0,0,0,.075)!important;
+    }
+    .rating-total {
+      font-size: 14px;
+      position: relative;
+      right: 20px;
+      top: 6.5px;
+    }
+    .star-ratings {
+      margin-left: -19px;
+      position: relative;
+      right: 1px;
+      top: 1.5px;
+    }
+    .profile-name {
+      text-transform: capitalize;
+      font-size: 13px;
+    }
+    .profile-name-header {
+      text-transform: capitalize;
+      font-size: 20px;
+    }
+    .fixed-bottom {
+      background-color: #000000;
+      color: #ffffff;
+      font-size: 14px;
+      height: 40px;
+      text-align: center;
+      margin-top: 100px;
+    }
+    .fixed-bottom-text {
+      margin-top: 10px;
+    }
+    input[type="text"] {
+      background-color:#FCFCFC;
+      border-color: #bdbdbd;  
+    }
+    .profile-input {
+      text-transform: capitalize;
+    }
+    textarea {
+      background-color:#FCFCFC;
+      border-color: #bdbdbd;  
+    }
+    .card {
+      width: 65em;
+    }
+    .card-name {
+      font-size: 12px;
+      margin-left: -14px;
+      margin-top: 10px;
+      margin-bottom: 25px;
+    }
+    .card-date {
+      font-size: 12px;
+    }
+    .card-title {
+     font-size: 20px;
+    }
+    .card-text {
+      font-size: 14px;
+    }
+    .card-activity {
+      margin-bottom: 5px;
+    }
+    .form-text {
+      font-size: 14px;
+    }
+    .rating {
+      color:#26519A;
+      font-size: 13px;
+      margin-left: 20px;
+    }
+    .comments {
+      color:#26519A;
+      font-size: 13px;
+      margin-right: 20px;
+      margin-left: 6px;
+      position: relative;
+      right: 1px;
+      top: 8.5px;
+    }
+    .navbar-nav {
+      margin-top: 5px;
+    }
+    .nav-bar-profile-image {
+      position: relative;
+      right: 1px;
+      top: 3.2px;
+    }
+    .tab-color {
+      color: #f5f5f5;
+    }
+    .update-profile-button {
+      background-color: #26519A;
+      color: #ffffff;
+      font-size: 13px;
+      margin-top: 5px;
+      margin-bottom: 40px;
+    }
+    #pills-article-tab {
+      color: #000;
+      font-size: 14px;
+      background-color: #f5f5f5;
+      margin-right: 10px;
+    }
+    #pills-settings-tab {
+      color: #f5f5f5;
+      font-size: 14px;
+    }
+    #pills-profile-tab {
+      background-color: #f5f5f5;
+      color: #000;
+      font-size: 14px;
+    }
+    .card-info {
+      margin-bottom: 1em;
+    }
+    .card-user-name{
+      text-align: center;
+      margin-left: 0px;
+    }
+    .profile-content {
+      margin-bottom: 20px;
+      margin-top: 70px;
+    }
+    .profile-container {
+      margin-bottom: 20px;
+      margin-left: -15px;
+    }
+    .nav-pills > li > a.active {
+      background-color: #f5f5f5!important;
+      display: inline-block;
+      text-decoration: none;
+      border-bottom: solid 1px #000;
+    }
+    .pill-color {
+      color: #26519A;
+    }
+    .following-metrics {
+      margin-top: 1em;
+    }
+    .follow-button {
+      background-color: #f5f5f5;
+      border-color: #000000;
+      color: #000;
+      font-size: 12px;
+      margin-left: 5px;
+    }
+    .upgrade-button {
+      background-color: #fafaff;
+      border-color: #bdbdbd;
+      color: #000;
+      font-size: 14px;
+      margin-left: -40px;
+      position: relative;
+      right: 1px;
+      top: 1px;
+    }
+    .create-story-button {
+      background-color: #26519A;
+      border-color: #26519A;
+      color: #ffffff;
+      font-size: 14px;
+      margin-left: -4px;
+      position: relative;
+      right: 1px;
+      top: 1px;
+    }
+    
+    .upgrade-button:hover {
+      background-color: #26519A;
+      border-color: #26519A;
+      color: #ffffff;
+    }
+    .follow-button:hover {
+      background-color: #26519A;
+      color: #ffffff;
+      font-size: 12px;
+    }
+    .unfollow-button {
+      background-color: #26519A;
+      color: #ffffff;
+      font-size: 12px;
+      margin-left: 5px;
+    }
+    .unfollow-button:hover {
+      background-color: #c33539;
+      color: #ffffff;
+      font-size: 12px;
+    }
+    .following-metrics a {
+      color: #26519A;
+      font-size: 13px;
+      margin-right: 15px;
+      text-decoration: none;
+    }
+    .following-metrics a:hover {
+      color: #000000;
+      text-decoration-line: underline;
+    }
+    .profile-info {
+      margin-bottom: 1em;
+      margin-top: 2.0em;
+      text-justify: inherit;
+    }
+    .profile-name {
+      margin-left: 1px;
+    }
+    .profile-story {
+      font-size: 15px;
+    }
+    .profile {
+      margin-bottom: 2em;
+      margin-top: 1.5em;
+    }
+    .profile-info-details {
+      text-align: left;
+    }
+    .brand-color {
+      background-color: #fafaff;
+    }
+    .notification-true {
+      color: #4F7AC3;
+      right: 1px;
+      top: 11.5px;
+    }
+    .notification-false {
+      color: #000;
+    }
+    .notification-number {
+      font-size: 14px;
+      color: #26519A;
+    }
+    .profile-photo {
+      width: 22px;
+      height: 22px;
+      margin-top: -5px;
+      object-fit: cover;
+    }
+    .profile-photo-card {
+      width: 40px;
+      height: 40px;
+      margin-top: 15px;
+    }
+    .profile-photo-big {
+      width: 145px;
+      height: 145px;
+      object-fit: cover;
+    }
+    .brand-logo {
+      height: 45px;
+      width: 45px;
+    }
+    .text-spaces {
+      margin-left: 1em;
+    }
+    .right {
+      margin-right: 3em;
+    }
+    .search-box {
+      background-color: #ececec;
+      border-color: #000000;
+      border-radius: 20px;
+      color: #000000;
+      font-size: 15px;
+      height: 32px;
+      margin-left: -15px;
+      margin-top: 7px;
+    }
+    .nav-bar-right-element{
+      margin-right: -25px;
+      margin-top: -4px;
+      position: relative;
+      top: 14px;
+    }
+    .nav-bar-left-text {
+      color: #000;
+      font-size: 16px;
+      position: relative;
+      right: -4px;
+      top: 10px;
+    }
+    .nav-bar-left-text-color {
+      color: #000000;
+      
+    }
+    .nav-bar-left-text-color:hover {
+      color: #26519A;
+    }
+    .nav-bar-icon-color {
+      color: #ffffff;
+    }
+    .nav-bar-icon-color:hover {
+      color: #000000 ;
+    }
+    .notification-items {
+      color: #000000;
+      font-size: 14px;
+      font-family: 'Franklin Gothic Medium';
+    }
+    .notification-bell-true {
+      color: #000;
+      right: 1px;
+      position: relative;
+      right: 1px;
+      top: 3px;
+    }
+    
+    .nav-scroller .nav {
+      display: -ms-flexbox;
+      display: flex;
+      -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
+      padding-bottom: 1rem;
+      margin-top: -1px;
+      overflow-x: auto;
+      text-align: center;
+      white-space: nowrap;
+      -webkit-overflow-scrolling: touch;
+    }
+    hr {
+      margin: 15px 0;
+    }
+    .notification-value {
+      background-color: #26519A;
+      height: 22px;
+      width: 22px;
+      border-radius: 50%;
+      color: #ffffff;
+      font-size: 14px;
+      left: 14px;
+      position: relative;
+      text-align: center;
+      top: -35px;
+      position: relative;
+      right: 20px;
+    }
+    .category {
+      border-color: #000000;
+      height: 40px;
+    }
+    .cards {
+      margin-top: 2px;
+    } 
+  }

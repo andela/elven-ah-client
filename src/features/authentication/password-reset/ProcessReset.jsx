@@ -1,6 +1,5 @@
 import React from 'react';
 
-
 const ProcessReset = () => (
   <div className="">
   Please Wait...

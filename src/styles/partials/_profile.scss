@@ -1,12 +1,54 @@
+.profile {
+  @media (min-width: 768px) {
+    .navbar-brand.abs {
+      position: absolute;
+      width: 100%;
+      left: 0;
+      text-align: center;
+      z-index: -1;
+    }
+  }
+  @media (max-width: 768px) {
+      .notification-value {
+        background-color: #000;
+        border-radius: 100%;
+        color: #ffffff;
+        font-size: 11px bold;
+        left: -25px;
+        position: relative;
+        text-align: center;
+        top: -40px;
+    }
+    .profile-info{
+      text-align: center;
+    }
 
-
-@media (min-width: 768px) {
-  .navbar-brand.abs {
-    position: absolute;
-    width: 100%;
-    left: 0;
+  .nav-bar-profile-image {
+    position: relative;
+    top: 11.5px;
+    margin-top: -11px;
+    left: -30px;
+  }
+  .notification-cont {
+    margin-left: -27px;
+  }
+  .profile-photo {
+    width: 30px;
+    height: 30px;
+    margin-top: -18px;
+    object-fit: cover;
+    position: relative;
+    left: -10px;
+  }
+  .notification-value {
+    background-color: #000;
+    border-radius: 100%;
+    color: #ffffff;
+    font-size: 11px bold;
+    left: -20px;
+    position: relative;
     text-align: center;
-    z-index: -1;
+    top: -40px;
   }
 }
 @media (max-width: 480px) {
@@ -62,10 +104,80 @@
     .profile-story {
     margin-left: 10px;
   }
-  .profile-following-metrics {
+  .profile-content {
+    margin-bottom: 20px;
+    margin-top: 70px;
+  }
+  .profile-container {
+    margin-bottom: 20px;
+    margin-left: -15px;
+  }
+  .nav-pills > li > a.active {
+    background-color: #f5f5f5!important;
+    display: inline-block;
+    text-decoration: none;
+    border-bottom: solid 1px #000;
+  }
+  .pill-color {
+    color: #26519A;
+  }
+  .following-metrics {
+    margin-top: 1em;
+  }
+  .follow-button {
+    background-color: #f5f5f5;
+    border-color: #000000;
+    color: #000;
+    font-size: 12px;
+    margin-left: 5px;
+  }
+  .upgrade-button {
+    background-color: #fafaff;
+    border-color: #bdbdbd;
+    color: #000;
+    font-size: 14px;
+    margin-left: -15px;
+    position: relative;
+    right: 20px;
+
+  }
+  .create-story-button {
+    background-color: #26519A;
+    border-color: #26519A;
+    color: #ffffff;
+    font-size: 14px;
+    position: relative;
+    margin-left: -15px;
+    margin-right: -50px;
+    right: 20px;
+
+  }
+
+  .upgrade-button:hover {
+    background-color: #26519A;
+    border-color: #26519A;
+    color: #ffffff;
+  }
+  .follow-button:hover {
+    background-color: #26519A;
+    color: #ffffff;
+    font-size: 12px;
+  }
+  .unfollow-button {
+    background-color: #26519A;
+    color: #ffffff;
+    font-size: 12px;
+    margin-left: 5px;
+  }
+  .unfollow-button:hover {
+    background-color: #c33539;
+    color: #ffffff;
+    font-size: 12px;
+  }
+  .following-metrics a {
     color: #26519A;
     font-size: 13px;
-    text-align: center;
+    margin-right: 15px;
     text-decoration: none;
   }
   .notification-value {
@@ -532,4 +644,4 @@ textarea {
   margin-top: 20px;
   height: 505px;
 }
-
+}

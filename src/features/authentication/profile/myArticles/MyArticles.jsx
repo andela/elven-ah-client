@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 import moment from 'moment';
 import Ratings from '../../../articles/rating/RatingContainer';
 
-const MyStories = ({
+const MyArticles = ({
   firstName, lastName, article, image,
 }) => (
   <React.Fragment>
@@ -56,14 +56,14 @@ const MyStories = ({
     </div>
   </React.Fragment>
 );
-MyStories.propTypes = {
+MyArticles.propTypes = {
   lastName: PropTypes.string.isRequired,
   firstName: PropTypes.string.isRequired,
   article: PropTypes.shape([]).isRequired,
   image: PropTypes.string,
 };
-MyStories.defaultProps = {
+MyArticles.defaultProps = {
   image: '',
 };
 
-export default MyStories;
+export default MyArticles;
