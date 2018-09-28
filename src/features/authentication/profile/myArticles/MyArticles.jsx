@@ -4,6 +4,7 @@ import { PropTypes } from 'prop-types';
 import { Link } from 'react-router-dom';
 import moment from 'moment';
 import Ratings from '../../../articles/rating/RatingContainer';
+import HTMLUtil from '../../../../shared/utilities/HTMLUtil';
 
 const MyArticles = ({
   firstName, lastName, article, image,
@@ -36,7 +37,7 @@ const MyArticles = ({
               )
           </div>
           <div className="column card-text profile-text justify-content-center">
-            {article.body.substring(0, 200)}
+            {HTMLUtil.stripMarkup(article.body).substring(0, 200)}
               ...
           </div>
           <div className="column columns">

@@ -131,7 +131,14 @@ export class Home extends React.PureComponent {
           <Link className="text-white font-weight-bold card-link" to={`/articles/${featuredArticle.slug}`}>
             <div
               className="jumbotron p-3 p-md-5 text-white rounder bg-dark"
-              style={{ background: `url(${HTMLUtil.getImage(featuredArticle.body)}) fixed` }}
+              style={
+                {
+                  backgroundImage: `url(${HTMLUtil.getImage(featuredArticle.body)})`,
+                  backgroundRepeat: 'no-repeat',
+                  backgroundPosition: 'center center',
+                  backgroundAttachment: 'fixed',
+                  backgroundSize: '100% auto',
+                }}
             >
               <div className="col-md-6 px-0">
                 <React.Fragment>

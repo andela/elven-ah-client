@@ -10,7 +10,7 @@ import Comments from '../comments/Comments';
 import CommentForm from '../comments/CommentForm';
 
 /* eslint-disable react/no-array-index-key */
-const SingleArticle = ({ article }) => {
+const SingleArticle = ({ article, user }) => {
   const replies = article.comments.filter(comment => (comment.parentId !== null));
   const comments = article.comments.filter(comment => (!comment.parentId));
   const host = window && window.location && window.location.host;
@@ -27,7 +27,7 @@ const SingleArticle = ({ article }) => {
                   <div className="article-head">
                     <img
                       className="column rounded-circle border border-info author-image"
-                      src={article.author.image || 'https://res.cloudinary.com/authorshaven/image/upload/v1537220880/garqpt79lrm3dpyfvob9.jpg'}
+                      src={article.author.image}
                       alt="author"
                     />
                     <div className="column">
@@ -37,7 +37,10 @@ const SingleArticle = ({ article }) => {
                             {article.author.firstName}  {article.author.lastName}
                           </span>
                         </Link>
-                        {<button className="column btn btn-sm btn-outline-primary" type="button">follow</button>}
+                        {article.author.username === user.username
+                          ? <Link to={`/articles/update/${article.slug}`} className="column btn btn-sm btn-outline-primary">Update Article</Link>
+                          : <button className="column btn btn-sm btn-outline-primary" type="button">follow</button>
+                        }
                       </div>
                       <div className="columns text-muted">
                         <div className="column">{moment(article.createdAt).fromNow()}</div>
@@ -53,11 +56,6 @@ const SingleArticle = ({ article }) => {
                       <Ratings article={article} selectable />
                     </div>
                     <div className="column">
-                      <FacebookShareButton
-                        url={`${protocol}//${host}/articles/${article.slug}`}
-                        color="#3B5998"
-                        size="30px"
-                      />
                       <TwitterShareButton
                         url={`${protocol}//${host}/articles/${article.slug}`}
                         color="#1DA1F2"

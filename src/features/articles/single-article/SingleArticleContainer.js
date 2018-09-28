@@ -40,13 +40,13 @@ export class SingleArticleContainer extends Component {
       return (
         <React.Fragment>
           <div className="single-article-nav">
-          <NavBar match={match} />
+            <NavBar match={match} />
             <div className="row mx-auto justify-content-center align-items-center">
               <SingleArticle
                 errors={errors}
                 article={article}
                 user={user}
-                />
+              />
             </div>
           </div>
         </React.Fragment>

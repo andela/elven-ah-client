@@ -23,7 +23,7 @@ const routes = (
       <Route path="/password/reset" component={PasswordResetContainer} />
       <Route path="/auth/verify" component={DefaultVerifyAccountContainer} />
       <Route path="/oauth2/:socialLogin" component={DefaultSocialLoginContainer} />
-      <Route path="/publish" component={DefaultCreateArticleContainer} />
+      <Route path="/articles/publish" component={DefaultCreateArticleContainer} />
       <Route path="/articles/update/:slug" component={DefaultUpdateArticleContainer} />
       <Route path="/articles/:slug" component={DefaultSingleArticleContainer} exact />
       <Route component={NotFound} exact />
