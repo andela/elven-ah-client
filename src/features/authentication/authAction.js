@@ -6,6 +6,7 @@ import {
   USER_LOGOUT,
 } from '../../shared/constants/ActionTypes';
 import { clearState } from '../../shared/utilities/persistState';
+import history from '../../shared/utilities/history';
 
 export const clearErrors = () => async (dispatch) => {
   dispatch({ type: CLEAR_ERROR, errors: {} });
@@ -23,5 +24,6 @@ export const logoutUser = () => async (dispatch) => {
   dispatch({
     type: USER_LOGOUT,
   });
+  history.push('/login');
   return toastr.warning('You have logged out successfully');
 };

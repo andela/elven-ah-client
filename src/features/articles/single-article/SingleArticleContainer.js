@@ -39,23 +39,28 @@ export class SingleArticleContainer extends Component {
     if (article.slug === match.params.slug) {
       return (
         <React.Fragment>
+          <div className="single-article-nav">
           <NavBar match={match} />
-          <div className="row mx-auto justify-content-center align-items-center">
-            <SingleArticle
-              errors={errors}
-              article={article}
-              user={user}
-            />
+            <div className="row mx-auto justify-content-center align-items-center">
+              <SingleArticle
+                errors={errors}
+                article={article}
+                user={user}
+                />
+            </div>
           </div>
         </React.Fragment>
       );
     }
     if (loading) return false;
     return (
-      <div className="row mx-auto mb-8 justify-content-center align-items-center">
-        <div className="container-fluid">
-          <div className="col-md-12 font-weight-bold text-danger text-center">
-            <h1>NO ARTICLE WITH THE GIVEN URL</h1>
+      <div className="single-article-nav">
+        <NavBar match={match} />
+        <div className="row mx-auto mb-8 justify-content-center align-items-center">
+          <div className="container-fluid">
+            <div className="col-md-12 font-weight-bold text-danger text-center">
+              <h1>NO ARTICLE WITH THE GIVEN URL</h1>
+            </div>
           </div>
         </div>
       </div>

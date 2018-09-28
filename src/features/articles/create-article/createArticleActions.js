@@ -51,7 +51,7 @@ const createArticle = article => async (dispatch, getState) => {
 
 export const checkPlagiarism = htmlText => async (dispatch) => {
   dispatch({ type: IS_LOADING });
-  toastr.info('Running a plagiarism on the content of your article');
+  toastr.info('Running a plagiarism check on the content of your article');
   const htmlElement = document.createElement('div');
   htmlElement.innerHTML = htmlText;
   try {

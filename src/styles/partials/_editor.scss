@@ -1,71 +1,73 @@
-img {
-  max-width: 100%;
-}
-
-h1 {
-  font-size: 42px;
-  margin: 0px 0px 0px -2.63px;
-  font-family: "ITC Charter", "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", Geneva, Arial, sans-serif;
-  letter-spacing: -0.015em;
-  color: rgba(0, 0, 0, 0.84);
-  line-height: 1.04;
-}
-
-h2 {
-  font-family: "ITC Charter", "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", Geneva, Arial, sans-serif;
-  letter-spacing: -0.012em;
-  font-weight: 400;
-  margin: 5px 0px 22px -1.75px;
-  color: rgba(0, 0, 0, 0.54);
-  font-size: 28px;
-  line-height: 1.22;
-  background-color: rgb(255, 255, 255)
-}
-
-p {
-  font-family: "ITC Charter", Georgia, Cambria, "Times New Roman", Times, serif;
-  line-height: 1.58;
-  letter-spacing: -0.003em;
-}
-
-.body-editor::-webkit-scrollbar {
-  display: none;
-}
-
-.body-editor, .title-editor {
-  width: 100%;
-  margin: auto;
-  cursor: text;
-  border-left: 1px solid #ccc;
-  padding-left: 1pc;
-}
-
-.body-editor {
-  height: auto;
-  max-height: 70vh;
-  overflow: scroll;
-}
-
-.title-editor *[contentEditable="true"] {
-  font-size: 1.8em;
-  font-weight: 800;
-}
-
-.body-editor *[contentEditable="true"], .title-editor *[contentEditable="true"] {
-  width: 100%;
-  height: 100%;
-  overflow: scroll;
-}
-
-.body-editor *[contentEditable="true"], .title-editor *[contentEditable="true"]:hover {
-  outline: none;
-}
-
-.body-editor *[contentEditable="true"], .title-editor *[contentEditable="true"]:focus {
-  outline: none;
-}
-
-.editor-placeholder {
-  position: relative;
-  top: 2em;
+.editor {
+  img {
+    max-width: 100%;
+  }
+  
+  h1 {
+    font-size: 42px;
+    margin: 0px 0px 0px -2.63px;
+    font-family: "ITC Charter", "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", Geneva, Arial, sans-serif;
+    letter-spacing: -0.015em;
+    color: rgba(0, 0, 0, 0.84);
+    line-height: 1.04;
+  }
+  
+  h2 {
+    font-family: "ITC Charter", "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", Geneva, Arial, sans-serif;
+    letter-spacing: -0.012em;
+    font-weight: 400;
+    margin: 5px 0px 22px -1.75px;
+    color: rgba(0, 0, 0, 0.54);
+    font-size: 28px;
+    line-height: 1.22;
+    background-color: rgb(255, 255, 255)
+  }
+  
+  p {
+    font-family: "ITC Charter", Georgia, Cambria, "Times New Roman", Times, serif;
+    line-height: 1.58;
+    letter-spacing: -0.003em;
+  }
+  
+  .body-editor::-webkit-scrollbar {
+    display: none;
+  }
+  
+  .body-editor, .title-editor {
+    width: 100%;
+    margin: auto;
+    cursor: text;
+    border-left: 1px solid #ccc;
+    padding-left: 1pc;
+  }
+  
+  .body-editor {
+    height: auto;
+    max-height: 70vh;
+    overflow: scroll;
+  }
+  
+  .title-editor *[contentEditable="true"] {
+    font-size: 1.8em;
+    font-weight: 800;
+  }
+  
+  .body-editor *[contentEditable="true"], .title-editor *[contentEditable="true"] {
+    width: 100%;
+    height: 100%;
+    overflow: scroll;
+  }
+  
+  .body-editor *[contentEditable="true"], .title-editor *[contentEditable="true"]:hover {
+    outline: none;
+  }
+  
+  .body-editor *[contentEditable="true"], .title-editor *[contentEditable="true"]:focus {
+    outline: none;
+  }
+  
+  .editor-placeholder {
+    position: relative;
+    top: 2em;
+  }
 }

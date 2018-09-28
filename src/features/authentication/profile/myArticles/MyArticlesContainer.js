@@ -26,7 +26,7 @@ export default class MyArticlesContainer extends React.Component {
                 article={article}
                 image={image}
               />
-            )) : ''
+            )) : false
         }
       </React.Fragment>
     );
@@ -34,5 +34,5 @@ export default class MyArticlesContainer extends React.Component {
 }
 
 MyArticlesContainer.propTypes = {
-  user: PropTypes.shape({}).isRequired,
+  profile: PropTypes.shape({}).isRequired,
 };

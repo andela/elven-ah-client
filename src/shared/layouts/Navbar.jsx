@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { PropTypes } from 'prop-types';
-import logo from '../assets/img/AH_LOGO.svg';
 import Categories from './Categories';
 import { logoutUser } from '../../features/authentication/authAction';
 import { getUserProfile } from '../../features/authentication/profile/profileAction';
@@ -23,62 +22,54 @@ class NavBar extends Component {
     const { isLoggedIn, user, logout } = this.props;
     return (
       <React.Fragment>
-        <div className="container">
-          <header className="blog-header py-1">
-            <nav className="navbar navbar-expand-lg navbar-light">
-              <Link to="/" className="nav-link text-muted text-spaces">
-                <img src={logo} className="brand-logo" alt="" />
+        <div className="bg-light">
+          <div className="container">
+            <nav className="navbar navbar-expand-lg navbar-light bg-light">
+              <Link to="/" className="navbar-brand header-brand-text text-dark">
+                <img
+                  src="https://res.cloudinary.com/cj-odina/image/upload/v1537734888/Logo_sywa2j.png"
+                  className="brand-logo"
+                  alt=""
+                />
+                Authors{"'"} Haven
               </Link>
-              <button className="navbar-toggler navbar-toggler-right collapsed" type="button" data-toggle="collapse" data-target="#navb" aria-expanded="false">
+              <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
                 <span className="navbar-toggler-icon" />
               </button>
 
-              <div className="navbar-collapse collapse" id="navb">
-
-                <ul className="navbar-nav mr-auto" />
-
-                <ul className="navbar-nav my-2 my-lg-0">
-                  <li className="nav-item">
-                    <form className="form-inline my-2 my-lg-0">
-                      <input className="form-control search-box" type="text" placeholder="Search" aria-label="Search" />
-                    </form>
-                  </li>
+              <div className="collapse navbar-collapse" id="navbarTogglerDemo02">
+                <ul className="navbar-nav ml-auto mt-2 mt-lg-0">
                   {isLoggedIn
                     ? (
                       <React.Fragment>
                         <li className="nav-item">
-                          <Link to="/articles/create" className="nav-link text-muted text-spaces">
-                            <button type="button" className="btn create-story-button">
-                              Tell-Your-Story
-                            </button>
-                          </Link>
-                        </li>
-                        <li className="nav-item">
-                          <Link to="/upgrade" className="nav-link text-muted text-spaces">
-                            <button type="button" className="btn upgrade-button">
+                          <Link to="/upgrade" className="nav-link ml-auto">
+                            <button type="button" className="btn btn-sm upgrade-button">
                               Upgrade
                             </button>
                           </Link>
                         </li>
                         <li className="nav-item">
-                          <Link to="/notifications" className="nav-link text-muted text-spaces">
-                            <div className="notification-bell-true">
-                              <i className="fas fa-lg fa-bell" />
-                            </div>
-                            <div className="notification-value">2</div>
+                          <Link to="/notifications" className="nav-item nav-link">
+                            <i className="nav-item nav-link fas fa-lg fa-bell" />
+                            <span className="notification-value">2</span>
                           </Link>
                         </li>
-                        <li className="nav-item">
-                          <Link to={`/users/${user.username}`} onClick={this.fetchUserProfile} className="nav-link nav-bar-profile-image text-muted text-spaces">
+                        <li className="nav-item dropdown">
+                          <Link to="/" className="nav-item nav-link dropdown-toggle" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             <img src={user.image} className="rounded-circle profile-photo border border-info" alt="" />
                           </Link>
-                        </li>
-                        <li className="nav-item">
-                          <Link to="/" className="nav-link text-muted text-spaces">
-                            <button type="button" onClick={logout} className="btn logout-button">
+                          <div className="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuLink">
+                            <Link to="/articles/publish" className="dropdown-item">
+                              New Story
+                            </Link>
+                            <Link to={`/users/${user.username}`} onClick={this.fetchUserProfile} className="dropdown-item">
+                              Profile
+                            </Link>
+                            <button type="button" onClick={logout} className="dropdown-item">
                               Logout
                             </button>
-                          </Link>
+                          </div>
                         </li>
                       </React.Fragment>
                     )
@@ -100,15 +91,12 @@ class NavBar extends Component {
                         </li>
                       </React.Fragment>
                     )
-                  }
+              }
                 </ul>
-
               </div>
             </nav>
-            <hr className="top-hr" />
             <Categories />
-          </header>
-          <hr className="below-hr" />
+          </div>
         </div>
       </React.Fragment>
     );

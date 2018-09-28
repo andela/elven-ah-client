@@ -210,7 +210,9 @@ export class UpdateArticleContainer extends Component {
     }
     return (
       <React.Fragment>
-        <NavBar />
+        <NavBar /><div className="single-article-nav">
+          <NavBar />
+        </div>
         <br />
         <br />
         <div className="row mx-auto col-md-8">

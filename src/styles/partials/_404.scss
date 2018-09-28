@@ -1,0 +1,21 @@
+.not-found {
+  body {
+    background: #dedede;
+  }
+  .page-wrap {
+      min-height: 100vh;
+  }
+  .not-found-block {
+    height: 100%;
+    width: 400px;
+    display: flex;
+    position: fixed;
+    align-content: center;
+    align-self: center;
+    z-index: 1;
+    margin-top: -200Px;
+    margin-left: -100Px;
+    left: 50%;
+    top: 70%;
+  }
+}

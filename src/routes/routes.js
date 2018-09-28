@@ -11,24 +11,25 @@ import DefaultSocialLoginContainer from '../features/authentication/social-login
 import DefaultSingleArticleContainer from '../features/articles/single-article/SingleArticleContainer';
 import DefaultCreateArticleContainer from '../features/articles/create-article/CreateArticleContainer';
 import DefaultUpdateArticleContainer from '../features/articles/update-article/UpdateArticleContainer';
+import NotFound from '../common/404';
 
 const routes = (
-  <div>
+  <React.Fragment>
     <Switch>
       <Route path="/users/:username" component={ProfilePage} exact />
       <Route path="/" component={DefaultHome} exact />
-      <Route path="/profile" component={ProfilePage} />
       <Route path="/login" component={DefaultLoginContainer} />
       <Route path="/signup" component={DefaultSignupContainer} />
       <Route path="/password/reset" component={PasswordResetContainer} />
       <Route path="/auth/verify" component={DefaultVerifyAccountContainer} />
       <Route path="/oauth2/:socialLogin" component={DefaultSocialLoginContainer} />
-      <Route path="/articles/:slug" component={DefaultSingleArticleContainer} exact />
-      <Route path="/articles/publish" component={DefaultCreateArticleContainer} />
+      <Route path="/publish" component={DefaultCreateArticleContainer} />
       <Route path="/articles/update/:slug" component={DefaultUpdateArticleContainer} />
+      <Route path="/articles/:slug" component={DefaultSingleArticleContainer} exact />
+      <Route component={NotFound} exact />
     </Switch>
     <Footer />
-  </div>
+  </React.Fragment>
 );
 
 export default routes;

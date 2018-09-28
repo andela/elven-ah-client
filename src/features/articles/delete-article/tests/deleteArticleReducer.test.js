@@ -12,7 +12,7 @@ const state = {
 const article = { slug: 'article2' };
 
 describe('Delete article reducer', () => {
-  it('should handle aritcle deletion success', () => {
+  it('should handle article deletion success', () => {
     expect(deleteArticleReducer(state, { type: DELETE_ARTICLE_SUCESSFUL, article }))
       .toEqual({
         ...state,

@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
+import toastr from 'toastr';
 
 import NavBar from '../../../shared/layouts/Navbar';
 import TitleEditor from './TitleEditor';
@@ -187,6 +188,9 @@ export class CreateArticleContainer extends Component {
     const {
       title, body, category, tags: tagsArray, isAttributed, imageUrl,
     } = this.state;
+    if (body === 'Start typing...' || title === 'Title') {
+      return toastr.error('Article body and title cannot be empty');
+    }
     let tags = '';
     tagsArray.forEach((tag) => {
       const { value } = tag;
@@ -214,8 +218,7 @@ export class CreateArticleContainer extends Component {
     if (response) {
       switch (response.status) {
         case 201:
-          // history.push(`/articles/${response.data.article.slug}`);
-          history.push('/');
+          history.push(`/articles/${response.data.article.slug}`);
           break;
         case 401:
           history.push('/login');
@@ -237,10 +240,12 @@ export class CreateArticleContainer extends Component {
     const { errors } = this.props;
     return (
       <React.Fragment>
-        <NavBar />
+        <div className="single-article-nav">
+          <NavBar />
+        </div>
         <br />
         <br />
-        <div className="row mx-auto col-md-8">
+        <div className="editor row mx-auto col-md-8">
           <div className="editors col-md-8">
             <div className="title-editor">
               <TitleEditor

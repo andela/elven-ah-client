@@ -74,6 +74,7 @@ export const getUserProfile = data => async (dispatch) => {
       },
     });
     dispatch({ type: IS_COMPLETE });
+    console.log(response);
     if (response.status === 200) {
       return dispatch(viewUserProfile(response.data.user));
     }

@@ -6,6 +6,7 @@ import { Link } from 'react-router-dom';
 
 const ViewProfile = ({
   profile,
+  loggedInUser,
 }) => (
   <React.Fragment>
     <div className="row profile" id="profile">
@@ -19,7 +20,7 @@ const ViewProfile = ({
           <div className="profile-detail-block">
             <div className="profile-columns">
               <span className="profile_column"><strong>{profile.firstName}  {profile.lastName}</strong></span>
-              {<button className="profile-column btn btn-sm btn-outline-primary" type="button">follow</button>}
+              {profile.username === loggedInUser.username ? false : <button className="profile-column btn btn-sm btn-outline-primary" type="button">follow</button>}
             </div>
             <div className="">
               {profile.bio}

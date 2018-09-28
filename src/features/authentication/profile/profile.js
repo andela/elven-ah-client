@@ -36,83 +36,87 @@ export class Profile extends React.PureComponent {
     } = this.props;
     const { profile, user: loggedInUser } = auth;
     return (
-      <div className="container">
-        <NavBar match={match} />
-        {profile
-          ? (
-            <div className="row profile" id="profile">
-              <div className="col-12 col-sm-12 col-md-12">
-                <ViewProfile
-                  profile={profile}
-                  loggedInUser={loggedInUser}
-                />
-                <div className="profile-content">
-                  <ul className="nav nav-pills mb-4" id="pills-tab" role="tablist">
-                    <li className="nav-item">
-                      <a
-                        className="tab-color nav-link active"
-                        id="pills-article-tab"
-                        data-toggle="pill"
-                        href="#pills-home"
-                        role="tab"
-                        aria-controls="pills-home"
-                        aria-selected="true"
+      <React.Fragment>
+        <div className="single-article-nav">
+          <NavBar match={match} />
+        </div>
+        <div className="container single-article-nav">
+          {profile
+            ? (
+              <div className="row profile" id="profile">
+                <div className="col-12 col-sm-12 col-md-12">
+                  <ViewProfile
+                    profile={profile}
+                    loggedInUser={loggedInUser}
+                  />
+                  <div className="profile-content">
+                    <ul className="nav nav-pills mb-4" id="pills-tab" role="tablist">
+                      <li className="nav-item">
+                        <a
+                          className="nav-link active"
+                          id="pills-article-tab"
+                          data-toggle="pill"
+                          href="#pills-home"
+                          role="tab"
+                          aria-controls="pills-home"
+                          aria-selected="true"
+                        >
+                          Latest Stories
+                        </a>
+                      </li>
+                      {profile.username === loggedInUser.username
+                        ? (
+                          <li className="nav-item">
+                            <a
+                              className="nav-link"
+                              id="pills-profile-tab"
+                              data-toggle="pill"
+                              href="#pills-profile"
+                              role="tab"
+                              aria-controls="pills-profile"
+                              aria-selected="false"
+                            >
+                              Edit Profile
+                            </a>
+                          </li>
+                        ) : false
+                      }
+                    </ul>
+                    <div
+                      className="tab-content"
+                      id="pills-tabContent"
+                    >
+                      <div
+                        className="tab-pane fade show active"
+                        id="pills-home"
+                        role="tabpanel"
+                        aria-labelledby="pills-home-tab"
                       >
-                        Latest Stories
-                      </a>
-                    </li>
-                    {profile.username === loggedInUser.username
-                      ? (
-                        <li className="nav-item">
-                          <a
-                            className="nav-link"
-                            id="pills-profile-tab"
-                            data-toggle="pill"
-                            href="#pills-profile"
-                            role="tab"
-                            aria-controls="pills-profile"
-                            aria-selected="false"
-                          >
-                            Edit Profile
-                          </a>
-                        </li>
-                      ) : false
-                    }
-                  </ul>
-                  <div
-                    className="tab-content"
-                    id="pills-tabContent"
-                  >
-                    <div
-                      className="tab-pane fade show active"
-                      id="pills-home"
-                      role="tabpanel"
-                      aria-labelledby="pills-home-tab"
-                    >
-                      <div className="card-deck">
+                        <div className="card-deck">
 
-                        <MyArticles profile={profile} />
+                          <MyArticles profile={profile} />
+                        </div>
                       </div>
-                    </div>
-                    <div
-                      className="tab-pane fade"
-                      id="pills-profile"
-                      role="tabpanel"
-                      aria-labelledby="pills-profile-tab"
-                    >
-                      <EditProfile
-                        editUserImage={editImage}
-                        editUserProfile={editProfile}
-                        profile={auth.user}
-                      />
+                      <div
+                        className="tab-pane fade"
+                        id="pills-profile"
+                        role="tabpanel"
+                        aria-labelledby="pills-profile-tab"
+                      >
+                        <EditProfile
+                          editUserImage={editImage}
+                          editUserProfile={editProfile}
+                          profile={auth.user}
+                        />
 
+                      </div>
                     </div>
                   </div>
                 </div>
               </div>
-            </div>
-          ) : false}
-      </div>
+            ) : false}
+        </div>
+      </React.Fragment>
     );
   }
 }

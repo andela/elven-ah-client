@@ -15,6 +15,10 @@ const errorHandler = (dispatch, data) => {
     const { errors } = data.data;
     return dispatch({ type: VALIDATION_ERROR, errors });
   }
+  if (data.status === 404) {
+    history.push('/404');
+    return toastr.error(data.data.message);
+  }
   if (data.status === 401) {
     const errors = data.data;
     dispatch({ type: USER_LOGOUT });

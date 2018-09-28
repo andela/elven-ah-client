@@ -20,48 +20,92 @@ export class Home extends React.PureComponent {
     return articlesWithImages;
   }
 
+  getFeaturedArticle = () => {
+    const { articles } = this.props;
+    const articlesWithImages = this.getArticlesWithImages(articles);
+    const featured = articlesWithImages[Math.floor(Math.random() * articlesWithImages.length + 1)];
+    return featured;
+  };
+
   render() {
     const {
       articles,
+      auth,
+      logout,
     } = this.props;
+    const { user, isAuthenticated } = auth;
     let articlesWithImages;
+    let featuredArticle;
     if (articles) {
       articlesWithImages = this.getArticlesWithImages(articles);
+      featuredArticle = this.getFeaturedArticle();
     }
     return (
       /* main container */
-      <div className="container-fluid home">
+      <div className="container-fluid">
         {/* header */}
-        <header className="landing-header py-3">
-          <div className="row flex-nowrap justify-content-between align-items-center">
-            {/* logo */}
-            <div className="col-4 pt-1">
-              <img src="https://res.cloudinary.com/cj-odina/image/upload/v1537734888/Logo_sywa2j.png" height="50px" alt="" />
-              <Link className="landing-header-logo text-dark" style={{ paddingTop: '50px' }} to="/">&nbsp; &nbsp; Authors{"'"} Haven</Link>
-            </div>
-            {/* search and auth buttons */}
-            <div className="col-4 d-flex justify-content-end align-items-center">
-              <Link to="/" className="text-muted">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="20"
-                  height="20"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  className="mx-3"
-                >
-                  <circle cx="10.5" cy="10.5" r="7.5" />
-                  <line x1="21" y1="21" x2="15.8" y2="15.8" />
-                </svg>
+        <header className="single-article-nav landing-header">
+          <nav className="navbar navbar-expand-lg navbar-light">
+            <div className="">
+              <Link to="/" className="header-brand-text text-dark landing-header-logo">
+                <img
+                  src="https://res.cloudinary.com/cj-odina/image/upload/v1537734888/Logo_sywa2j.png"
+                  className="brand-logo ml-1"
+                  alt=""
+                />
+              Authors{"'"} Haven
               </Link>
-              <Link className="btn btn-sm btn-outline-primary mx-1" to="/login">Sign in</Link>
-              <Link className="btn btn-sm btn-outline-secondary" to="/signup">Sign up</Link>
             </div>
-          </div>
+            <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+              <span className="navbar-toggler-icon" />
+            </button>
+
+            <div className="collapse navbar-collapse" id="navbarTogglerDemo02">
+              <ul className="navbar-nav ml-auto mt-2 mt-lg-0">
+                {isAuthenticated
+                  ? (
+                    <React.Fragment>
+                      <li className="nav-item">
+                        <Link to="/upgrade" className="nav-link ml-auto">
+                          <button type="button" className="btn btn-sm upgrade-button">
+                              Upgrade
+                          </button>
+                        </Link>
+                      </li>
+                      <li className="nav-item">
+                        <Link to="/notifications" className="nav-item nav-link">
+                          <i className="nav-item nav-link fas fa-lg fa-bell" />
+                          <span className="notification-value">2</span>
+                        </Link>
+                      </li>
+                      <li className="nav-item dropdown">
+                        <Link to="/" className="nav-item nav-link dropdown-toggle" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                          <img src={user.image} className="rounded-circle profile-photo border border-info" alt="" />
+                        </Link>
+                        <div className="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuLink">
+                          <Link to="/articles/publish" className="dropdown-item">
+                              New Story
+                          </Link>
+                          <Link to={`/users/${user.username}`} onClick={this.fetchUserProfile} className="dropdown-item">
+                              Profile
+                          </Link>
+                          <button type="button" onClick={logout} className="dropdown-item">
+                              Logout
+                          </button>
+                        </div>
+                      </li>
+                    </React.Fragment>
+                  )
+                  : (
+                    <React.Fragment>
+                      <Link className="btn btn-sm btn-outline-primary mx-3" to="/login">Sign in</Link>
+                      <Link className="btn btn-sm btn-outline-secondary" to="/signup">Sign up</Link>
+                    </React.Fragment>
+                  )
+              }
+              </ul>
+            </div>
+          </nav>
         </header>
 
         {/* navbar/categories bar */}
@@ -83,14 +127,21 @@ export class Home extends React.PureComponent {
         </div>
 
         {/* hero slider */}
-        <Link className="text-white font-weight-bold card-link" to="/">
-          <div className="jumbotron p-3 p-md-5 text-white rounder bg-dark">
-            <div className="col-md-6 px-0">
-              <h1 className="display-4 font-italic">Can I ASK You Something?</h1>
-              <p className="lead my-3">One of the things I’ve learned while working at Andela is the art of giving constructive, ASK feedback.</p>
+        {featuredArticle ? (
+          <Link className="text-white font-weight-bold card-link" to={`/articles/${featuredArticle.slug}`}>
+            <div
+              className="jumbotron p-3 p-md-5 text-white rounder bg-dark"
+              style={{ background: `url(${HTMLUtil.getImage(featuredArticle.body)}) fixed` }}
+            >
+              <div className="col-md-6 px-0">
+                <React.Fragment>
+                  <h1 className="display-4 font-italic">{featuredArticle.title}</h1>
+                  <p className="lead my-3">{HTMLUtil.stripMarkup(featuredArticle.body).substring(0, 200)}</p>
+                </React.Fragment>
+              </div>
             </div>
-          </div>
-        </Link>
+          </Link>
+        ) : false}
 
         {/* main */}
         <div className="articles-container">
@@ -113,10 +164,6 @@ const mapStateToProps = state => ({
 const mapDispatchToProps = dispatch => ({
   logout: () => dispatch(logoutUser()),
   getAllArticles: () => dispatch(viewAllArticles()),
-});
-
-const mapDispatchToProps = dispatch => ({
-  logout: () => dispatch(logoutUser()),
 });
 
 Home.propTypes = {

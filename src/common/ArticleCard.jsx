@@ -2,6 +2,7 @@ import React from 'react';
 import { PropTypes } from 'prop-types';
 import { Link } from 'react-router-dom';
 import HTMLUtil from '../shared/utilities/HTMLUtil';
+import Ratings from '../features/articles/rating/RatingContainer';
 
 /**
  * Display varying length of the article body as snippet on the article card
@@ -19,7 +20,7 @@ const displayArticleSnippet = (gridSpan, body) => {
   return HTMLUtil.stripMarkup(body).substring(0, 70);
 };
 const ArticleCard = ({
-  gridSpan, articleUrl, title, author, timeToRead, body, rating,
+  gridSpan, articleUrl, title, author, timeToRead, body, article,
 }) => (
   <div className={gridSpan}>
     <Link className="card-link" to={articleUrl}>
@@ -34,7 +35,7 @@ const ArticleCard = ({
           </h3>
           <div className="mb-1 text-muted">{author} <small>&nbsp;&nbsp;&nbsp;{timeToRead}</small></div>
           <p className="card-text mb-auto">{displayArticleSnippet(gridSpan, body)}</p>
-          <p className="card-text mb-auto">{`${rating} stars`}</p>
+          <Ratings article={article} />
         </div>
       </div>
     </Link>
@@ -48,7 +49,7 @@ ArticleCard.propTypes = {
   author: PropTypes.string.isRequired,
   timeToRead: PropTypes.string.isRequired,
   body: PropTypes.string.isRequired,
-  rating: PropTypes.number.isRequired,
+  article: PropTypes.shape({}).isRequired,
 };
 
 export default ArticleCard;

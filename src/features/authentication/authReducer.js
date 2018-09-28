@@ -28,18 +28,6 @@ const authReducer = (state = initialState, action) => {
         errors,
       };
 
-    case type.startsWith('LOGOUT'):
-      return {
-        ...state,
-        auth: undefined,
-      };
-
-    case type.startsWith('TOKEN_EXPIRED'):
-      return {
-        ...state,
-        auth: undefined,
-      };
-
     case type.startsWith('PROFILE'):
       return profileReducer(state, action);
 

@@ -12,7 +12,7 @@ const profileReducer = (state, action) => {
     case PROFILE_CLEAR:
       return {
         ...state,
-        profile: undefined,
+        profile: {},
       };
     case PROFILE_UPDATE:
       return {
